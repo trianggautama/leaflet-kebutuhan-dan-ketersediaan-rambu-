@@ -30,7 +30,7 @@
       </div>
 
 
-      <div id="mapid" style="width: 100%; height: 450px"></div>
+      <div id="mapid" style="width: 100%; height: 650px"></div>
       @push('scripts')
       <script>
 

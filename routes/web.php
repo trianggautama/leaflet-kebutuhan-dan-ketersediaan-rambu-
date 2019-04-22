@@ -32,7 +32,9 @@ Route::get('/rambu','rambuController@rambu_index')->name('rambu_index');
 Route::post('/rambu','rambuController@rambu_add')->name('rambu_add');
 Route::get('/rambu_edit/{id}','rambuController@rambu_edit')->name('rambu_edit');
 
-
+//kecamatan
+Route::get('/kecamatan','lokasiController@kecamatan_index')->name('kecamatan_index');
+Route::post('/kecamatan','lokasiController@kecamatan_add')->name('kecamatan_add');
 
 
 
