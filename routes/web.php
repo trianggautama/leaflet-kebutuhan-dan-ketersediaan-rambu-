@@ -35,6 +35,7 @@ Route::get('/rambu_edit/{id}','rambuController@rambu_edit')->name('rambu_edit');
 //kecamatan
 Route::get('/kecamatan','lokasiController@kecamatan_index')->name('kecamatan_index');
 Route::post('/kecamatan','lokasiController@kecamatan_add')->name('kecamatan_add');
+Route::get('/kecamatan_hapus/{id}','lokasiController@kecamatan_delete')->name('kecamatan_delete');
 
 
 

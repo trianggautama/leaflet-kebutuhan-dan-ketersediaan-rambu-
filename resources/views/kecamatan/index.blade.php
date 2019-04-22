@@ -45,7 +45,7 @@
                                     <td class="text-center">
                                         <a href="" class="btn btn-secondary "> <i class=" mdi mdi-eye "></i></a>
                                         <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="{{route('kecamatan_delete', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

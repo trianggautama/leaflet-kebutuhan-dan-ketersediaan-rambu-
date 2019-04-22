@@ -103,7 +103,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face5.jpg" alt="profile"/>
+              <img src="admin/images/faces/face5.jpg" alt="profile"/>
               <span class="nav-profile-name">Louis Barnett</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -150,7 +150,7 @@
               <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="{{route('jenis_rambu_index')}}">Data Jenis Rambu</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('rambu_index')}}">Data Rambu</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Data Kecamatan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('kecamatan_index')}}">Data Kecamatan</a></li>
                 <li class="nav-item"> <a class="nav-link" href="#">Data Kelurahan</a></li>
               </ul>
             </div>
