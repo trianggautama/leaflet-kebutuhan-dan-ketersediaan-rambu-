@@ -151,7 +151,7 @@
               <li class="nav-item"> <a class="nav-link" href="{{route('jenis_rambu_index')}}">Data Jenis Rambu</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('rambu_index')}}">Data Rambu</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('kecamatan_index')}}">Data Kecamatan</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Data Kelurahan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('kelurahan_index')}}">Data Kelurahan</a></li>
               </ul>
             </div>
           </li>
