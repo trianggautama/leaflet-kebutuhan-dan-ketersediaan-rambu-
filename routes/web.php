@@ -25,11 +25,13 @@ Route::get('/map','mapController@index')->name('map');
 Route::get('/jenis_rambu','rambuController@jenis_rambu_index')->name('jenis_rambu_index');
 Route::post('/jenis_rambu','rambuController@jenis_rambu_add')->name('jenis_rambu_add');
 Route::get('/jenis_rambu_edit/{id}','rambuController@jenis_rambu_edit')->name('jenis_rambu_edit');
+Route::get('/jenis_rambu_detail/{id}','rambuController@jenis_rambu_detail')->name('jenis_rambu_detail');
 Route::put('/jenis_rambu_edit/{id}','rambuController@jenis_rambu_update')->name('jenis_rambu_update');
 Route::get('/jenis_rambu_hapus/{id}','rambuController@jenis_rambu_hapus')->name('jenis_rambu_hapus');
 //Route Rambu
 Route::get('/rambu','rambuController@rambu_index')->name('rambu_index');
 Route::post('/rambu','rambuController@rambu_add')->name('rambu_add');
+Route::get('/rambu_detail/{id}','rambuController@rambu_detail')->name('rambu_detail');
 Route::get('/rambu_edit/{id}','rambuController@rambu_edit')->name('rambu_edit');
 Route::put('/rambu_edit/{id}','rambuController@rambu_update')->name('rambu_update');
 

@@ -28,6 +28,14 @@ class rambuController extends Controller
             return redirect(route('jenis_rambu_index'))->with('success', 'Data Jenis rambu '.$request->nama_jenis.' Berhasil di Simpan');
     }
 
+    public function jenis_rambu_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $jenis_rambu= jenis_rambu::findOrFail($id);
+        $rambu = rambu::where('jenis_rambu_id', $id)->get();
+        //dd($rambu);
+        return view('jenis_rambu.detail',compact('rambu','jenis_rambu'));
+    }
+
     public function jenis_rambu_edit($id){
         $id = IDCrypt::Decrypt($id);
         $jenis_rambu = jenis_rambu::findOrFail($id);
@@ -90,7 +98,14 @@ class rambuController extends Controller
         $id = IDCrypt::Decrypt($id);
         $rambu = rambu::findOrFail($id);
         $jenis_rambu= jenis_rambu::all();
+
         return view('rambu.edit',compact('rambu','jenis_rambu'));
+       }//fungsi menampilkan Halaman Edit data rambu
+
+      public function rambu_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $rambu = rambu::findOrFail($id);
+        return view('rambu.detail',compact('rambu'));
        }//fungsi menampilkan Halaman Edit data rambu
 
        public function rambu_update(Request $request, $id){

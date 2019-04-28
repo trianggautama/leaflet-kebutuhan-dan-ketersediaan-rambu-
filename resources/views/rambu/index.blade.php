@@ -48,15 +48,16 @@
                                 <td>{{$r->nama_rambu}}</td>
                                 <td>{{$r->jenis_rambu->nama_jenis}}</td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-secondary "> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="{{route('rambu_detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-outline-dark "> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-outline-primary"> <i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-outline-danger"> <i class="mdi mdi-delete"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
 
                             </tbody>
-                          </table>
+                        </table>
+
                         </div>
                       </div>
           </div>
