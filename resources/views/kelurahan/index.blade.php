@@ -47,8 +47,8 @@
 
                                     <td class="text-center">
                                         <a href="" class="btn btn-secondary "> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('kecamatan_delete', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{route('kelurahan_delete', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -73,20 +73,20 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>  
+            </div>
             <div class="modal-body">
                 <form class="forms-sample" method="post" action="">
                     <div class="form-group">
                         <label for="exampleInputUsername1">Kode kelurahan</label>
-                        <input type="text" class="form-control" id="kode_kecamatan"  name="kode_kecamatan" placeholder="Kode Kecamatan">
+                        <input type="text" class="form-control" id="kode_kelurahan"  name="kode_kelurahan" placeholder="Kode Kecamatan">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputUsername1">Nama kelurahan</label>
-                        <input type="text" class="form-control" id="nama_kecamatan"  name="nama_kecamatan" placeholder="Nama Kecamatan" autocomplete="off">
+                        <input type="text" class="form-control" id="nama_kelurahan"  name="nama_kelurahan" placeholder="Nama Kecamatan" autocomplete="off">
                     </div>
                     <div class="form-group">
                     <label for="exampleInputUsername1"> Kecamatan</label>
-                        <select class="form-control" id="exampleSelectGender" name="jenis_id">
+                        <select class="form-control" id="exampleSelectGender" name="kecamatan_id">
                             <option>-pilih kecamatan-</option>
                             @foreach ($kecamatan as $kec)
                                 <option value="{{$kec->id}}">kecamatan {{$kec->nama_kecamatan}}</option>

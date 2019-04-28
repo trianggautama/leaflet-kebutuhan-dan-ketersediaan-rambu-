@@ -91,6 +91,21 @@ class rambuController extends Controller
         $rambu = rambu::findOrFail($id);
         $jenis_rambu= jenis_rambu::all();
         return view('rambu.edit',compact('rambu','jenis_rambu'));
-       }//fungsi menampilkan detail data rambu
+       }//fungsi menampilkan Halaman Edit data rambu
+
+       public function rambu_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+         $rambu = rambu::findOrFail($id);
+         $this->validate(request(),[
+            'kode_rambu'=>'required',
+            'nama_rambu'=>'required',
+            'keterangan'=>'required'
+        ]);
+        $rambu->kode_rambu= $request->kode_rambu;
+        $rambu->nama_rambu= $request->nama_rambu;
+        $rambu->keterangan= $request->keterangan;
+        $rambu->update();
+        return redirect(route('rambu_index'))->with('success', 'Data Rambu '.$request->nama_rambu.' Berhasil di ubah');
+       }//fungi mengubah data rambu
 
 }

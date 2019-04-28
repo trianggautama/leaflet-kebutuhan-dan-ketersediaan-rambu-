@@ -27,15 +27,6 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                     <div class="form-group">
-                                                    <input type="file" name="gambar" class="file-upload-default">
-                                                    <div class="input-group col-xs-12">
-                                                      <input type="text" class="form-control file-upload-info" name=""  placeholder="Gambar Rambu">
-                                                      <span class="input-group-append">
-                                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                                      </span>
-                                                    </div>
-                                                  </div>
                                             <div class="form-group">
                                             <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="keterangan" name="keterangan">{{$rambu->keterangan}}</textarea>
                                             </div>
