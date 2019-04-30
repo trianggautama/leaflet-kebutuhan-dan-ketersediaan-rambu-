@@ -14,9 +14,6 @@
                 <h2>Data Kecamatan,</h2>
               </div>
             </div>
-            <div class="d-flex justify-content-between align-items-end flex-wrap">
-              <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-            </div>
           </div>
         </div>
       </div>
@@ -25,6 +22,11 @@
           <div class="card">
                 <div class="card-body">
                         <h4 class="card-title">Tabel Data</h4>
+                        <div class="text-right">
+                        <a href="/" class="btn btn-sm btn-inverse-primary btn-icon-text" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
+                        <a href="/" class="btn btn-sm btn-inverse-info btn-icon-text" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> tabah data</a>
+                        </div>
+                        <br>
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>
@@ -43,9 +45,9 @@
                                 <td>{{$no++}}</td>
                                 <td>Kecamatan {{$kec->nama_kecamatan}}</td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-secondary "> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('kecamatan_delete', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i> </a>
+                                        <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i> </a>
+                                        <a href="{{route('kecamatan_delete', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-inverse-danger" style="padding:6px !important;"> <i class="mdi mdi-delete"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -59,7 +61,6 @@
       </div>
 
     </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -14,9 +14,7 @@
                 <h2>Data kelurahan,</h2>
               </div>
             </div>
-            <div class="d-flex justify-content-between align-items-end flex-wrap">
-              <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -25,6 +23,11 @@
           <div class="card">
                 <div class="card-body">
                         <h4 class="card-title">Tabel Data</h4>
+                        <div class="text-right">
+                          <a href="/" class="btn btn-sm btn-inverse-primary mt-2 mt-xl-0" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
+                          <a href="/" class="btn btn-sm btn-inverse-info mt-2 mt-xl-0" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> Cetak data</a>
+                       </div>
+                       <br>
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>
@@ -46,9 +49,9 @@
                                 <td>kelurahan {{$kel->kecamatan->nama_kecamatan}}</td>
 
                                     <td class="text-center">
-                                        <a href="" class="btn btn-secondary "> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('kelurahan_delete', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-inverse-info" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{route('kelurahan_delete', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-inverse-danger" style="padding:6px !important;"> <i class="mdi mdi-delete"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

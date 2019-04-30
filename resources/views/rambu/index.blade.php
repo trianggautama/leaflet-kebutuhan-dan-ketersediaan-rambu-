@@ -48,9 +48,9 @@
                                 <td>{{$r->nama_rambu}}</td>
                                 <td>{{$r->jenis_rambu->nama_jenis}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('rambu_detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-outline-dark "> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-outline-primary"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-outline-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="{{route('rambu_detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-dark " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-danger" style="padding:6px !important;"> <i class="mdi mdi-delete"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

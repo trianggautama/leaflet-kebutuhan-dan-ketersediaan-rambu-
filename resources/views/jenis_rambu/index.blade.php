@@ -14,9 +14,7 @@
                 <h2>Data Jenis Rambu,</h2>
               </div>
             </div>
-            <div class="d-flex justify-content-between align-items-end flex-wrap">
-              <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -25,6 +23,11 @@
           <div class="card">
                 <div class="card-body">
                         <h4 class="card-title">Tabel Data</h4>
+                        <div class="text-right">
+                          <a href="/" class="btn btn-sm btn-inverse-primary " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
+                          <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>                      
+                        </div>
+                        <br>
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>
@@ -43,9 +46,9 @@
                                 <td>{{$no++}}</td>
                                 <td>Rambu {{$jr->nama_jenis}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('jenis_rambu_detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-secondary "> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="{{route('jenis_rambu_detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-inverse-secondary" style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-inverse-info" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-inverse-danger" style="padding:6px !important;"> <i class="mdi mdi-delete"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -79,8 +82,8 @@
                     </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
+              <input class="btn btn-inverse-primary" type="submit" name="submit" value="Submit">
               {{csrf_field() }}
             </form>
             </div>

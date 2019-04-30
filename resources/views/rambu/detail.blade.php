@@ -7,17 +7,19 @@
   <div class="main-panel">
     <div class="content-wrapper">
       <div class="row">
-        <div class="col-md-4 grid-margin stretch-card">
+        <div class="col-md-4 grid-margin ">
             <div class="card">
               <div class="card-body text-center ">
                 <h4 class="card-title">Foto Rambu</h4>
               <img src="/images/rambu/{{$rambu->gambar}}" width="250"alt="">
               </div>
+              <a href="" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Rambu</a>
             </div>
           </div>
           <div class="col-md-8 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
+              <br>
                 <h4 class="card-title">Keterangan</h4>
                 <div class="row">
                     <div class="col-md-3">
@@ -62,14 +64,14 @@
                                         <tr>
                                             <td>1</td>
                                             <td>Jl.R.O.Ulin depan Jlaan Pendidikan</td>
-                                            <td class="text-center" ><a href="" class="btn btn-sm btn-primary btn-rounded">Titik Ketersediaan Rambu</a></td>
-                                            <td class="text-center"><a href="" class="btn btn-secondary"><i class=" mdi mdi-eye "></a></td>
+                                            <td class="text-center" ><a href="" class="btn btn-sm btn-inverse-primary btn-rounded" style="padding:6px !important;">Titik Ketersediaan Rambu</a></td>
+                                            <td class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
                                         </tr>
                                         <tr>
                                                 <td>2</td>
                                                 <td>Jl.Sei Sumba</td>
-                                                <td class="text-center"><a href="" class="btn btn-sm btn-success btn-rounded">Titik Kebutuhan Rambu</a></td>
-                                                <td  class="text-center"><a href="" class="btn btn-secondary"><i class=" mdi mdi-eye "></a></td>
+                                                <td class="text-center"><a href="" class="btn btn-sm btn-inverse-success btn-rounded" style="padding:6px !important;">Titik Kebutuhan Rambu</a></td>
+                                                <td  class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
                                             </tr>
                                     </tbody>
                                 </table>
