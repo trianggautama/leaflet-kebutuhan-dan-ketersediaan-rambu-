@@ -34,6 +34,7 @@ Route::post('/rambu','rambuController@rambu_add')->name('rambu_add');
 Route::get('/rambu_detail/{id}','rambuController@rambu_detail')->name('rambu_detail');
 Route::get('/rambu_edit/{id}','rambuController@rambu_edit')->name('rambu_edit');
 Route::put('/rambu_edit/{id}','rambuController@rambu_update')->name('rambu_update');
+Route::get('/rambu_hapus/{id}','rambuController@rambu_hapus')->name('rambu_hapus');
 
 
 //kecamatan

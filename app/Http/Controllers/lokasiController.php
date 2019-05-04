@@ -64,7 +64,7 @@ class lokasiController extends Controller
               $kelurahan->kecamatan_id= $request->kecamatan_id;
               $kelurahan->save();
 
-                return redirect(route('kelurahan_index'))->with('success', 'Data Berhasil di Simpan');
+                return redirect(route('kelurahan_index'))->with('success', 'Data '.$request->nama_kelurahan.' Berhasil di Simpan');
         }
 
         public function kelurahan_edit($id){
@@ -78,7 +78,7 @@ class lokasiController extends Controller
               $id = IDCrypt::Decrypt($id);
               $kelurahan=kelurahan::findOrFail($id);
               $kelurahan->delete();
-              return redirect(route('kelurahan_index'))->with('success', 'Data  Berhasil di hapus');
+              return redirect(route('kelurahan_index'));
       } //menghapus  data kecamatan
 
 

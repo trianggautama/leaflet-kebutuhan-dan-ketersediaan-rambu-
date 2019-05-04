@@ -6,6 +6,8 @@
   <!-- partial -->
   <div class="main-panel">
     <div class="content-wrapper">
+            @include('layouts.errors')
+            @include('layouts.alert')
       <div class="row">
         <div class="col-md-12 grid-margin">
           <div class="d-flex justify-content-between flex-wrap">
@@ -14,7 +16,7 @@
                 <h2>Data kelurahan,</h2>
               </div>
             </div>
-           
+
           </div>
         </div>
       </div>
@@ -51,7 +53,8 @@
                                     <td class="text-center">
                                         <a href="" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
                                         <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-inverse-info" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('kelurahan_delete', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-inverse-danger" style="padding:6px !important;"> <i class="mdi mdi-delete"></i></a>
+                                        <button type="button" class="btn btn-inverse-danger" style="padding:6px !important;"
+                                        onclick="Hapus('{{Crypt::encryptString($kel->id)}}','{{$kel->nama_kecamatan}}')"><b><i class="mdi mdi-delete"></i></b></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -108,3 +111,44 @@
       </div>
     <!-- content-wrapper ends -->
 @endsection
+
+
+<script>
+        function Hapus(id,nama_kelurahan)
+        {
+          const swalWithBootstrapButtons = swal.mixin({
+          confirmButtonClass: 'btn btn-success',
+          cancelButtonClass: 'btn btn-danger',
+          buttonsStyling: false,
+        })
+
+        swalWithBootstrapButtons({
+          title: 'apa anda yakin?',
+          text:  " Menghapus kelurahan '"+nama_kelurahan+"' juga akan menghapus data lokasi yang berelasi",
+          type: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'hapus data',
+          cancelButtonText: 'batal',
+          reverseButtons: true
+        }).then((result) => {
+          if (result.value) {
+            swalWithBootstrapButtons(
+              'Deleted!',
+              "Data kelurahan '"+nama_kelurahan+"' Akan di Hapus",
+              'success'
+            );
+             window.location = "/kelurahan_hapus/"+id;
+          } else if (
+            // Read more about handling dismissals
+            result.dismiss === swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons(
+              'Dibatalkan',
+              'data batal dihapus',
+              'error'
+            )
+          }
+        })
+
+        }
+        </script>

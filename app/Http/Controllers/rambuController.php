@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\jenis_rambu;
 use App\rambu;
+Use File;
 use IDCrypt;
 use Illuminate\Http\Request;
 
@@ -122,5 +123,15 @@ class rambuController extends Controller
         $rambu->update();
         return redirect(route('rambu_index'))->with('success', 'Data Rambu '.$request->nama_rambu.' Berhasil di ubah');
        }//fungi mengubah data rambu
+
+       public function rambu_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $rambu=rambu::findOrFail($id);
+        File::delete('images/rambu/'.$rambu->gambar);
+       // $rambu->lokasi_rambu()->delete();
+        $rambu->delete();
+
+        return redirect(route('rambu_index'));
+    }//fungsi menghapus data rambu
 
 }
