@@ -28,15 +28,14 @@ class lokasiController extends Controller
             $kecamatan->nama_kecamatan= $request->nama_kecamatan;
             $kecamatan->save();
 
-              return redirect(route('kecamatan_index'))->with('success', 'Data Jenis rambu '.$request->nama_kecamatan.' Berhasil di Simpan');
+              return redirect(route('kecamatan_index'))->with('success', 'Data Kecamatan '.$request->nama_kecamatan.' Berhasil di Simpan');
       }
-
 
       public function kecamatan_delete($id){
             $id = IDCrypt::Decrypt($id);
             $kecamatan=kecamatan::findOrFail($id);
             $kecamatan->delete();
-            return redirect(route('kecamatan_index'))->with('success', 'Data  Berhasil di hapus');
+            return redirect(route('kecamatan_index'));
     } //menghapus  data kecamatan
 
 

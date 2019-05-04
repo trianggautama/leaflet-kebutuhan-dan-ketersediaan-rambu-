@@ -59,7 +59,7 @@ class rambuController extends Controller
         $jenis_rambu=jenis_rambu::findOrFail($id);
         $jenis_rambu->rambu()->delete();
         $jenis_rambu->delete();
-        return redirect(route('jenis_rambu_index'))->with('success', 'Data  Berhasil di hapus');
+        return redirect(route('jenis_rambu_index'));
     } //menghapus  data jenis rambu
 
     public function rambu_index(){
