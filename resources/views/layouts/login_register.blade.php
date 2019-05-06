@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>Majestic Admin</title>
+  <title>Dinas Perhubungan</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="admin/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="admin/vendors/base/vendor.bundle.base.css">

@@ -8,10 +8,11 @@
               <div class="col-lg-6 d-flex align-items-center justify-content-center">
                 <div class="auth-form-transparent text-left p-3">
                   <div class="brand-logo">
-                    <img src="admin/images/logo.svg" alt="logo">
+                    <img src="images/logo_navbar2.png" alt="logo">
                   </div>
-                  <h4>Welcome back!</h4>
-                  <h6 class="font-weight-light">Happy to see you again!</h6>
+                  <h4>Selamat Datang</h4>
+                  <h6 class="font-weight-light">di Aplikasi Pemetaan Lokasi Kebutuhan dan Ketersediaan Rambu Lalu-lintas</h6>
+                  <br>
                   <form method="POST" action="{{ route('login') }}">
                         @csrf
 
