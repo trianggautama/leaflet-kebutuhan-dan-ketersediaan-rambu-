@@ -69,7 +69,7 @@
 			<section class="home-about-area section-gap aboutus-about" id="about">
 				<div class="container">
 					<div class="row justify-content-center align-items-center">
-						<div class="col-lg-8 col-md-12 home-about-left">
+						<div class="col-lg-7 col-md-12 home-about-left">
 							<h6>Laporan Langsung Masyarakat</h6>
 							<h1>
 								Anda Mempunyai Saran Maupun  <br>
@@ -81,24 +81,8 @@
 							</p>
 							<a class="primary-btn" href="#">Get Started Now</a>
 						</div>
-						<div class="col-lg-4 col-md-12 home-about-right relative">
-							<form class="form-wrap" action="#">
-								<h4 class="text-white pb-20">Request a Quote</h4>
-								<div class="form-select" id="service-select"">
-									<select>
-										<option value="1">Select Service</option>
-										<option value="2">Service One</option>
-										<option value="3">Service Two</option>
-										<option value="4">Service Three</option>
-										<option value="5">Service Four</option>
-									</select>
-								</div>
-								<input type="text" class="form-control" placeholder="name">
-								<input type="phone" class="form-control" placeholder="Phone Number">
-								<input type="email" class="form-control" placeholder="Email Address">
-								<textarea name="message" id="" cols="30" rows="5" placeholder="Message" class="form-control"></textarea>
-								<button class="primary-btn">Request Free Quote</button>
-							</form>
+						<div class="col-lg-5 col-md-12  relative">
+                            <img src="/depan/img/form.jpg" alt="" width="500">
 						</div>
 					</div>
 				</div>
@@ -111,7 +95,7 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="single-cat d-flex flex-column">
-								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-magic-wand"></span></span></a>
+								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-construction"></span></span></a>
 								<h4 class="mb-20" style="margin-top: 23px;">Rehabilitasi</h4>
 								<p>
 									Dinas Pehubungan mempunyai program rehabilitasi rambu lalu lintas dan lampu peringatan jalan
@@ -120,7 +104,7 @@
 						</div>
 						<div class="col-lg-4">
 							<div class="single-cat">
-								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-rocket"></span></span></a>
+								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-map-marker"></span></span></a>
 								<h4 class="mt-40 mb-20">Pengadaan Rambu</h4>
 								<p>
 									Dians Perhubungan memiliki program pengadaan rambu lalu-lintas setiap tahunnya
@@ -129,7 +113,7 @@
 						</div>
 						<div class="col-lg-4">
 							<div class="single-cat">
-								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-bug"></span></span></a>
+								<a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="lnr lnr-location"></span></span></a>
 								<h4 class="mt-40 mb-20">Pengadaan Sarpras Lalin </h4>
 								<p>
                                  Dinas Perhubungan juga memiliki program pengadaan sarana prasarana lalu lintas yang lain seperti lampu Peringatan,Cermin Cembung dan Lain-lain
@@ -191,7 +175,7 @@
 					<div class="row feedback-contents justify-content-center align-items-center">
 						<div class="col-lg-6 feedback-left relative d-flex justify-content-center align-items-center">
 							<div class="overlay overlay-bg"></div>
-							<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="img/play-btn.png" alt=""></a>
+							<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="depan/img/play-btn.png" alt=""></a>
 						</div>
 						<div class="col-lg-6 feedback-right">
 							<div class="active-review-carusel">

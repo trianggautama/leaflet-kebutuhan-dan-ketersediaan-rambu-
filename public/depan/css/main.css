@@ -2259,7 +2259,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .primary-btn {
-  background-color: #fab700;
+  background-color: #0f3291;
   line-height: 42px;
   padding-left: 30px;
   padding-right: 30px;
@@ -2466,7 +2466,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .home-about-area .home-about-left h6 {
-  color: #fab700;
+  color: #0f3291;
   font-weight: 300;
   margin-bottom: 10px;
 }
@@ -2478,7 +2478,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .home-about-area .home-about-left .primary-btn {
   text-transform: capitalize !important;
-  background-color: #fab700;
+  background-color: #0f3291;
   color: #fff;
   border: 1px solid transparent;
   -webkit-transition: all 0.3s ease 0s;
@@ -2492,8 +2492,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .home-about-area .home-about-left .primary-btn:hover {
   background: transparent;
-  color: #fab700;
-  border-color: #fab700;
+  color: #0f3291;
+  border-color: #0f3291;
 }
 
 @media (max-width: 960px) {
@@ -2689,7 +2689,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .feedback-left {
-  background: url(../img/video-bg.jpg) center;
+  background: url(../img/undraw-map.png) center;
   background-size: cover;
   padding: 130px 0;
 }
@@ -2699,7 +2699,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .feedback-left .overlay-bg {
-  background-color: rgba(250, 183, 0, 0.7);
+  background-color: rgba(250, 183, 0, 0);
 }
 
 @media (max-width: 960px) {
@@ -3089,7 +3089,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .aboutus-cat {
-  background: #f9f9ff !important;
+  background: #dae6ff !important;
 }
 
 .aboutus-feedback {
@@ -3145,8 +3145,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .contact-page-area .form-area .primary-btn:hover {
-  border: 1px solid #fab700;
-  color: #fab700 !important;
+  border: 1px solid #071346;
+  color: #071346 !important;
 }
 
 @media (max-width: 960px) {
@@ -3514,13 +3514,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 .commentform-area .primary-btn {
   padding-left: 50px;
   padding-right: 50px;
-  background-color: #fab700 !important;
+  background-color: #071346 !important;
   border: 1px solid transparent;
   color: #fff;
 }
 
 .commentform-area .primary-btn:hover {
-  border-color: #fab700 !important;
+  border-color: #071346 !important;
 }
 
 .commentform-area textarea {
