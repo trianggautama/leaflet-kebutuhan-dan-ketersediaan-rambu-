@@ -79,7 +79,7 @@
 							<p class="pb-20">
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
 							</p>
-							<a class="primary-btn" href="#">Get Started Now</a>
+							<a class="primary-btn" href="#">Kirim Permintaan dan Masukan</a>
 						</div>
 						<div class="col-lg-5 col-md-12  relative">
                             <img src="/depan/img/form.jpg" alt="" width="500">

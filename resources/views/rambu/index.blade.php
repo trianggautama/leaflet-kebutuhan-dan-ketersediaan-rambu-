@@ -16,9 +16,6 @@
                 <h2>Data Rambu,</h2>
               </div>
             </div>
-            <div class="d-flex justify-content-between align-items-end flex-wrap">
-              <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-            </div>
           </div>
         </div>
       </div>
@@ -27,6 +24,11 @@
           <div class="card">
                 <div class="card-body">
                         <h4 class="card-title">Tabel Data</h4>
+                        <div class="text-right">
+                          <a href="/" class="btn btn-sm btn-inverse-primary " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
+                          <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>
+                        </div>
+                       
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>
@@ -50,7 +52,7 @@
                                 <td>{{$r->nama_rambu}}</td>
                                 <td>{{$r->jenis_rambu->nama_jenis}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('rambu_detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-dark " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('rambu_detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
                                         <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
                                         <button type="button" class="btn btn-inverse-danger" style="padding:6px !important;"
                                         onclick="Hapus('{{Crypt::encryptString($r->id)}}','{{$r->nama_rambu}}')"><b><i class="mdi mdi-delete"></i></b></button>
