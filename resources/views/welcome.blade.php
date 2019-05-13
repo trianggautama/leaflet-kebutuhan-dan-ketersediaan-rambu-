@@ -48,20 +48,22 @@
 			    	</div>
 			    </div>
 			  </header><!-- #header -->
-              <section class="banner-area relative" id="home">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-center">
-						<div class="banner-content col-lg-12 col-md-12">
-                            <h5 class="text-uppercase" style="color:white;">Selamat Datang</h5>
-							<h1>
-								Aplikasi Pelaporan Kebutuhan dan Ketersediaan Rambu
-							</h1>
-							<p class="text-white">
-                            Anda dapat memasukan laporan mengenai lokasi yang dirasa rawan dan dirasa memerluakn rambu lalu lintas untuk mengurangi adanya resiko terjadinya Laka Lalin
-                        </p>
+				<section class="banner-area " id="about" style="height:700px;">
+					<div class="row  justify-content-center align-items-center">
+					<div class="col-lg-5 col-md-12  relative">
 						</div>
-					</div>
+						<div class="col-lg-7 col-md-12 col-xs-12 CONTENT" style="padding:230px ;">
+							<h1 class="">
+							Aplikasi Pelaporan Kebutuhan dan 
+Ketersediaan Rambu  Lalu-Lintas
+							</h1>
+							<h5 class="sub text-white">Dinas Perhubungan Kota Banjarbaru</h5>
+							<br>
+							<p class="pb-20 text-white">
+							Anda dapat memasukan laporan mengenai lokasi yang dirasa rawan dan dirasa memerluakn rambu lalu lintas untuk mengurangi adanya resiko terjadinya Laka Lalin
+							</p>
+												</div>
+					
 				</div>
 			</section>
 			<!-- End banner Area -->

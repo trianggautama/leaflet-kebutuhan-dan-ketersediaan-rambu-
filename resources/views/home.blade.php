@@ -47,19 +47,6 @@
             <div class="col-md-4 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Lokasi ketersediaan Rambu</h4>
-                  <div class="media">
-                  <img src="/images/undraw_map_dros.png" width="200" alt="">
-                    <div class="media-body">
-                      <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
                   <h4 class="card-title">Lokasi Kebutuhan Rambu</h4>
                   <div class="media">
                   <img src="/images/undraw_map_light_6ttm.png" width="200" alt="">
