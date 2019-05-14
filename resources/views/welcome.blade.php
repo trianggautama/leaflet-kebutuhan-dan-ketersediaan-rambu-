@@ -48,30 +48,31 @@
 			    	</div>
 			    </div>
 			  </header><!-- #header -->
-				<section class="banner-area " id="about" style="height:700px;">
-					<div class="row  justify-content-center align-items-center">
-					<div class="col-lg-5 col-md-12  relative">
+			  <section class="feedback-area section-gap relative" id="feedback">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">			
+					<div class="row feedback-contents justify-content-center align-items-center">
+						<div class="col-lg-6 feedback-left relative d-flex justify-content-center align-items-center">
+							<div class="overlay overlay-bg"></div>
 						</div>
-						<div class="col-lg-7 col-md-12 col-xs-12 CONTENT" style="padding:230px ;">
-							<h1 class="">
-							Aplikasi Pelaporan Kebutuhan dan 
-Ketersediaan Rambu  Lalu-Lintas
-							</h1>
-							<h5 class="sub text-white">Dinas Perhubungan Kota Banjarbaru</h5>
+						<div class="col-lg-6 feedback-right text-center" style="margin-left:5px;">
+							<h1 class="text-white">Aplikasi Pemetaan Lokasi Kebutuhan dan Ketersediaan Rambu Lalu-lintas</h1>
+							<h4 >Dinas Perhubungan Kota Banjarbaru</h4>
 							<br>
-							<p class="pb-20 text-white">
-							Anda dapat memasukan laporan mengenai lokasi yang dirasa rawan dan dirasa memerluakn rambu lalu lintas untuk mengurangi adanya resiko terjadinya Laka Lalin
-							</p>
-												</div>
-					
-				</div>
+							<a class="primary-btn" href="#">Lebih Lanjut</a>
+						</div>
+					</div>
+				</div>	
 			</section>
+			<!-- End feedback Area -->
+			<!-- End banner Area -->
+			<!-- End banner Area -->
 			<!-- End banner Area -->
 			<!-- Start home-about Area -->
 			<section class="home-about-area section-gap aboutus-about" id="about">
 				<div class="container">
 					<div class="row justify-content-center align-items-center">
-						<div class="col-lg-7 col-md-12 home-about-left">
+						<div class="col-lg-7 col-md-12 col-xs-12 home-about-left">
 							<h6>Laporan Langsung Masyarakat</h6>
 							<h1>
 								Anda Mempunyai Saran Maupun  <br>
@@ -83,8 +84,8 @@ Ketersediaan Rambu  Lalu-Lintas
 							</p>
 							<a class="primary-btn" href="#">Kirim Permintaan dan Masukan</a>
 						</div>
-						<div class="col-lg-5 col-md-12  relative">
-                            <img src="/depan/img/form.jpg" alt="" width="500">
+						<div class="col-lg-5 col-md-12 col-xs-12 relative">
+                            <img class="img-fluid single-project" src="/depan/img/form.jpg" alt="" width="500">
 						</div>
 					</div>
 				</div>
@@ -175,8 +176,7 @@ Ketersediaan Rambu  Lalu-Lintas
 						</div>
 					</div>
 					<div class="row feedback-contents justify-content-center align-items-center">
-						<div class="col-lg-6 feedback-left relative d-flex justify-content-center align-items-center">
-							<div class="overlay overlay-bg"></div>
+						<div class="col-lg-6 feedback-left2 relative d-flex justify-content-center align-items-center">
 							<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="depan/img/play-btn.png" alt=""></a>
 						</div>
 						<div class="col-lg-6 feedback-right">

@@ -2329,18 +2329,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-  /*background: url(../img/background2.jpg) left;
-  */background-image: url("../img/background2.jpg") ;
-  height: 100%; 
-  /* Center and scale the image nicely */
-  background-position: left;
+  background: url(../img/background2.jpg) left;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
+  height: 100%; 
+
 }
 
 @media (max-width: 567.98px) {
   .banner-area .fullscreen {
-    height: 500px !important;
+    height: 300px !important;
   }
 }
 
@@ -2350,13 +2348,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area .primary-btn {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .banner-content {
   text-align: left;
-  padding:30px;
+  padding:10px;
 }
 
 .banner-content h1 {
@@ -2472,7 +2470,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .home-about-area .home-about-left h6 {
-  color: #0f3291;
+  color: #0084db;
   font-weight: 300;
   margin-bottom: 10px;
 }
@@ -2484,7 +2482,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .home-about-area .home-about-left .primary-btn {
   text-transform: capitalize !important;
-  background-color: #0f3291;
+  background-color: #0084db;
   color: #fff;
   border: 1px solid transparent;
   -webkit-transition: all 0.3s ease 0s;
@@ -2498,8 +2496,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .home-about-area .home-about-left .primary-btn:hover {
   background: transparent;
-  color: #0f3291;
-  border-color: #0f3291;
+  color: #0084db;
+  border-color: #0084db;
 }
 
 @media (max-width: 960px) {
@@ -2690,14 +2688,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .overlay-bg {
-  background-color: #000;
+  background-color: #0084db;
   opacity: .7;
 }
 
 .feedback-left {
+  background: url(../img/background2.png) center;
+  background-size: cover;
+  padding: 145px 0;
+}
+.feedback-left2 {
   background: url(../img/undraw-map.png) center;
   background-size: cover;
-  padding: 130px 0;
+  padding: 140px 0;
 }
 
 .feedback-left .play-btn {
@@ -2715,7 +2718,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .feedback-right .star {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .feedback-right .star .checked {
