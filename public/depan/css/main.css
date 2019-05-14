@@ -3540,6 +3540,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: none;
   background: #f9f9ff;
 }
+#map {
+  height: 400px; 
+  width: 635px;
+}
 
 /*
 ################

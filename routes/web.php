@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/laporan_masyarakat', function () {
+    return view('laporan_masyarakat');
+});
+
 
 Auth::routes();
 
