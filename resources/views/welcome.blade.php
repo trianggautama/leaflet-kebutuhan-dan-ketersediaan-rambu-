@@ -17,9 +17,6 @@
 				</div>	
 			</section>
 			<!-- End feedback Area -->
-			<!-- End banner Area -->
-			<!-- End banner Area -->
-			<!-- End banner Area -->
 			<!-- Start home-about Area -->
 			<section class="home-about-area section-gap aboutus-about" id="laporan_masyarakat">
 				<div class="container">

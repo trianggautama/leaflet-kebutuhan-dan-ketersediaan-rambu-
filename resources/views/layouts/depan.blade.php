@@ -1,42 +1,38 @@
+
 <!DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	<head>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="images/dishub.png">
-		<!-- Author Meta -->
-		<meta name="author" content="codepixer">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Dinas Perhubungan</title>
+<html>
+<head>
+	
+<title>Dinas Perhubungan</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="images/dishub.png">
+    <link rel="stylesheet" href="depan/css/linearicons.css">
+	<link rel="stylesheet" href="depan/css/font-awesome.min.css">
+	<link rel="stylesheet" href="depan/css/bootstrap.css">
+	<link rel="stylesheet" href="depan/css/magnific-popup.css">
+	<link rel="stylesheet" href="depan/css/nice-select.css">
+	<link rel="stylesheet" href="depan/css/hexagons.min.css">
+	<link rel="stylesheet" href="depan/css/animate.min.css">
+	<link rel="stylesheet" href="depan/css/owl.carousel.css">
+    <link rel="stylesheet" href="depan/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+	<style>
+		html, body {
+			height: 100%;
+			margin: auto;
+		}
+	</style>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="depan/css/linearicons.css">
-			<link rel="stylesheet" href="depan/css/font-awesome.min.css">
-			<link rel="stylesheet" href="depan/css/bootstrap.css">
-			<link rel="stylesheet" href="depan/css/magnific-popup.css">
-			<link rel="stylesheet" href="depan/css/nice-select.css">
-			<link rel="stylesheet" href="depan/css/hexagons.min.css">
-			<link rel="stylesheet" href="depan/css/animate.min.css">
-			<link rel="stylesheet" href="depan/css/owl.carousel.css">
-            <link rel="stylesheet" href="depan/css/main.css">
-
-		</head>
-		<body>
-			  <header id="header" id="home">
+	<style>body { padding: 0; margin: 0; } #map { height: 30%; width: 48vw; margin:auto; }</style>
+</head>
+<body>
+<header id="header" id="home">
 			    <div class="container main-menu">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="images/logo_navbar.png" alt="" title="" /></a>
+				        <a href="/"><img src="images/logo_navbar.png" alt="/" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
@@ -49,10 +45,9 @@
 			    	</div>
 			    </div>
 			  </header><!-- #header -->
-			 
-              @yield('content')
-			<!-- start footer Area -->
-			<footer class="footer-area section-gap">
+@yield('content')
+
+<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-5 col-md-6 col-sm-6">
@@ -100,25 +95,65 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</footer>
-			<!-- End footer Area -->
-			<script src="depan/js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="depan/js/vendor/bootstrap.min.js"></script>
-  			<script src="depan/js/easing.min.js"></script>
-			<script src="depan/js/hoverIntent.js"></script>
-			<script src="depan/js/superfish.min.js"></script>
-			<script src="depan/js/jquery.ajaxchimp.min.js"></script>
-			<script src="depan/js/jquery.magnific-popup.min.js"></script>
-			<script src="depan/js/owl.carousel.min.js"></script>
-			<script src="depan/js/hexagons.min.js"></script>
-			<script src="depan/js/jquery.nice-select.min.js"></script>
-			<script src="depan/js/jquery.counterup.min.js"></script>
-			<script src="depan/js/waypoints.min.js"></script>
-			<script src="depan/js/mail-script.js"></script>
-            <script src="depan/js/main.js"></script>
+<script>
+	var map = L.map('map');
 
-		</body>
-	</html>
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.streets'
+	}).addTo(map);
+
+	function onLocationFound(e) {
+		var radius = e.accuracy / 6;
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	function onLocationError(e) {
+		alert(e.message);
+	}
+
+	 function updateMarker(lat, lng) {
+        marker
+        .setLatLng([lat, lng])
+        .bindPopup("Your location :  " + marker.getLatLng().toString())
+        .openPopup();
+        return false;
+    };
+    map.on('click', function(e) {
+        let latitude = e.latlng.lat.toString().substring(0, 15);
+        let longitude = e.latlng.lng.toString().substring(0, 15);
+        $('#latitude').val(latitude);
+        $('#longitude').val(longitude);
+        updateMarker(latitude, longitude);
+    });
+    var updateMarkerByInputs = function() {
+        return updateMarker( $('#latitude').val() , $('#longitude').val());
+    }
+	map.on('locationfound', onLocationFound);
+	map.on('locationerror', onLocationError);
+
+	map.locate({setView: true, maxZoom: 16});
+</script>
+<script src="depan/js/vendor/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="depan/js/vendor/bootstrap.min.js"></script>
+<script src="depan/js/easing.min.js"></script>
+<script src="depan/js/hoverIntent.js"></script>
+<script src="depan/js/superfish.min.js"></script>
+<script src="depan/js/jquery.ajaxchimp.min.js"></script>
+<script src="depan/js/jquery.magnific-popup.min.js"></script>
+<script src="depan/js/owl.carousel.min.js"></script>
+<script src="depan/js/hexagons.min.js"></script>
+<script src="depan/js/main.js"></script>
+<script src="depan/js/jquery.nice-select.min.js"></script>
+<script src="depan/js/jquery.counterup.min.js"></script>
+<script src="depan/js/waypoints.min.js"></script>
+<script src="depan/js/mail-script.js"></script>
 
 
-
+</body>
+</html>

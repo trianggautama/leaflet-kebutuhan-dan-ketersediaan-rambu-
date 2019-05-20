@@ -1,4 +1,4 @@
-@extends('layouts.laporan')
+@extends('layouts.depan')
 
 @section('title', __('outlet.list'))
 
@@ -34,15 +34,31 @@
                         <br>
                         <input class="form-control" type="file" accept="image/*" capture="camera" />
                         <br>
-                        <textarea class="form-control" name="alamat" id="" ></textarea>
+                        <textarea class="form-control" name="alamat" id="" placeholder="Keterangan Lokasi"></textarea>
                         <br>                   
-                        
+                        <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="latitude" class="control-label">Latritude</label>
+                                <input id="latitude" type="text" class="form-control{{ $errors->has('latitude') ? ' is-invalid' : '' }}" name="latitude" value="{{ old('latitude', request('latitude')) }}" required>
+                                {!! $errors->first('latitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="longitude" class="control-label">Longitude</label>
+                                <input id="longitude" type="text" class="form-control{{ $errors->has('longitude') ? ' is-invalid' : '' }}" name="longitude" value="{{ old('longitude', request('longitude')) }}" required>
+                                {!! $errors->first('longitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                            </div>
+                        </div>
+                    </div>
                         </div>                  
                         <div id='map'></div>      
                         <br>
                         <div class="container text-right"  style="padding-right:10%;padding-left:10%;">
-                        <input type="submit" class="btn btn-primary">
+                        <input type="submit" class="btn btn-block btn-primary">
                         </div>
                         </form>
                         <br>
-</div>@endsection
+</div>
+@endsection
