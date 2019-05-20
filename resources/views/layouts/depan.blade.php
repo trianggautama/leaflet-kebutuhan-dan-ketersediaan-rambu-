@@ -99,15 +99,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	var map = L.map('map');
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.streets'
+		attribution: 'Klik/tap pada peta untuk menambah koordinat',
+		id: 'mapbox.streets',
+		maxZoom: 18
+
 	}).addTo(map);
 
 	function onLocationFound(e) {
-		var radius = e.accuracy / 6;
+		var radius = e.accuracy ;
 
 		L.circle(e.latlng, radius).addTo(map);
 	}
@@ -115,14 +114,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	function onLocationError(e) {
 		alert(e.message);
 	}
-
-	 function updateMarker(lat, lng) {
-        marker
-        .setLatLng([lat, lng])
-        .bindPopup("Your location :  " + marker.getLatLng().toString())
-        .openPopup();
-        return false;
-    };
     map.on('click', function(e) {
         let latitude = e.latlng.lat.toString().substring(0, 15);
         let longitude = e.latlng.lng.toString().substring(0, 15);

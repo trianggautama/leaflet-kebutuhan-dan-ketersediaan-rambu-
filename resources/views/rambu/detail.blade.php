@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
   <!-- partial -->
   <div class="main-panel">
@@ -22,7 +19,7 @@
               <br>
                 <h4 class="card-title">Keterangan</h4>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-xs-3">
                         <h5>Kode Rambu :</h5>
                         <hr>
                         <h5>Nama Rambu :</h5>
@@ -31,7 +28,7 @@
                         <hr>
                         <h5>Keterangan :</h5>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-xs-9">
                         <h5>  {{$rambu->kode_rambu}}</h5>
                         <hr>
                         <h5>  {{$rambu->nama_rambu}}</h5>
@@ -47,41 +44,38 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-                <div class="card">
-                        <div class="card-body">
-                                <h4 class="card-title">Tabel Data Lokasi</h4>
-                                <div class="table-responsive">
-                                  <table class="table striped "  id="myTable">
-                                    <thead>
-                                      <tr>
-                                        <th>No</th>
-                                        <th>Alamat Rambu</th>
-                                        <th class="text-center">Keterangan</th>
-                                        <th class="text-center">Action</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Jl.R.O.Ulin depan Jlaan Pendidikan</td>
-                                            <td class="text-center" ><a href="" class="btn btn-sm btn-inverse-primary btn-rounded" style="padding:6px !important;">Titik Ketersediaan Rambu</a></td>
-                                            <td class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
-                                        </tr>
-                                        <tr>
-                                                <td>2</td>
-                                                <td>Jl.Sei Sumba</td>
-                                                <td class="text-center"><a href="" class="btn btn-sm btn-inverse-success btn-rounded" style="padding:6px !important;">Titik Kebutuhan Rambu</a></td>
-                                                <td  class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
-                                            </tr>
-                                    </tbody>
-                                </table>
-
-                                </div>
-                              </div>
-                  </div>
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Tabel Data Lokasi</h4>
+                <div class="table-responsive">
+                  <table class="table striped "  id="myTable">
+                       <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Alamat Rambu</th>
+                            <th class="text-center">Keterangan</th>
+                            <th class="text-center">Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>Jl.R.O.Ulin depan Jlaan Pendidikan</td>
+                            <td class="text-center" ><a href="" class="btn btn-sm btn-inverse-primary btn-rounded" style="padding:6px !important;">Titik Ketersediaan Rambu</a></td>
+                            <td class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Jl.Sei Sumba</td>
+                            <td class="text-center"><a href="" class="btn btn-sm btn-inverse-success btn-rounded" style="padding:6px !important;">Titik Kebutuhan Rambu</a></td>
+                            <td  class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              </div>
+              </div>
         </div>
     </div>
     </div>
-
-
 @endsection

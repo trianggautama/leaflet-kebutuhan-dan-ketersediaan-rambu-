@@ -17,9 +17,10 @@ Route::get('/', function () {
 Route::get('/laporan_masyarakat', function () {
     return view('laporan_masyarakat');
 });
-
-
+Route::post('/laporan_masyarakat','userController@kirim_laporan');
 Auth::routes();
+
+Route::group(['middleware'=> 'auth'],function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -53,8 +54,7 @@ Route::post('/kelurahan','lokasiController@kelurahan_add')->name('kelurahan_add'
 Route::get('/kelurahan_edit/{id}','lokasiController@kelurahan_edit')->name('kelurahan_edit');
 Route::get('/kelurahan_hapus/{id}','lokasiController@kelurahan_delete')->name('kelurahan_delete');
 
-
-
+});
 
 
 
