@@ -142,6 +142,19 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#data_lokasi" aria-expanded="false" aria-controls="data_lokasi">
+              <i class="mdi mdi-database-check menu-icon"></i>
+              <span class="menu-title"> Data Lokasi</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="data_lokasi">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="{{route('jenis_rambu_index')}}">Lokasi Kebutuhan Rambu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('rambu_index')}}">Lokasi Ketersediaan Rambu</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-table menu-icon"></i>
               <span class="menu-title">Master Data</span>

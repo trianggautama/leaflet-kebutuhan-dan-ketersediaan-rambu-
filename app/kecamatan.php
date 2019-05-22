@@ -11,6 +11,7 @@ class kecamatan extends Model
     protected $fillable = [
         'kode_rambu','nama_rambu',
     ];
+    
     public function kelurahan(){
         return $this->hasMany('App\kelurahan');
       }
