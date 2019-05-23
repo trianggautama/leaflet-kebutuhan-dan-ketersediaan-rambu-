@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\kecamatan;
 use App\kelurahan;
+use App\lokasi_rambu;
 use IDCrypt;
 use Illuminate\Http\Request;
 
@@ -80,6 +81,20 @@ class lokasiController extends Controller
               $kelurahan->delete();
               return redirect(route('kelurahan_index'));
       } //menghapus  data kecamatan
+
+         //funsi kebutuhan rambu
+         public function lokasi_kebutuhan_index(){
+
+          $lokasi_kebutuhan=lokasi_rambu::where('status',1)->get();
+
+          return (view('titik_lokasi.lokasi_kebutuhan_rambu',compact('lokasi_kebutuhan')));
+      }
+
+         public function lokasi_kebutuhan_tambah(){
+
+          return (view('titik_lokasi.lokasi_kebutuhan_rambu_tambah'));
+      }
+
 
 
 }

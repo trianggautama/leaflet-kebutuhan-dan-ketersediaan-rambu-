@@ -41,7 +41,6 @@ Route::get('/rambu_edit/{id}','rambuController@rambu_edit')->name('rambu_edit');
 Route::put('/rambu_edit/{id}','rambuController@rambu_update')->name('rambu_update');
 Route::get('/rambu_hapus/{id}','rambuController@rambu_hapus')->name('rambu_hapus');
 
-
 //kecamatan
 Route::get('/kecamatan','lokasiController@kecamatan_index')->name('kecamatan_index');
 Route::post('/kecamatan','lokasiController@kecamatan_add')->name('kecamatan_add');
