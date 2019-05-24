@@ -1,53 +1,102 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
-  <!-- partial -->
-  <div class="main-panel">
-    <div class="content-wrapper">
-      <div class="row">
-        <div class="col-md-12 grid-margin">
-          <div class="d-flex justify-content-between flex-wrap">
-            <div class="d-flex align-items-end flex-wrap">
-              <div class="mr-md-3 mr-xl-5">
-                <h2>Beranda,</h2>
-                <p class="mb-md-0">Selamat datang di beranda admin</p>
-              </div>
-              <div class="d-flex">
-                <i class="mdi mdi-home text-muted hover-cursor"></i>
-                <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Beranda&nbsp;/&nbsp;</p>
-              </div>
-            </div>
-            <div class="d-flex justify-content-between align-items-end flex-wrap">
-              <button type="button" class="btn btn-light bg-white btn-icon mr-3 d-none d-md-block " title="profil">
-                <i class="mdi  mdi mdi-printer "></i>
-              </button>
-              <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0"><i class="mdi mdi-map-marker-plus "></i> Tambah Lokasi</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="latitude" class="control-label">Latitude</label>
-                                <input id="latitude" type="text" class="form-control{{ $errors->has('latitude') ? ' is-invalid' : '' }}" name="latitude" value="{{ old('latitude', request('latitude')) }}" required>
-                                {!! $errors->first('latitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+<!-- partial -->
+<div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Tambah Lokasi Kebutuhan Rambu</h4>
+                            <form class="forms-sample" method="post" action="">
+                                 {{method_field('PUT') }}
+                                 {{ csrf_field() }}
+                                <div class="row">
+                                <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label for="sel1">Rambu yang diperlukan:</label>
+                                     <select multiple class="form-control" id="rambu" name="rambu_id">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="sel1">kelurahan</label>
+                                     <select multiple class="form-control" id="kelurahan" name="kelurahan_id">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                   <label for="exampleTextarea1">Alamat</label>
+                                   <textarea class="form-control" id="exampleTextarea1" name="alamat" rows="4"></textarea>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Status Prioritas</label>
+                                    <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="prioritas">
+                                      <option>Biasa</option>
+                                      <option>Mendesak</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="file" name="gambar" class="file-upload-default">
+                                    <div class="input-group col-xs-12">
+                                      <input type="text" class="form-control file-upload-info" name="gambar"  placeholder="Gambar Lokasi">
+                                      <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <input type="hidden" name="status" value="1">
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="row">
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="latitude" class="control-label">Latitude</label>
+                                          <input id="latitude" type="text" class="form-control{{ $errors->has('latitude') ? ' is-invalid' : '' }}" name="latitude" value="{{ old('latitude', request('latitude')) }}" required>
+                                          {!! $errors->first('latitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                                        </div>
+                                      </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="longitude" class="control-label">Longitude</label>
+                                    <input id="longitude" type="text" class="form-control{{ $errors->has('longitude') ? ' is-invalid' : '' }}" name="longitude" value="{{ old('longitude', request('longitude')) }}" required>
+                                     {!! $errors->first('longitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                                 </div>
+                               </div>
+                               <div id="map" style="width: 97%; height: 450px"></div>
+                               
+                              </div>
+                              <br>
+                              <div class="text-right">
+                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                 <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                                 {{csrf_field() }}
+                              </div>
                             </div>
+                            </form>
+                          </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="longitude" class="control-label">Longitude</label>
-                                <input id="longitude" type="text" class="form-control{{ $errors->has('longitude') ? ' is-invalid' : '' }}" name="longitude" value="{{ old('longitude', request('longitude')) }}" required>
-                                {!! $errors->first('longitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
-                            </div>
-                        </div>
-                    </div>
-                        </div>               
-      <div id="map" style="width: 100%; height: 650px"></div>
-      @push('scripts')
+                      </div>
+        </div>  
+          @push('scripts')
       <script>
 
 <script>
@@ -69,7 +118,7 @@
 	function onLocationError(e) {
 		alert(e.message);
 	}
-    map.on('click', function(e) {
+  map.on('click', function(e) {
         let latitude = e.latlng.lat.toString().substring(0, 15);
         let longitude = e.latlng.lng.toString().substring(0, 15);
         $('#latitude').val(latitude);
