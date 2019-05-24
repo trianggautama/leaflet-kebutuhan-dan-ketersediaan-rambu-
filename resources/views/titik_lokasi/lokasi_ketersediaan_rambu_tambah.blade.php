@@ -49,7 +49,7 @@
                                       </span>
                                     </div>
                                   </div>
-                                  <input type="hidden" name="status" value="2">
+                                  <input type="hidden" name="status" value="1">
                                 </div>
                                 <div class="col-md-6">
                                   <div class="row">

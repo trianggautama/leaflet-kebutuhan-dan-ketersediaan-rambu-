@@ -1,8 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\kecamatan;
 use App\kelurahan;
+use App\rambu;
 use App\lokasi_rambu;
 use IDCrypt;
 use Illuminate\Http\Request;
@@ -92,9 +92,26 @@ class lokasiController extends Controller
 
          public function lokasi_kebutuhan_tambah(){
 
-          return (view('titik_lokasi.lokasi_kebutuhan_rambu_tambah'));
+          $rambu = rambu::all();
+          $kelurahan = kelurahan::all();
+
+          return (view('titik_lokasi.lokasi_kebutuhan_rambu_tambah',compact('rambu','kelurahan')));
       }
 
+      public function lokasi_ketersediaan_index(){
+
+        $lokasi_ketersediaan=lokasi_rambu::where('status',2)->get();
+
+        return (view('titik_lokasi.lokasi_ketersediaan_rambu',compact('lokasi_ketersediaan')));
+    }
+
+    public function lokasi_ketersediaan_tambah(){
+
+        $rambu = rambu::all();
+        $kelurahan = kelurahan::all();
+
+        return (view('titik_lokasi.lokasi_ketersediaan_rambu_tambah',compact('rambu','kelurahan')));
+    }
 
 
 }
