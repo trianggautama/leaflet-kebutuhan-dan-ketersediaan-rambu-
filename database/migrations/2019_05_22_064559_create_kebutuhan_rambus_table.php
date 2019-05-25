@@ -15,9 +15,8 @@ class CreateKebutuhanRambusTable extends Migration
     {
         Schema::create('kebutuhan_rambus', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('lokasi_rambu');
-            $table->integer('apbn')->length(5);
-            $table->integer('kondisi')->length(3);
+            $table->bigInteger('lokasi_rambu_id');
+            $table->string('prioritas')->length(35);
             $table->text('gambar');
             $table->timestamps();
         });
