@@ -8,8 +8,7 @@
                         <div class="card">
                           <div class="card-body">
                             <h4 class="card-title">Tambah Lokasi Kebutuhan Rambu</h4>
-                            <form class="forms-sample" method="post" action="">
-                                 {{method_field('PUT') }}
+                            <form class="forms-sample" method="post" action="" enctype="multipart/form-data">
                                  {{ csrf_field() }}
                                 <div class="row">
                                 <div class="col-md-6">
@@ -36,8 +35,8 @@
                                   <div class="form-group">
                                     <label for="exampleFormControlSelect1">Status Prioritas</label>
                                     <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="prioritas">
-                                      <option>Biasa</option>
-                                      <option>Mendesak</option>
+                                      <option value="biasa">Biasa</option>
+                                      <option value="mendesak">Mendesak</option>
                                     </select>
                                   </div>
                                   <div class="form-group">

@@ -28,7 +28,7 @@
                           <a href="/" class="btn btn-sm btn-inverse-primary " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
                           <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>
                         </div>
-                       
+                       <br>
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>

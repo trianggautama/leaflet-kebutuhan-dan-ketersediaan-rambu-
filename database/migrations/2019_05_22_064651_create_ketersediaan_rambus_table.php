@@ -15,6 +15,10 @@ class CreateKetersediaanRambusTable extends Migration
     {
         Schema::create('ketersediaan_rambus', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('lokasi_rambu_id');
+            $table->integer('apbn')->length(5);
+            $table->integer('kondisi')->length(3);
+            $table->string('gambar')->default('default.png');
             $table->timestamps();
         });
     }

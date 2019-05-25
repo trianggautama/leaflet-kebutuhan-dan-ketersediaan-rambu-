@@ -17,7 +17,7 @@ class CreateKebutuhanRambusTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('lokasi_rambu_id');
             $table->string('prioritas')->length(35);
-            $table->text('gambar');
+            $table->string('gambar')->default('default.png');
             $table->timestamps();
         });
     }

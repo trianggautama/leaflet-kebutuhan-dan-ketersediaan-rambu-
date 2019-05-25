@@ -35,6 +35,7 @@
                             <thead>
                               <tr>
                                 <th>No</th>
+                                <th>Kode Kelurahan</th>
                                 <th>Nama kelurahan</th>
                                 <th>kecamatan</th>
                                 <th class="text-center">Action</th>
@@ -47,8 +48,9 @@
                                 @foreach ($kelurahan as $kel)
                                 <tr>
                                 <td>{{$no++}}</td>
+                                <td>{{$kel->kode_kelurahan}}</td>
                                 <td>kelurahan {{$kel->nama_kelurahan}}</td>
-                                <td>kelurahan {{$kel->kecamatan->nama_kecamatan}}</td>
+                                <td>kecamatan {{$kel->kecamatan->nama_kecamatan}}</td>
 
                                     <td class="text-center">
                                         <a href="" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>

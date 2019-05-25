@@ -16,7 +16,7 @@ class CreateKelurahanTable extends Migration
         Schema::create('kelurahan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kode_kelurahan');
-            $table->string('nama_kelurahan');
+            $table->string('nama_kelurahan')->length(35);
             $table->bigInteger('kecamatan_id');
             $table->timestamps();
         });

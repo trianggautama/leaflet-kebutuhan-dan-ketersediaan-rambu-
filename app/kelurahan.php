@@ -9,7 +9,7 @@ class kelurahan extends Model
     protected $table ='kelurahan';
 
     protected $fillable = [
-        'kode_kelurahan','nama_kelurahan','id_kecamatan',
+        'kode_kelurahan','nama_kelurahan','kecamatan_id',
     ];
 
     public function kecamatan(){
