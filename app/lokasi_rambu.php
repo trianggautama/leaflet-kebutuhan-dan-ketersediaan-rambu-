@@ -13,15 +13,14 @@ class lokasi_rambu extends Model
     ];
 
     public function rambu(){
-      return $this->hasOne('App\rambu');
+      return $this->belongsTo('App\rambu');
     }
     public function kelurahan(){
-      return $this->hasOne('App\kelurahan');
+      return $this->belongsTo('App\kelurahan');
     }
     public function kebutuhan_rambu(){
-        return $this->hasMany('App\kebutuhan_rambu');
+        return $this->hasOne('App\kebutuhan_rambu');
     }
-
     public function ketersediaan_rambu(){
         return $this->hasMany('App\ketersediaan_rambu');
     }

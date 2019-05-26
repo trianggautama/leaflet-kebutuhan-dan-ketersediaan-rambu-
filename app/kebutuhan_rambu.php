@@ -13,6 +13,6 @@ class kebutuhan_rambu extends Model
     ];
 
     public function lokasi_rambu(){
-        return $this->hasMany('App\lokasi_rambu');
+        return $this->belongsTo('App\lokasi_rambu');
       }
 }

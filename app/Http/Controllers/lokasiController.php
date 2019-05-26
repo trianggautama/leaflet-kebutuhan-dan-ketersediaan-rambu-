@@ -105,9 +105,9 @@ class lokasiController extends Controller
          //funsi kebutuhan rambu
          public function lokasi_kebutuhan_index(){
 
-          $lokasi_kebutuhan=lokasi_rambu::where('status',1)->get();
-
-          return (view('titik_lokasi.lokasi_kebutuhan_rambu',compact('lokasi_kebutuhan')));
+          $lokasi_rambu=lokasi_rambu::where('status',2)->get();
+         // dd($lokasi_kebutuhan);
+          return (view('titik_lokasi.lokasi_kebutuhan_rambu',compact('lokasi_rambu')));
       }
 
       public function lokasi_kebutuhan_tambah(){
@@ -155,7 +155,11 @@ class lokasiController extends Controller
             return redirect(route('lokasi_kebutuhan_index'))->with('success', 'Data Kebutuhan Rambu Berhasil di Tambahkan');
     }//menambah data kebutuhan rambu
 
-
+    public function lokasi_kebutuhan_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $lokasi_rambu=lokasi_rambu::findOrFail($id);
+        return (view('titik_lokasi.lokasi_kebutuhan_rambu_detail',compact('lokasi_rambu')));
+    }
 
       //fungi  ketersediaan rambu
       public function lokasi_ketersediaan_index(){

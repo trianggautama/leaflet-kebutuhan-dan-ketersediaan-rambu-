@@ -58,6 +58,8 @@ Route::get('/kelurahan_hapus/{id}','lokasiController@kelurahan_delete')->name('k
 Route::get('/lokasi_kebutuhan','lokasiController@lokasi_kebutuhan_index')->name('lokasi_kebutuhan_index');
 Route::get('/lokasi_kebutuhan_tambah','lokasiController@lokasi_kebutuhan_tambah')->name('lokasi_kebutuhan_tambah');
 Route::post('/lokasi_kebutuhan_tambah','lokasiController@lokasi_kebutuhan_store')->name('lokasi_kebutuhan_store');
+Route::get('/lokasi_kebutuhan_detail/{id}','lokasiController@lokasi_kebutuhan_detail')->name('lokasi_kebutuhan_detail');
+
 
 // lokasi ketersediaan rambu
 Route::get('/lokasi_ketersediaan','lokasiController@lokasi_ketersediaan_index')->name('lokasi_ketersediaan_index');

@@ -26,9 +26,6 @@
 <script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
 </head>
 <style>
-    #mapid {
-        width:80%;
-        }
         #map { height: 30%; width: 48vw; margin:auto; }
 </style>
 <body id="page-top">
@@ -225,7 +222,7 @@
           $('#myTable').DataTable();
       } );
       </script>
-      
+
 <script>
 	var map = L.map('map');
 
@@ -260,7 +257,7 @@
 
 	map.locate({setView: true, maxZoom: 16});
 </script>
-      
+
 @stack('scripts')
 </body>
 
