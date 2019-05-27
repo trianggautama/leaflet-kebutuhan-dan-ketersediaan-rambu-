@@ -19,18 +19,17 @@
                                  {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Kode Kelurahan</label>
-                                <input type="text"  name="nama_jenis" class="form-control" id="nama_jenis" placeholder="Nama Jenis" value="{{$kelurahan->kode_kelurahan}}">
+                                <input type="text"  name="kode_kelurahan" class="form-control" id="nama_jenis" placeholder="Nama Jenis" value="{{$kelurahan->kode_kelurahan}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Nama Kelurahan</label>
-                                <input type="text"  name="nama_jenis" class="form-control" id="nama_jenis" placeholder="Nama Jenis" value="{{$kelurahan->nama_kelurahan}}">
+                                <input type="text"  name="nama_kelurahan" class="form-control" id="nama_jenis" placeholder="Nama Jenis" value="{{$kelurahan->nama_kelurahan}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputUsername1"> Kecamatan</label>
                                         <select class="form-control" id="exampleSelectGender" name="kecamatan_id">
-                                            <option>-pilih kecamatan-</option>
                                             @foreach ($kecamatan as $kec)
-                                                <option value="{{$kec->id}}">kecamatan {{$kec->nama_kecamatan}}</option>
+                                                <option value="{{$kec->id}}" {{$kelurahan->kecamatan_id == $kec->id ? 'selected' : ''}}>kecamatan {{$kec->nama_kecamatan}}</option>
                                             @endforeach
                                         </select>
                                     </div>

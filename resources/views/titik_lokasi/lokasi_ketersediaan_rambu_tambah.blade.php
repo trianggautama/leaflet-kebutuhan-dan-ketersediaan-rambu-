@@ -8,7 +8,8 @@
                         <div class="card">
                           <div class="card-body">
                             <h4 class="card-title">Tambah Lokasi Kebutuhan Rambu</h4>
-                            <form class="forms-sample" method="post" action="" enctype="multipart/form-data">
+                            <form class="forms-sample" method="post" action="">
+                                 {{method_field('PUT') }}
                                  {{ csrf_field() }}
                                 <div class="row">
                                 <div class="col-md-6">
@@ -35,8 +36,8 @@
                                   <div class="form-group">
                                     <label for="exampleFormControlSelect1">Status Prioritas</label>
                                     <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="prioritas">
-                                      <option value="biasa">Biasa</option>
-                                      <option value="mendesak">Mendesak</option>
+                                      <option>Biasa</option>
+                                      <option>Mendesak</option>
                                     </select>
                                   </div>
                                   <div class="form-group">
@@ -48,7 +49,7 @@
                                       </span>
                                     </div>
                                   </div>
-                                  <input type="hidden" name="status" value="2">
+                                  <input type="hidden" name="status" value="1">
                                 </div>
                                 <div class="col-md-6">
                                   <div class="row">
@@ -82,39 +83,41 @@
                       </div>
         </div>
           @push('scripts')
-        <script>
-            var map = L.map('map');
 
-            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                attribution: 'Klik/tap pada peta untuk menambah koordinat',
-                id: 'mapbox.streets',
-                maxZoom: 18
-            }).addTo(map);
+<script>
+	var map = L.map('map');
 
-            function onLocationFound(e) {
-                var radius = e.accuracy ;
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		attribution: 'Klik/tap pada peta untuk menambah koordinat',
+		maxZoom: 18
 
-                L.circle(e.latlng, radius).addTo(map);
-            }
+	}).addTo(map);
 
-            function onLocationError(e) {
-                alert(e.message);
-            }
-        map.on('click', function(e) {
-                let latitude = e.latlng.lat.toString().substring(0, 15);
-                let longitude = e.latlng.lng.toString().substring(0, 15);
-                $('#latitude').val(latitude);
-                $('#longitude').val(longitude);
-                updateMarker(latitude, longitude);
-            });
-            var updateMarkerByInputs = function() {
-                return updateMarker( $('#latitude').val() , $('#longitude').val());
-            }
-            map.on('locationfound', onLocationFound);
-            map.on('locationerror', onLocationError);
+	function onLocationFound(e) {
+		var radius = e.accuracy ;
 
-            map.locate({setView: true, maxZoom: 16});
-        </script>
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	function onLocationError(e) {
+		alert(e.message);
+	}
+  map.on('click', function(e) {
+        let latitude = e.latlng.lat.toString().substring(0, 15);
+        let longitude = e.latlng.lng.toString().substring(0, 15);
+        $('#latitude').val(latitude);
+        $('#longitude').val(longitude);
+        updateMarker(latitude, longitude);
+    });
+    var updateMarkerByInputs = function() {
+        return updateMarker( $('#latitude').val() , $('#longitude').val());
+    }
+	map.on('locationfound', onLocationFound);
+	map.on('locationerror', onLocationError);
+
+	map.locate({setView: true, maxZoom: 16});
+</script>
+
       @endpush
     </div>
 @endsection

@@ -26,10 +26,10 @@
                         <h4 class="card-title">Tabel Data</h4>
                         <div class="text-right">
                           <a href="/" class="btn btn-sm btn-inverse-primary " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-                          <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>
-                          
+                          <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>                         
                         </div>
                         <br>
+                       <br>
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>
@@ -38,7 +38,6 @@
                                 <th>Kode Rambu</th>
                                 <th>Nama Rambu</th>
                                 <th>Jenis Rambu</th>
-
                                 <th class="text-center">Action</th>
                               </tr>
                             </thead>

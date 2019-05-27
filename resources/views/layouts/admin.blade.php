@@ -26,9 +26,6 @@
 <script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
 </head>
 <style>
-    #mapid {
-        width:80%;
-        }
         #map { height: 30%; width: 48vw; margin:auto; }
 </style>
 <body id="page-top">
@@ -215,52 +212,7 @@
   <script src="{{ asset('/admin/js/dataTables.bootstrap4.js') }}"></script>
   <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
 
-  <!-- End custom js for this page-->
-  <!-- leaflet js-->
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-  integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-  crossorigin=""></script>
-  <script>
-        $(document).ready( function () {
-          $('#myTable').DataTable();
-      } );
-      </script>
-      
-<script>
-	var map = L.map('map');
 
-	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		attribution: 'Klik/tap pada peta untuk menambah koordinat',
-		id: 'mapbox.streets',
-		maxZoom: 18
-
-	}).addTo(map);
-
-	function onLocationFound(e) {
-		var radius = e.accuracy ;
-
-		L.circle(e.latlng, radius).addTo(map);
-	}
-
-	function onLocationError(e) {
-		alert(e.message);
-	}
-    map.on('click', function(e) {
-        let latitude = e.latlng.lat.toString().substring(0, 15);
-        let longitude = e.latlng.lng.toString().substring(0, 15);
-        $('#latitude').val(latitude);
-        $('#longitude').val(longitude);
-        updateMarker(latitude, longitude);
-    });
-    var updateMarkerByInputs = function() {
-        return updateMarker( $('#latitude').val() , $('#longitude').val());
-    }
-	map.on('locationfound', onLocationFound);
-	map.on('locationerror', onLocationError);
-
-	map.locate({setView: true, maxZoom: 16});
-</script>
-      
 @stack('scripts')
 </body>
 

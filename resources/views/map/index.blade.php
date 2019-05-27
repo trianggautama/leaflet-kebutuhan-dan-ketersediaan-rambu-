@@ -14,16 +14,13 @@
                 <h2>Beranda,</h2>
                 <p class="mb-md-0">Selamat datang di beranda admin</p>
               </div>
-              <div class="d-flex">
-                <i class="mdi mdi-home text-muted hover-cursor"></i>
-                <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Beranda&nbsp;/&nbsp;</p>
-              </div>
             </div>
             <div class="d-flex justify-content-between align-items-end flex-wrap">
               <button type="button" class="btn btn-light bg-white btn-icon mr-3 d-none d-md-block " title="profil">
                 <i class="mdi  mdi mdi-printer "></i>
               </button>
-              <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0"><i class="mdi mdi-map-marker-plus "></i> Tambah Lokasi</a>
+              <a href="/home" class="btn btn-sm btn-inverse-danger mt-2 mt-xl-0" style="margin-right:5px"><i class="mdi mdi-close "></i> Kembali</a>
+              <a href="/" class="btn btn-sm btn-inverse-primary mt-2 mt-xl-0"><i class="mdi mdi-map-marker-plus "></i> Tambah Lokasi</a>
             </div>
           </div>
         </div>

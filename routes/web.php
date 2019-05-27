@@ -51,12 +51,20 @@ Route::get('/kecamatan_detail/{id}','lokasiController@kecamatan_detail')->name('
 Route::get('/kelurahan','lokasiController@kelurahan_index')->name('kelurahan_index');
 Route::post('/kelurahan','lokasiController@kelurahan_add')->name('kelurahan_add');
 Route::get('/kelurahan_edit/{id}','lokasiController@kelurahan_edit')->name('kelurahan_edit');
+Route::put('/kelurahan_edit/{id}','lokasiController@kelurahan_update')->name('kelurahan_update');
 Route::get('/kelurahan_hapus/{id}','lokasiController@kelurahan_delete')->name('kelurahan_delete');
 
 //lokasi kebutuhan rambu
 Route::get('/lokasi_kebutuhan','lokasiController@lokasi_kebutuhan_index')->name('lokasi_kebutuhan_index');
 Route::get('/lokasi_kebutuhan_tambah','lokasiController@lokasi_kebutuhan_tambah')->name('lokasi_kebutuhan_tambah');
 Route::post('/lokasi_kebutuhan_tambah','lokasiController@lokasi_kebutuhan_store')->name('lokasi_kebutuhan_store');
+Route::get('/lokasi_kebutuhan_detail/{id}','lokasiController@lokasi_kebutuhan_detail')->name('lokasi_kebutuhan_detail');
+
+
+// lokasi ketersediaan rambu
+Route::get('/lokasi_ketersediaan','lokasiController@lokasi_ketersediaan_index')->name('lokasi_ketersediaan_index');
+Route::get('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_tambah')->name('lokasi_ketersediaan_tambah');
+Route::post('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_store')->name('lokasi_ketersediaan_store');
 
 });
 
