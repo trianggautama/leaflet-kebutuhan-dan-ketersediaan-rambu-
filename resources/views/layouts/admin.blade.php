@@ -147,7 +147,7 @@
             <div class="collapse" id="data_lokasi">
               <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="{{route('lokasi_kebutuhan_index')}}">Lokasi Kebutuhan Rambu</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('rambu_index')}}">Lokasi Ketersediaan Rambu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('lokasi_ketersediaan_index')}}">Lokasi Ketersediaan Rambu</a></li>
               </ul>
             </div>
           </li>
@@ -211,7 +211,11 @@
   <script src="{{ asset('/admin/js/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('/admin/js/dataTables.bootstrap4.js') }}"></script>
   <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
-
+  <script>
+        $(document).ready( function () {
+          $('#myTable').DataTable();
+      } );
+      </script>
 
 @stack('scripts')
 </body>

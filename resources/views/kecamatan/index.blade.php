@@ -1,12 +1,8 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
   <!-- partial -->
   <div class="main-panel">
     <div class="content-wrapper">
-            @include('layouts.errors')
             @include('layouts.alert')
       <div class="row">
         <div class="col-md-12 grid-margin">
@@ -23,6 +19,7 @@
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
                 <div class="card-body">
+                @include('layouts.errors')
                         <h4 class="card-title">Tabel Data</h4>
                         <div class="text-right">
                         <a href="/" class="btn btn-sm btn-inverse-primary btn-icon-text" data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>

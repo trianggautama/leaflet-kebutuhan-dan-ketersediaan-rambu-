@@ -7,6 +7,7 @@
                 <div class="col-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
+                          @include('layouts.errors')
                             <h4 class="card-title">Tambah Lokasi Kebutuhan Rambu</h4>
                             <form class="forms-sample" method="post" action="" enctype="multipart/form-data">
                                  {{ csrf_field() }}

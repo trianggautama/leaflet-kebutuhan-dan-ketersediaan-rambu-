@@ -22,6 +22,6 @@ class lokasi_rambu extends Model
         return $this->hasOne('App\kebutuhan_rambu');
     }
     public function ketersediaan_rambu(){
-        return $this->hasMany('App\ketersediaan_rambu');
+        return $this->hasOne('App\ketersediaan_rambu');
     }
 }

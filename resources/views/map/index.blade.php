@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
   <!-- partial -->
   <div class="main-panel">
@@ -25,12 +22,9 @@
           </div>
         </div>
       </div>
-
-
       <div id="mapid" style="width: 100%; height: 650px"></div>
       @push('scripts')
       <script>
-
             var mymap = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
              L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
               maxZoom: 18,
@@ -39,8 +33,6 @@
                   'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
               id: 'mapbox.streets'
           }).addTo(mymap);
-
-
       </script>
       @endpush
     </div>

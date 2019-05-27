@@ -3,7 +3,6 @@
   <!-- partial -->
   <div class="main-panel">
     <div class="content-wrapper">
-            @include('layouts.errors')
             @include('layouts.alert')
       <div class="row">
         <div class="col-md-12 grid-margin">
@@ -25,7 +24,7 @@
                           <a href="/lokasi_kebutuhan_tambah" class="btn btn-sm btn-inverse-primary " > <i class=" mdi mdi-plus "></i> tabah data</a>
                           <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>
                         </div>
-
+                        <br>
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>

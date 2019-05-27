@@ -65,6 +65,7 @@ Route::get('/lokasi_kebutuhan_detail/{id}','lokasiController@lokasi_kebutuhan_de
 Route::get('/lokasi_ketersediaan','lokasiController@lokasi_ketersediaan_index')->name('lokasi_ketersediaan_index');
 Route::get('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_tambah')->name('lokasi_ketersediaan_tambah');
 Route::post('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_store')->name('lokasi_ketersediaan_store');
+Route::get('/lokasi_ketersediaan_detail/{id}','lokasiController@lokasi_ketersediaan_detail')->name('lokasi_ketersediaan_detail');
 
 });
 

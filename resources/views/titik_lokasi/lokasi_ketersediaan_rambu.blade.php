@@ -3,7 +3,6 @@
   <!-- partial -->
   <div class="main-panel">
     <div class="content-wrapper">
-            @include('layouts.errors')
             @include('layouts.alert')
       <div class="row">
         <div class="col-md-12 grid-margin">
@@ -25,15 +24,16 @@
                           <a href="/lokasi_ketersediaan_tambah" class="btn btn-sm btn-inverse-primary " > <i class=" mdi mdi-plus "></i> tabah data</a>
                           <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>
                         </div>
+                        <br>
                         <div class="table-responsive">
                           <table class="table striped "  id="myTable">
                             <thead>
                               <tr>
                                 <th>No</th>
-                                <th>rambu yang diperlukan</th>
+                                <th>rambu yang terpasang</th>
                                 <th>alamat</th>
-                                <th>tanggal survey</th>
-                                <th>status prioritas</th>
+                                <th>tahun pengadaan</th>
+                                <th>kondisi</th>
                                 <th class="text-center">Action</th>
                               </tr>
                             </thead>
@@ -46,13 +46,21 @@
                                 <td>{{$no++}}</td>
                                 <td>{{$lk->rambu->nama_rambu}}</td>
                                 <td>{{$lk->alamat}}</td>
-                                <td>{{$lk->created_at}}</td>
-                                <td>{{$lk->kebutuhan_rambu->prioritas}}</td>
+                                <td>{{$lk->ketersediaan_rambu->apbn}}</td>
+                                <td>
+                                @if ($lk->ketersediaan_rambu->kondisi == 1)
+                                <span class="badge badge-success">Baik</span>
+                                @elseif ($lk->ketersediaan_rambu->kondisi == 2)
+                                   <label class="badge badge-warning" for=""> Perlu Rehab</label>
+                                @else
+                                   <label class="label-danger" for=""> Hilang</label>
+                                @endif
+                                </td>
                                     <td class="text-center">
-                                        <a href="{{route('rambu_detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{route('lokasi_ketersediaan_detail', ['id' => IDCrypt::Encrypt( $lk->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $lk->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
                                         <button type="button" class="btn btn-inverse-danger" style="padding:6px !important;"
-                                        onclick="Hapus('{{Crypt::encryptString($r->id)}}','{{$r->nama_rambu}}')"><b><i class="mdi mdi-delete"></i></b></button>
+                                        onclick="Hapus('{{Crypt::encryptString($lk->id)}}','{{$lk->nama_rambu}}')"><b><i class="mdi mdi-delete"></i></b></button>
                                     </td>
                                 </tr>
                                 @endforeach

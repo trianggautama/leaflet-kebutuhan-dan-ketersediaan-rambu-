@@ -6,6 +6,7 @@ use App\rambu;
 use App\lokasi_rambu;
 use App\kebutuhan_rambu;
 use App\ketersediaan_rambu;
+use Carbon\Carbon;
 use IDCrypt;
 use Illuminate\Http\Request;
 
@@ -124,6 +125,7 @@ class lokasiController extends Controller
             'kelurahan_id'=>'required',
             'rambu_id'=>'required',
             'alamat'=>'required',
+            'gambar'=>'required|size:5000',
             'latitude'=>'required|unique:lokasi_rambus',
             'longitude'=>'required|unique:lokasi_rambus',
           ]);
@@ -164,18 +166,65 @@ class lokasiController extends Controller
       //fungi  ketersediaan rambu
       public function lokasi_ketersediaan_index(){
 
-        $lokasi_ketersediaan=lokasi_rambu::where('status',2)->get();
+        $lokasi_ketersediaan=lokasi_rambu::where('status',1)->get();
 
         return (view('titik_lokasi.lokasi_ketersediaan_rambu',compact('lokasi_ketersediaan')));
     }
 
     public function lokasi_ketersediaan_tambah(){
-
+        $tgl= Carbon::now()->format('Y');
         $rambu = rambu::all();
         $kelurahan = kelurahan::all();
 
-        return (view('titik_lokasi.lokasi_ketersediaan_rambu_tambah',compact('rambu','kelurahan')));
-    }
+        return (view('titik_lokasi.lokasi_ketersediaan_rambu_tambah',compact('rambu','kelurahan','tgl')));
+    }//menampilkan halman tambah data ketersediaan rambu
+
+    
+    public function lokasi_ketersediaan_store(Request $request){
+      // dd($request);
+       $this->validate(request(),[
+           'kelurahan_id'=>'required',
+           'rambu_id'=>'required',
+           'alamat'=>'required',
+           'latitude'=>'required|unique:lokasi_rambus',
+           'longitude'=>'required|unique:lokasi_rambus',
+         ]);
+
+         $lokasi_rambu = new lokasi_rambu;
+         $lokasi_rambu->kelurahan_id= $request->kelurahan_id;
+         $lokasi_rambu->rambu_id= $request->rambu_id;
+         $lokasi_rambu->alamat= $request->alamat;
+         $lokasi_rambu->latitude= $request->latitude;
+         $lokasi_rambu->longitude= $request->longitude;
+         $lokasi_rambu->status= $request->status;
+         $lokasi_rambu->save();
+
+         $ketersediaan_rambu = new ketersediaan_rambu;
+         $ketersediaan_rambu->lokasi_rambu_id= $lokasi_rambu->id;
+         $ketersediaan_rambu->apbn= $request->apbn;
+         $ketersediaan_rambu->kondisi= $request->kondisi;
+
+         if ($request->gambar) {
+           $FotoExt  = $request->gambar->getClientOriginalExtension();
+           $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->latitude;
+           $gambar     = $FotoName.'.'.$FotoExt;
+           $request->gambar->move('images/ketersediaan_rambu', $gambar);
+           $ketersediaan_rambu->gambar= $gambar;
+       }else {
+           $ketersediaan_rambu->gambar = 'default.png';
+         }
+         $ketersediaan_rambu->save();
+
+           return redirect(route('lokasi_ketersediaan_index'))->with('success', 'Data Kebutuhan Rambu Berhasil di Tambahkan');
+        }//menambah data kebutuhan rambu
+
+        
+        public function lokasi_ketersediaan_detail($id){
+          $id = IDCrypt::Decrypt($id);
+          $lokasi_rambu=lokasi_rambu::findOrFail($id);
+          return (view('titik_lokasi.lokasi_ketersediaan_rambu_detail',compact('lokasi_rambu')));
+       }
+
 
 
 }
