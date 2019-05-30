@@ -21,6 +21,7 @@ class CreateLaporanMasyarakatsTable extends Migration
             $table->text('gambar');
             $table->string('longitude');
             $table->string('latitude');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

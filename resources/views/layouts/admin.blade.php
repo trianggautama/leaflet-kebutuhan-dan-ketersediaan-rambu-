@@ -167,7 +167,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('laporan_masyarakat_data')}}">
               <i class="mdi mdi-email menu-icon"></i>
               <span class="menu-title">Laporan Masyarakat</span>
             </a>

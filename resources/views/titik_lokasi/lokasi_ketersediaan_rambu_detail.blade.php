@@ -12,7 +12,6 @@
               </div>
               <a href="" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Lokasi</a>
             </div>
-            <br>
           </div>
           <div class="col-md-8 grid-margin stretch-card">
             <div class="card">

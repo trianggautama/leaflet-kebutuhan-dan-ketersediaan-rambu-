@@ -30,4 +30,9 @@ class userController extends Controller
         $laporan_masyarakat->save();
           return redirect(route('/laporan_masyarakat'))->with('success', 'Data Berhasil di Tambahkan');
     }
+
+    public function laporan_masyarakat_data(){
+
+        return view('laporan_masyarakat.index');
+    }
 }

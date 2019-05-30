@@ -67,6 +67,11 @@ Route::get('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_t
 Route::post('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_store')->name('lokasi_ketersediaan_store');
 Route::get('/lokasi_ketersediaan_detail/{id}','lokasiController@lokasi_ketersediaan_detail')->name('lokasi_ketersediaan_detail');
 
+
+
+// data laporan Masyarakat
+Route::get('/laporan_masyarakat_data','userController@laporan_masyarakat_data')->name('laporan_masyarakat_data');
+
 });
 
 
