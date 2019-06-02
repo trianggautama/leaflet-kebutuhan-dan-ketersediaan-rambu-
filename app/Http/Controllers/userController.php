@@ -28,11 +28,11 @@ class userController extends Controller
         $laporan_masyarakat->longitude= $request->longitude;
         $laporan_masyarakat->latitude= $request->latitude;
         $laporan_masyarakat->save();
-          return redirect(route('/laporan_masyarakat'))->with('success', 'Data Berhasil di Tambahkan');
+          return redirect(route('laporan_masyarakat'))->with('success', 'Data Berhasil di Tambahkan');
     }
 
     public function laporan_masyarakat_data(){
-
-        return view('laporan_masyarakat.index');
+        $laporan_masyarakat = laporan_masyarakat::all();
+        return view('laporan_masyarakat.index',compact('laporan_masyarakat'));
     }
 }
