@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\laporan_masyarakat;
+Use File;
+use IDCrypt;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -35,4 +37,13 @@ class userController extends Controller
         $laporan_masyarakat = laporan_masyarakat::all();
         return view('laporan_masyarakat.index',compact('laporan_masyarakat'));
     }
+
+    public function laporan_masyarakat_show($id){
+        $id = IDCrypt::Decrypt($id);
+        $laporan_masyarakat = laporan_masyarakat::findOrFail($id);
+        $laporan_masyarakat->status = 1;
+        $laporan_masyarakat->save();
+        return view('laporan_masyarakat.show',compact('laporan_masyarakat'));
+       }//fungsi menampilkan isi laporan masyarakat
+
 }
