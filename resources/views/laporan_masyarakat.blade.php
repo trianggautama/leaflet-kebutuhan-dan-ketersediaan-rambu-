@@ -3,7 +3,7 @@
 
 <section class="feedback-area section-gap relative" id="head">
 				<div class="overlay overlay-bg"></div>
-				<div class="container">			
+				<div class="container">
 					<div class="row feedback-contents justify-content-center align-items-center">
 						<div class="col-lg-6 feedback-left relative d-flex justify-content-center align-items-center">
 							<div class="overlay overlay-bg"></div>
@@ -15,7 +15,7 @@
 							<a class="primary-btn" href="#laporan_masyarakat">Lebih Lanjut</a>
 						</div>
 					</div>
-				</div>	
+				</div>
             </section>
             <br>
             <div class="container" style="padding-right:10%;padding-left:10%;">
@@ -32,7 +32,7 @@
                         <input class="form-control" type="file" accept="image/*" capture="camera" name="gambar"/>
                         <br>
                         <textarea class="form-control" name="keterangan" id="" placeholder="Keterangan Lokasi"></textarea>
-                        <br>                   
+                        <br>
                         <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -49,8 +49,8 @@
                             </div>
                         </div>
                     </div>
-                        </div>                  
-                        <div id='map'></div>      
+                        </div>
+                        <div id='map'></div>
                         <br>
                         <div class="container text-right"  style="padding-right:10%;padding-left:10%;">
                         <input class="btn btn-primary" type="submit" name="submit" value="Submit">

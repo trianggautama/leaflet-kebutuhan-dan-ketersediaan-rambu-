@@ -13,7 +13,7 @@
           <div class="d-flex justify-content-between flex-wrap">
             <div class="d-flex align-items-end flex-wrap">
               <div class="mr-md-3 mr-xl-5">
-                <h2>Data Jenis Rambu,</h2>
+                <h2 >Data Jenis Rambu,</h2>
               </div>
             </div>
 
@@ -48,7 +48,7 @@
                                 <td>{{$no++}}</td>
                                 <td>Rambu {{$jr->nama_jenis}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('jenis_rambu_detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-inverse-success" style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('jenis_rambu_detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-inverse-success" style="padding:6px !important;" > <i class=" mdi mdi-eye "></i></a>
                                         <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-inverse-info" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
                                         <button type="button" class="btn btn-inverse-danger" style="padding:6px !important;"
                                         onclick="Hapus('{{Crypt::encryptString($jr->id)}}','{{$jr->nama_jenis}}')"><b><i class="mdi mdi-delete"></i></b></button>

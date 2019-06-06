@@ -2,7 +2,7 @@
 @section('content')
 <section class="feedback-area section-gap relative" id="head">
 				<div class="overlay overlay-bg"></div>
-				<div class="container">			
+				<div class="container">
 					<div class="row feedback-contents justify-content-center align-items-center">
 						<div class="col-lg-6 feedback-left relative d-flex justify-content-center align-items-center">
 							<div class="overlay overlay-bg"></div>
@@ -14,7 +14,7 @@
 							<a class="primary-btn" href="#laporan_masyarakat">Lebih Lanjut</a>
 						</div>
 					</div>
-				</div>	
+				</div>
 			</section>
 			<!-- End feedback Area -->
 			<!-- Start home-about Area -->
@@ -180,5 +180,4 @@
 					</div>
 				</div>
 			</section>
-			<!-- End feedback Area -->
 			@endsection

@@ -9,7 +9,7 @@
           <div class="d-flex justify-content-between flex-wrap">
             <div class="d-flex align-items-end flex-wrap">
               <div class="mr-md-3 mr-xl-5">
-                <h2>Data Lokasi ketersediaan Rambu,</h2>
+                <h2 >Data Lokasi ketersediaan Rambu,</h2>
               </div>
             </div>
           </div>

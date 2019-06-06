@@ -20,7 +20,7 @@
     + Color Functions Mixins
     + Badge Mixins
     + Blockquote Mixins
-    
+
   * Core Styles
     + Reset Styles
     + Fonts
@@ -43,7 +43,7 @@
     + Lists
     + Tables
   * Plugin overrides
-    + Data-tables  
+    + Data-tables
   * Landing screens
     + Auth
   * Layout
@@ -12895,6 +12895,9 @@ input[type="button"].btn-block {
   border: 1px solid #e7eaed;
   border-radius: 0;
 }
+
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(75, 131, 216, 0.19);}
 
 .card > hr {
   margin-right: 0;

@@ -16,7 +16,7 @@
   <!-- inject:css -->
   <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
   <!-- endinject -->
-  <link rel="shortcut icon" href="admin/images/favicon.png" />
+<link rel="shortcut icon" href="{{asset('images/dishub.png')}}">
   <!--leaflet css-->
 
 	<link rel="shortcut icon" type="image/x-icon" href=" {{ asset('admin/docs/images/favicon.ico') }}" />
@@ -35,8 +35,8 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-        <a class="navbar-brand brand-logo" href="{{route('home')}}">APEL Rambu</a>
-          <a class="navbar-brand brand-logo-mini" href="{{route('home')}}">APEL Rambu</a>
+        <a class="navbar-brand brand-logo" href="{{route('home')}}"><img src="{{asset('images/logo_navbar2.png')}}"/></a>
+          <a class="navbar-brand brand-logo-mini" href="{{route('home')}}"><img src="{{asset('images/dishub.png')}}" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-sort-variant"></span>
           </button>
