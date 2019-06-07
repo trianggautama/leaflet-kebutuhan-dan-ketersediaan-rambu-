@@ -57,19 +57,24 @@
                             <th class="text-center">Action</th>
                           </tr>
                       </thead>
+                         @php
+                            $no=1;
+                        @endphp
                       <tbody>
+                          @foreach ($lokasi_rambu as $lk)
                           <tr>
-                            <td>1</td>
-                            <td>Jl.R.O.Ulin depan Jlaan Pendidikan</td>
-                            <td class="text-center" ><a href="" class="btn btn-sm btn-inverse-primary btn-rounded" style="padding:6px !important;">Titik Ketersediaan Rambu</a></td>
-                            <td class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Jl.Sei Sumba</td>
-                            <td class="text-center"><a href="" class="btn btn-sm btn-inverse-success btn-rounded" style="padding:6px !important;">Titik Kebutuhan Rambu</a></td>
-                            <td  class="text-center"><a href="" class="btn btn-inverse-secondary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
-                          </tr>
+                          <td>{{$no++}}</td>
+                          <td>{{$lk->alamat}}</td>
+                                <td class="text-center" >
+                                    @if ($lk->status == 2)
+                                     <label class="badge badge-primary" for=""> Kebutuhan Rambu</label>
+                                    @else
+                                     <label class="badge badge-success" for=""> Ketersediaan rambu</label>
+                                    @endif
+                                </td>
+                                <td class="text-center"><a href="" class="btn btn-inverse-primary" style="padding:8px !important;"><i class=" mdi mdi-eye "></a></td>
+                              </tr>
+                          @endforeach
                       </tbody>
                   </table>
               </div>

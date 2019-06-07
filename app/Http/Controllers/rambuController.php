@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\jenis_rambu;
 use App\rambu;
+use App\lokasi_rambu;
 Use File;
 use IDCrypt;
 use Illuminate\Http\Request;
@@ -94,7 +95,6 @@ class rambuController extends Controller
           return redirect(route('rambu_index'))->with('success', 'Data rambu '.$request->nama_rambu.' Berhasil di Tambahkan');
       }//fungsi menambahkan data rambu
 
-
       public function rambu_edit($id){
         $id = IDCrypt::Decrypt($id);
         $rambu = rambu::findOrFail($id);
@@ -106,8 +106,9 @@ class rambuController extends Controller
       public function rambu_detail($id){
         $id = IDCrypt::Decrypt($id);
         $rambu = rambu::findOrFail($id);
-        return view('rambu.detail',compact('rambu'));
-       }//fungsi menampilkan Halaman Edit data rambu
+        $lokasi_rambu = lokasi_rambu::where('rambu_id',$id)->get();
+        return view('rambu.detail',compact('rambu','lokasi_rambu'));
+       }//fungsi menampilkan Halaman detail data rambu
 
        public function rambu_update(Request $request, $id){
         $id = IDCrypt::Decrypt($id);

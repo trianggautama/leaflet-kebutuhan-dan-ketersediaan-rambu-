@@ -9,7 +9,7 @@
           <div class="d-flex justify-content-between flex-wrap">
             <div class="d-flex align-items-end flex-wrap">
               <div class="mr-md-3 mr-xl-5">
-                <h2>Detail  Rambu {{$jenis_rambu->nama_jenis}},</h2>
+                <h2>Detail Jenis Rambu {{$jenis_rambu->nama_jenis}},</h2>
               </div>
             </div>
           </div>
@@ -43,13 +43,13 @@
                                 <td>{{$r->nama_rambu}}</td>
                                 <td>{{$r->jenis_rambu->nama_jenis}}</td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-secondary "> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-info"> <i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{route('jenis_rambu_hapus', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                                        <a href="{{route('rambu_detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
+                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
+                                        <button type="button" class="btn btn-inverse-danger" style="padding:6px !important;"
+                                        onclick="Hapus('{{Crypt::encryptString($r->id)}}','{{$r->nama_rambu}}')"><b><i class="mdi mdi-delete"></i></b></button>
                                     </td>
                                 </tr>
                                 @endforeach
-
                             </tbody>
                           </table>
                         </div>
@@ -61,3 +61,44 @@
     </div>
 
 @endsection
+
+
+<script>
+    function Hapus(id,nama_rambu)
+    {
+      const swalWithBootstrapButtons = swal.mixin({
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: false,
+    })
+
+    swalWithBootstrapButtons({
+      title: 'apa anda yakin?',
+      text:  " Menghapus Rambu '"+nama_rambu+"' juga akan menghapus data Lokasi yang berelasi",
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'hapus data',
+      cancelButtonText: 'batal',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        swalWithBootstrapButtons(
+          'Deleted!',
+          "Data kelurahan '"+nama_rambu+"' Akan di Hapus",
+          'success'
+        );
+         window.location = "/rambu_hapus/"+id;
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons(
+          'Dibatalkan',
+          'data batal dihapus',
+          'error'
+        )
+      }
+    })
+
+    }
+    </script>

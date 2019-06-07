@@ -58,7 +58,7 @@
                                 </td>
                                     <td class="text-center">
                                         <a href="{{route('lokasi_ketersediaan_detail', ['id' => IDCrypt::Encrypt( $lk->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
-                                        <a href="{{route('rambu_edit', ['id' => IDCrypt::Encrypt( $lk->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{route('lokasi_ketersediaan_edit', ['id' => IDCrypt::Encrypt( $lk->id)])}}" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
                                         <button type="button" class="btn btn-inverse-danger" style="padding:6px !important;"
                                         onclick="Hapus('{{Crypt::encryptString($lk->id)}}','{{$lk->alamat}}')"><b><i class="mdi mdi-delete"></i></b></button>
                                     </td>

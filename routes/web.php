@@ -1,16 +1,4 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -59,6 +47,8 @@ Route::get('/lokasi_kebutuhan','lokasiController@lokasi_kebutuhan_index')->name(
 Route::get('/lokasi_kebutuhan_tambah','lokasiController@lokasi_kebutuhan_tambah')->name('lokasi_kebutuhan_tambah');
 Route::post('/lokasi_kebutuhan_tambah','lokasiController@lokasi_kebutuhan_store')->name('lokasi_kebutuhan_store');
 Route::get('/lokasi_kebutuhan_detail/{id}','lokasiController@lokasi_kebutuhan_detail')->name('lokasi_kebutuhan_detail');
+Route::get('/lokasi_kebutuhan_edit/{id}','lokasiController@lokasi_kebutuhan_edit')->name('lokasi_kebutuhan_edit');
+Route::put('/lokasi_kebutuhan_edit/{id}','lokasiController@lokasi_kebutuhan_update')->name('lokasi_kebutuhan_update');
 Route::get('/lokasi_kebutuhan_hapus/{id}','lokasiController@lokasi_kebutuhan_hapus')->name('lokasi_kebutuhan_hapus');
 
 
@@ -67,6 +57,8 @@ Route::get('/lokasi_ketersediaan','lokasiController@lokasi_ketersediaan_index')-
 Route::get('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_tambah')->name('lokasi_ketersediaan_tambah');
 Route::post('/lokasi_ketersediaan_tambah','lokasiController@lokasi_ketersediaan_store')->name('lokasi_ketersediaan_store');
 Route::get('/lokasi_ketersediaan_detail/{id}','lokasiController@lokasi_ketersediaan_detail')->name('lokasi_ketersediaan_detail');
+Route::get('/lokasi_ketersediaan_edit/{id}','lokasiController@lokasi_ketersediaan_edit')->name('lokasi_ketersediaan_edit');
+Route::put('/lokasi_ketersediaan_edit/{id}','lokasiController@lokasi_ketersediaan_update')->name('lokasi_ketersediaan_update');
 Route::get('/lokasi_ketersediaan_hapus/{id}','lokasiController@lokasi_ketersediaan_hapus')->name('lokasi_ketersediaan_hapus');
 
 // data laporan Masyarakat
