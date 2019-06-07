@@ -134,4 +134,5 @@ class rambuController extends Controller
         return redirect(route('rambu_index'));
     }//fungsi menghapus data rambu
 
+
 }

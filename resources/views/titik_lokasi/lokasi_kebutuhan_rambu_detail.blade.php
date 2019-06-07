@@ -8,7 +8,7 @@
             <div class="card">
               <div class="card-body text-center ">
                 <h4 class="card-title">Foto Lokasi</h4>
-              <img src="/images/kebutuhan_rambu/{{$lokasi_rambu->kebutuhan_rambu->gambar}}" width="100% "alt="">
+              <img src="/images/kebutuhan_rambu/{{ $lokasi_rambu->kebutuhan_rambu->gambar}}" width="100% "alt="">
               </div>
               <a href="" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Lokasi</a>
             </div>

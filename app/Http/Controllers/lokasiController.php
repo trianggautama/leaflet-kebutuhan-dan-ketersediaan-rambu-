@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+Use File;
 use App\kecamatan;
 use App\kelurahan;
 use App\rambu;
@@ -125,7 +126,7 @@ class lokasiController extends Controller
             'kelurahan_id'=>'required',
             'rambu_id'=>'required',
             'alamat'=>'required',
-            'gambar'=>'required|size:5000',
+            'gambar'=>'required',
             'latitude'=>'required|unique:lokasi_rambus',
             'longitude'=>'required|unique:lokasi_rambus',
           ]);
@@ -145,7 +146,7 @@ class lokasiController extends Controller
 
           if ($request->gambar) {
             $FotoExt  = $request->gambar->getClientOriginalExtension();
-            $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->latitude;
+            $FotoName = 'lokasi-'.$request->kelurahan_id.'-'. $request->latitude;
             $gambar     = $FotoName.'.'.$FotoExt;
             $request->gambar->move('images/kebutuhan_rambu', $gambar);
             $kebutuhan_rambu->gambar= $gambar;
@@ -161,6 +162,18 @@ class lokasiController extends Controller
         $id = IDCrypt::Decrypt($id);
         $lokasi_rambu=lokasi_rambu::findOrFail($id);
         return (view('titik_lokasi.lokasi_kebutuhan_rambu_detail',compact('lokasi_rambu')));
+    }
+
+    public function lokasi_kebutuhan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $lokasi_rambu=lokasi_rambu::findOrFail($id);
+        //dd($lokasi_rambu->kebutuhan_rambu->gambar);
+        $gambar = $lokasi_rambu->kebutuhan_rambu->gambar;
+        //  dd($gambar);
+        File::delete('/images/kebutuhan_rambu/'.$gambar);
+         $lokasi_rambu->kebutuhan_rambu->delete();
+         $lokasi_rambu->delete();
+         return redirect(route('lokasi_kebutuhan_index'));
     }
 
       //fungi  ketersediaan rambu
@@ -179,7 +192,7 @@ class lokasiController extends Controller
         return (view('titik_lokasi.lokasi_ketersediaan_rambu_tambah',compact('rambu','kelurahan','tgl')));
     }//menampilkan halman tambah data ketersediaan rambu
 
-    
+
     public function lokasi_ketersediaan_store(Request $request){
       // dd($request);
        $this->validate(request(),[
@@ -218,13 +231,24 @@ class lokasiController extends Controller
            return redirect(route('lokasi_ketersediaan_index'))->with('success', 'Data Kebutuhan Rambu Berhasil di Tambahkan');
         }//menambah data kebutuhan rambu
 
-        
+
         public function lokasi_ketersediaan_detail($id){
           $id = IDCrypt::Decrypt($id);
           $lokasi_rambu=lokasi_rambu::findOrFail($id);
           return (view('titik_lokasi.lokasi_ketersediaan_rambu_detail',compact('lokasi_rambu')));
        }
 
+       public function lokasi_ketersediaan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $lokasi_rambu=lokasi_rambu::findOrFail($id);
+        //dd($lokasi_rambu->kebutuhan_rambu->gambar);
+        $gambar = $lokasi_rambu->ketersediaan_rambu->gambar;
+        //  dd($gambar);
+        File::delete('/images/ketersediaan_rambu/'.$gambar);
+         $lokasi_rambu->ketersediaan_rambu->delete();
+         $lokasi_rambu->delete();
+         return redirect(route('lokasi_ketersediaan_index'));
+    }
 
 
 }

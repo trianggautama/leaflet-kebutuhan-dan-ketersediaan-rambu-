@@ -52,7 +52,7 @@
                                         <a href="{{route('lokasi_kebutuhan_detail', ['id' => IDCrypt::Encrypt( $lk->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;"> <i class=" mdi mdi-eye "></i></a>
                                         <a href="" class="btn btn-inverse-primary" style="padding:6px !important;"> <i class="mdi mdi-pencil"></i></a>
                                         <button type="button" class="btn btn-inverse-danger" style="padding:6px !important;"
-                                        onclick="Hapus('{{Crypt::encryptString($lk->id)}}','{{$lk->nama_rambu}}')"><b><i class="mdi mdi-delete"></i></b></button>
+                                        onclick="Hapus('{{Crypt::encryptString($lk->id)}}','{{$lk->alamat}}')"><b><i class="mdi mdi-delete"></i></b></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -72,17 +72,17 @@
 
 
 <script>
-        function Hapus(id,nama_rambu)
+        function Hapus(id,alamat)
         {
           const swalWithBootstrapButtons = swal.mixin({
-          confirmButtonClass: 'btn btn-success',
-          cancelButtonClass: 'btn btn-danger',
+          confirmButtonClass: 'btn btn-inverse-primary',
+          cancelButtonClass: 'btn btn-inverse-danger',
           buttonsStyling: false,
         })
 
         swalWithBootstrapButtons({
           title: 'apa anda yakin?',
-          text:  " Menghapus Rambu '"+nama_rambu+"' juga akan menghapus data Lokasi yang berelasi",
+          text:  " Menghapus data kebutuhan rambu di'"+alamat+"'",
           type: 'question',
           showCancelButton: true,
           confirmButtonText: 'hapus data',
@@ -92,10 +92,10 @@
           if (result.value) {
             swalWithBootstrapButtons(
               'Deleted!',
-              "Data kelurahan '"+nama_rambu+"' Akan di Hapus",
+              "Data  Akan di Hapus",
               'success'
             );
-             window.location = "/rambu_hapus/"+id;
+             window.location = "/lokasi_kebutuhan_hapus/"+id;
           } else if (
             // Read more about handling dismissals
             result.dismiss === swal.DismissReason.cancel
