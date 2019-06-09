@@ -139,12 +139,21 @@ class rambuController extends Controller
 
     public function rambu_keseluruhan_cetak(){
         $rambu =rambu::all();
-       // $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
+    // $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
         $tgl= Carbon::now()->format('d-m-Y');
-    $pdf =PDF::loadView('laporan.rambu_keseluruhan', ['rambu' => $rambu,'tgl'=>$tgl]);
-    $pdf->setPaper('a4', 'potrait');
-     return $pdf->download('Laporan rambu Keseluruhan.pdf');
+        $pdf =PDF::loadView('laporan.rambu_keseluruhan', ['rambu' => $rambu,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->download('Laporan rambu Keseluruhan.pdf');
     }//fungsi membuat laporan rambu  pdf
 
+    public function rambu_detail_cetak($id){
+        $id = IDCrypt::Decrypt($id);
+        $rambu =rambu::findOrFail($id);
+        $lokasi_rambu = lokasi_rambu::where('rambu_id', $id)->get();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf =PDF::loadView('laporan.rambu_detail', ['rambu' => $rambu,'lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->download('Laporan data per-rambu.pdf');
+    }//fungsi membuat laporan rambu detail pdf
 
 }

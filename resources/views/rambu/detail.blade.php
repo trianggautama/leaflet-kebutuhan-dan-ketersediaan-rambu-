@@ -10,7 +10,7 @@
                 <h4 class="card-title">Foto Rambu</h4>
               <img src="/images/rambu/{{$rambu->gambar}}" width="250"alt="">
               </div>
-              <a href="" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Rambu</a>
+              <a href="{{route('rambu_detail_cetak', ['id' => IDCrypt::Encrypt( $rambu->id)])}}" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Rambu</a>
             </div>
           </div>
           <div class="col-md-8 grid-margin stretch-card">

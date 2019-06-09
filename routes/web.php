@@ -21,6 +21,7 @@ Route::get('/jenis_rambu_edit/{id}','rambuController@jenis_rambu_edit')->name('j
 Route::get('/jenis_rambu_detail/{id}','rambuController@jenis_rambu_detail')->name('jenis_rambu_detail');
 Route::put('/jenis_rambu_edit/{id}','rambuController@jenis_rambu_update')->name('jenis_rambu_update');
 Route::get('/jenis_rambu_hapus/{id}','rambuController@jenis_rambu_hapus')->name('jenis_rambu_hapus');
+
 //Route Rambu
 Route::get('/rambu','rambuController@rambu_index')->name('rambu_index');
 Route::post('/rambu','rambuController@rambu_add')->name('rambu_add');
@@ -29,6 +30,8 @@ Route::get('/rambu_edit/{id}','rambuController@rambu_edit')->name('rambu_edit');
 Route::put('/rambu_edit/{id}','rambuController@rambu_update')->name('rambu_update');
 Route::get('/rambu_hapus/{id}','rambuController@rambu_hapus')->name('rambu_hapus');
 Route::get('/rambu_keseluruhan_cetak','rambuController@rambu_keseluruhan_cetak')->name('rambu_keseluruhan_cetak');
+Route::get('/rambu_detail_cetak/{id}','rambuController@rambu_detail_cetak')->name('rambu_detail_cetak');
+
 
 
 //kecamatan
