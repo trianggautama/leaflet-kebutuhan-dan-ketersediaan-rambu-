@@ -28,6 +28,8 @@ Route::get('/rambu_detail/{id}','rambuController@rambu_detail')->name('rambu_det
 Route::get('/rambu_edit/{id}','rambuController@rambu_edit')->name('rambu_edit');
 Route::put('/rambu_edit/{id}','rambuController@rambu_update')->name('rambu_update');
 Route::get('/rambu_hapus/{id}','rambuController@rambu_hapus')->name('rambu_hapus');
+Route::get('/rambu_keseluruhan_cetak','rambuController@rambu_keseluruhan_cetak')->name('rambu_keseluruhan_cetak');
+
 
 //kecamatan
 Route::get('/kecamatan','lokasiController@kecamatan_index')->name('kecamatan_index');
@@ -50,7 +52,6 @@ Route::get('/lokasi_kebutuhan_detail/{id}','lokasiController@lokasi_kebutuhan_de
 Route::get('/lokasi_kebutuhan_edit/{id}','lokasiController@lokasi_kebutuhan_edit')->name('lokasi_kebutuhan_edit');
 Route::put('/lokasi_kebutuhan_edit/{id}','lokasiController@lokasi_kebutuhan_update')->name('lokasi_kebutuhan_update');
 Route::get('/lokasi_kebutuhan_hapus/{id}','lokasiController@lokasi_kebutuhan_hapus')->name('lokasi_kebutuhan_hapus');
-
 
 // lokasi ketersediaan rambu
 Route::get('/lokasi_ketersediaan','lokasiController@lokasi_ketersediaan_index')->name('lokasi_ketersediaan_index');

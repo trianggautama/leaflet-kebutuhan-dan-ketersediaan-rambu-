@@ -6,6 +6,8 @@ use App\rambu;
 use App\lokasi_rambu;
 Use File;
 use IDCrypt;
+use PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class rambuController extends Controller
@@ -134,6 +136,15 @@ class rambuController extends Controller
 
         return redirect(route('rambu_index'));
     }//fungsi menghapus data rambu
+
+    public function rambu_keseluruhan_cetak(){
+        $rambu =rambu::all();
+       // $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
+        $tgl= Carbon::now()->format('d-m-Y');
+    $pdf =PDF::loadView('laporan.rambu_keseluruhan', ['rambu' => $rambu,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+     return $pdf->download('Laporan rambu Keseluruhan.pdf');
+    }//fungsi membuat laporan rambu  pdf
 
 
 }
