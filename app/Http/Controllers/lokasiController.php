@@ -8,6 +8,7 @@ use App\lokasi_rambu;
 use App\kebutuhan_rambu;
 use App\ketersediaan_rambu;
 use Carbon\Carbon;
+use PDF;
 use IDCrypt;
 use Illuminate\Http\Request;
 
@@ -307,6 +308,15 @@ class lokasiController extends Controller
          $lokasi_rambu->ketersediaan_rambu->delete();
          $lokasi_rambu->delete();
          return redirect(route('lokasi_ketersediaan_index'));
+    }
+
+    public function lokasi_kebutuhan_keseluruhan_cetak(){
+      //dd('tes');
+      $lokasi_rambu = lokasi_rambu::where('status', 2)->get();
+      $tgl= Carbon::now()->format('d-m-Y');
+      $pdf =PDF::loadView('laporan.kebutuhan_rambu_keseluruhan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+      $pdf->setPaper('a4', 'potrait');
+      return $pdf->download('Laporan data kebutuhan rambu keseluruhan.pdf');
     }
 
 

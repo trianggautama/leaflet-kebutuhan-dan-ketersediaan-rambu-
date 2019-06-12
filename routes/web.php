@@ -55,6 +55,8 @@ Route::get('/lokasi_kebutuhan_detail/{id}','lokasiController@lokasi_kebutuhan_de
 Route::get('/lokasi_kebutuhan_edit/{id}','lokasiController@lokasi_kebutuhan_edit')->name('lokasi_kebutuhan_edit');
 Route::put('/lokasi_kebutuhan_edit/{id}','lokasiController@lokasi_kebutuhan_update')->name('lokasi_kebutuhan_update');
 Route::get('/lokasi_kebutuhan_hapus/{id}','lokasiController@lokasi_kebutuhan_hapus')->name('lokasi_kebutuhan_hapus');
+Route::get('/lokasi_kebutuhan_keseluruhan_cetak','lokasiController@lokasi_kebutuhan_keseluruhan_cetak')->name('lokasi_kebutuhan_keseluruhan_cetak');
+
 
 // lokasi ketersediaan rambu
 Route::get('/lokasi_ketersediaan','lokasiController@lokasi_ketersediaan_index')->name('lokasi_ketersediaan_index');
@@ -64,6 +66,8 @@ Route::get('/lokasi_ketersediaan_detail/{id}','lokasiController@lokasi_ketersedi
 Route::get('/lokasi_ketersediaan_edit/{id}','lokasiController@lokasi_ketersediaan_edit')->name('lokasi_ketersediaan_edit');
 Route::put('/lokasi_ketersediaan_edit/{id}','lokasiController@lokasi_ketersediaan_update')->name('lokasi_ketersediaan_update');
 Route::get('/lokasi_ketersediaan_hapus/{id}','lokasiController@lokasi_ketersediaan_hapus')->name('lokasi_ketersediaan_hapus');
+Route::get('/lokasi_ketersediaan_keseluruhan_cetak','lokasiController@lokasi_ketersediaan_keseluruhan_cetak')->name('lokasi_ketersediaan_keseluruhan_cetak');
+
 
 // data laporan Masyarakat
 Route::get('/laporan_masyarakat_data','userController@laporan_masyarakat_data')->name('laporan_masyarakat_data');
