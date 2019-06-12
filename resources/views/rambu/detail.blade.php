@@ -18,26 +18,14 @@
               <div class="card-body">
               <br>
                 <h4 class="card-title">Keterangan</h4>
-                <div class="row">
-                    <div class="col-md-3 col-xs-3">
-                        <h5>Kode Rambu :</h5>
-                        <hr>
-                        <h5>Nama Rambu :</h5>
-                        <hr>
-                        <h5>Jenis Rambu :</h5>
-                        <hr>
-                        <h5>Keterangan :</h5>
-                    </div>
-                    <div class="col-md-9 col-xs-9">
-                        <h5>  {{$rambu->kode_rambu}}</h5>
-                        <hr>
-                        <h5>  {{$rambu->nama_rambu}}</h5>
-                        <hr>
-                        <h5>  {{$rambu->jenis_rambu->nama_jenis}}</h5>
-                        <hr>
-                        <h5>  {{$rambu->keterangan}}</h5>
-                    </div>
-                </div>
+
+                <h5>Kode Rambu : -  {{$rambu->kode_rambu}}</h5>
+                <br>
+                <h5>Nama Rambu : -  {{$rambu->nama_rambu}}</h5>
+                <br>
+                <h5>Jenis Rambu : - {{$rambu->jenis_rambu->nama_jenis}}</h5>
+                <br>
+                <h5>Keterangan : -{{$rambu->keterangan}}</h5>
               </div>
             </div>
           </div>

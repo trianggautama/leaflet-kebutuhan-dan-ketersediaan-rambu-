@@ -13,6 +13,7 @@
               <a href="" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Lokasi</a>
             </div>
           </div>
+
           <div class="col-md-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body dashboard-tabs p-0">
@@ -23,35 +24,16 @@
                   </ul>
                   <div class="tab-content py-0 px-0">
                     <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-                        <div class="card">
                             <div class="card-body">
-                            <br>
-                              <div class="row">
-                                  <div class="col-md-3 col-xs-3">
-                                      <h5>Kebutuhan Rambu :</h5>
-                                      <hr>
-                                      <h5>Alamat :</h5>
-                                      <hr>
-                                      <h5>Kelurahan :</h5>
-                                      <hr>
-                                      <h5>tahun pengadaan :</h5>
-                                      <hr>
-                                      <h5>Kondisi :</h5>
-                                      <hr>
-                                      <h5>longitude :</h5>
-                                      <hr>
-                                      <h5>latitude  :</h5>
-                                  </div>
-                                  <div class="col-md-9 col-xs-9">
-                                      <h5>  {{$lokasi_rambu->rambu->nama_rambu}}</h5>
-                                      <hr>
-                                      <h5>  {{$lokasi_rambu->alamat}}</h5>
-                                      <hr>
-                                      <h5>  {{$lokasi_rambu->kelurahan->nama_kelurahan}}</h5>
-                                      <hr>
-                                      <h5>  {{$lokasi_rambu->ketersediaan_rambu->apbn}}</h5>
-                                      <hr>
-                                      <h5>  @if ($lokasi_rambu->ketersediaan_rambu->kondisi == 1)
+                                    <h5>Kebutuhan Rambu : -  {{$lokasi_rambu->rambu->nama_rambu}}</h5>
+                                    <br>
+                                    <h5>Kelurahan : -  {{$lokasi_rambu->kelurahan->nama_kelurahan}}</h5>
+                                    <br>
+                                    <h5>Alamat : - {{$lokasi_rambu->alamat}}</h5>
+                                    <br>
+                                    <h5>APBN : - {{$lokasi_rambu->ketersediaan_rambu->apbn}}</h5>
+                                    <br>
+                                    <h5>Kondisi : -  @if ($lokasi_rambu->ketersediaan_rambu->kondisi == 1)
                                               <span class="badge badge-success">Baik</span>
                                             @elseif ($lokasi_rambu->ketersediaan_rambu->kondisi == 2)
                                               <label class="badge badge-warning" for=""> Perlu Rehab</label>
@@ -59,14 +41,11 @@
                                               <label class="label-danger" for=""> Hilang</label>
                                              @endif
                                      </h5>
-                                      <hr>
-                                      <h5>  {{$lokasi_rambu->longitude}}</h5>
-                                      <hr>
-                                      <h5>  {{$lokasi_rambu->latitude}}</h5>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
+                                    <br>
+                                    <h5>longitude :  - {{$lokasi_rambu->longitude}}</h5>
+                                    <br>
+                                    <h5>latitude  : - {{$lokasi_rambu->latitude}}</h5>
+                                </div>
                     </div>
                   </div>
                 </div>
