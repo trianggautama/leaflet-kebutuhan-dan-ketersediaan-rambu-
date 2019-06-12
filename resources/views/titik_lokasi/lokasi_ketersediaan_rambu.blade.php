@@ -22,7 +22,7 @@
                         <h4 class="card-title">Tabel Data</h4>
                         <div class="text-right">
                           <a href="/lokasi_ketersediaan_tambah" class="btn btn-sm btn-inverse-primary " > <i class=" mdi mdi-plus "></i> tabah data</a>
-                          <a href="/" class="btn btn-sm btn-inverse-info " data-toggle="modal" data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> cetak data</a>
+                          <a href="{{route('lokasi_ketersediaan_keseluruhan_cetak')}}" class="btn btn-sm btn-inverse-info "> <i class=" mdi mdi-printer "></i> cetak data</a>
                         </div>
                         <br>
                         <div class="table-responsive">
