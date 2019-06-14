@@ -39,6 +39,18 @@ class rambuController extends Controller
         //dd($rambu);
         return view('jenis_rambu.detail',compact('rambu','jenis_rambu'));
     }
+    public function jenis_rambu_detail_cetak($id){
+        //ßdd('sukses');
+        $id = IDCrypt::Decrypt($id);
+        $jenis_rambu= jenis_rambu::findOrFail($id);
+        $rambu = rambu::where('jenis_rambu_id', $id)->get();
+
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf =PDF::loadView('laporan.jenis_rambu_detail', ['rambu' => $rambu,'jenis_rambu'=>$jenis_rambu,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->download('Laporan data per-rambu.pdf');
+        //dd($rambu);
+    }
 
     public function jenis_rambu_edit($id){
         $id = IDCrypt::Decrypt($id);
