@@ -10,9 +10,10 @@
                 <div class="d-flex justify-content-between flex-wrap">
                     <div class="d-flex align-items-end flex-wrap">
                         <div class="mr-md-3 mr-xl-5">
-                            <h2>Data Jenis Rambu,</h2>
+                            <h2>Data Pejabat Struktural,</h2>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -22,8 +23,10 @@
                     <div class="card-body">
                         <h4 class="card-title">Tabel Data</h4>
                         <div class="text-right">
-                            <a href="" class="btn btn-sm btn-inverse-primary " data-toggle="modal"
+                            <a href="/" class="btn btn-sm btn-inverse-primary mt-2 mt-xl-0" data-toggle="modal"
                                 data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
+                            <a href="/" class="btn btn-sm btn-inverse-info mt-2 mt-xl-0" data-toggle="modal"
+                                data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> Cetak data</a>
                         </div>
                         <br>
                         <div class="table-responsive">
@@ -31,7 +34,10 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Jenis Rambu</th>
+                                        <th>NIP</th>
+                                        <th>Nama Pejabat</th>
+                                        <th>Golongan</th>
+                                        <th>Jabatan</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -39,20 +45,22 @@
                                     @php
                                     $no=1;
                                     @endphp
-                                    @foreach ($jenis_rambu as $jr)
+                                    @foreach ($pejabat_struktural as $ps)
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>Rambu {{$jr->nama_jenis}}</td>
+                                        <td>{{$ps->nip}}</td>
+                                        <td> {{$ps->nama_pejabat}}</td>
+                                        <td> {{$ps->pangkat}}</td>
+                                        <td> {{$ps->jabatan}}</td>
                                         <td class="text-center">
-                                            <a href="{{route('jenis_rambu_detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}"
-                                                class="btn btn-inverse-success" style="padding:6px !important;"> <i
-                                                    class=" mdi mdi-eye "></i></a>
-                                            <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}"
+                                            <a href="" class="btn btn-inverse-success " style="padding:6px !important;">
+                                                <i class=" mdi mdi-eye "></i></a>
+                                            <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $ps->id)])}}"
                                                 class="btn btn-inverse-info" style="padding:6px !important;"> <i
                                                     class="mdi mdi-pencil"></i></a>
                                             <button type="button" class="btn btn-inverse-danger"
                                                 style="padding:6px !important;"
-                                                onclick="Hapus('{{Crypt::encryptString($jr->id)}}','{{$jr->nama_jenis}}')"><b><i
+                                                onclick="Hapus('{{Crypt::encryptString($ps->id)}}','{{$ps->nama_pejabat}}')"><b><i
                                                         class="mdi mdi-delete"></i></b></button>
                                         </td>
                                     </tr>
@@ -83,14 +91,32 @@
                 <div class="modal-body">
                     <form class="forms-sample" method="post" action="">
                         <div class="form-group">
-                            <label for="exampleInputUsername1">Nama Jenis</label>
-                            <input type="text" class="form-control" id="nama_jenis" name="nama_jenis"
-                                placeholder="Nama jenis rambu">
+                            <label for="exampleInputUsername1">NIP</label>
+                            <input type="text" class="form-control" id="kode_kelurahan" name="nip"
+                                placeholder="NIP">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Nama Pejabat</label>
+                            <input type="text" class="form-control" id="nama_kelurahan" name="nama_pejabat"
+                                placeholder="Nama Pejabat" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Pangkat</label>
+                            <input type="text" class="form-control" id="nama_kelurahan" name="pangkat"
+                                placeholder="Pangkat" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1"> Jabatan</label>
+                            <select class="form-control" id="exampleSelectGender" name="jabatan">
+                                <option>-pilih jabatan-</option>
+                                <option value="KEPALA DINAS">Kepala Dinas Perhubungan</option>
+                                <option value="KASI REKSA">Kasi Rekayasa Lalu-lintas</option>
+                            </select>
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-                    <input class="btn btn-inverse-primary" type="submit" name="submit" value="Submit">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
                     {{csrf_field() }}
                     </form>
                 </div>
@@ -102,7 +128,7 @@
 
 
     <script>
-        function Hapus(id, nama_jenis) {
+        function Hapus(id, nama_pejabat) {
             const swalWithBootstrapButtons = swal.mixin({
                 confirmButtonClass: 'btn btn-success',
                 cancelButtonClass: 'btn btn-danger',
@@ -111,8 +137,8 @@
 
             swalWithBootstrapButtons({
                 title: 'apa anda yakin?',
-                text: " Menghapus Data jenis rambu '" + nama_jenis +
-                    "'juga akan menghapus data rambu yang berelasi , tetap lanjutkan ?",
+                text: " Menghapus Pejabat '" + nama_pejabat +
+                    "' juga akan menghapus data lokasi yang berelasi",
                 type: 'question',
                 showCancelButton: true,
                 confirmButtonText: 'hapus data',
@@ -122,10 +148,10 @@
                 if (result.value) {
                     swalWithBootstrapButtons(
                         'Deleted!',
-                        "Data kelurahan '" + nama_jenis + "' Akan di Hapus",
+                        "Data Pejabat '" + nama_pejabat + "' Akan di Hapus",
                         'success'
                     );
-                    window.location = "/jenis_rambu_hapus/" + id;
+                    window.location = "/pejabat_struktural_hapus/" + id;
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel
