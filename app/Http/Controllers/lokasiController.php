@@ -314,7 +314,8 @@ class lokasiController extends Controller
       //dd('tes');
       $lokasi_rambu = lokasi_rambu::where('status', 2)->get();
       $tgl= Carbon::now()->format('d-m-Y');
-      $pdf =PDF::loadView('laporan.kebutuhan_rambu_keseluruhan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+      $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+      $pdf =PDF::loadView('laporan.kebutuhan_rambu_keseluruhan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
       $pdf->setPaper('a4', 'potrait');
       return $pdf->download('Laporan data kebutuhan rambu keseluruhan.pdf');
     }//cetak laporan kebutuhan rambu keseluruhan
@@ -323,7 +324,8 @@ class lokasiController extends Controller
       //dd('tes');
       $lokasi_rambu = lokasi_rambu::where('status', 1)->get();
       $tgl= Carbon::now()->format('d-m-Y');
-      $pdf =PDF::loadView('laporan.ketersediaan_rambu_keseluruhan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+      $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+      $pdf =PDF::loadView('laporan.ketersediaan_rambu_keseluruhan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
       $pdf->setPaper('a4', 'potrait');
       return $pdf->download('Laporan data ketersediaan rambu keseluruhan.pdf');
     }//cetak laporan kebutuhan rambu keseluruhan

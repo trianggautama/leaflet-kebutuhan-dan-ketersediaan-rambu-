@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\jenis_rambu;
 use App\rambu;
 use App\lokasi_rambu;
+use App\pejabat_struktural;
 Use File;
 use IDCrypt;
 use PDF;
@@ -29,7 +30,7 @@ class rambuController extends Controller
           $jenis_rambu->nama_jenis= $request->nama_jenis;
           $jenis_rambu->save();
 
-            return redirect(route('jenis_rambu_index'))->with('success', 'Data Jenis rambu '.$request->nama_jenis.' Berhasil di Simpan');
+          return redirect(route('jenis_rambu_index'))->with('success', 'Data Jenis rambu '.$request->nama_jenis.' Berhasil di Simpan');
     }
 
     public function jenis_rambu_detail($id){
@@ -39,14 +40,16 @@ class rambuController extends Controller
         //dd($rambu);
         return view('jenis_rambu.detail',compact('rambu','jenis_rambu'));
     }
+
     public function jenis_rambu_detail_cetak($id){
         //ßdd('sukses');
         $id = IDCrypt::Decrypt($id);
         $jenis_rambu= jenis_rambu::findOrFail($id);
         $rambu = rambu::where('jenis_rambu_id', $id)->get();
-
+        $pejabat_struktural = pejabat_struktural::where('jabatan','KASI REKSA')->first();
+        //dd($pejabat_struktural->jabatan);
         $tgl= Carbon::now()->format('d-m-Y');
-        $pdf =PDF::loadView('laporan.jenis_rambu_detail', ['rambu' => $rambu,'jenis_rambu'=>$jenis_rambu,'tgl'=>$tgl]);
+        $pdf =PDF::loadView('laporan.jenis_rambu_detail', ['pejabat_struktural'=>$pejabat_struktural,'rambu' => $rambu,'jenis_rambu'=>$jenis_rambu,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->download('Laporan data per-rambu.pdf');
         //dd($rambu);
@@ -153,7 +156,8 @@ class rambuController extends Controller
         $rambu =rambu::all();
     // $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
         $tgl= Carbon::now()->format('d-m-Y');
-        $pdf =PDF::loadView('laporan.rambu_keseluruhan', ['rambu' => $rambu,'tgl'=>$tgl]);
+        $pejabat_struktural = pejabat_struktural::where('jabatan','KASI REKSA')->first();
+        $pdf =PDF::loadView('laporan.rambu_keseluruhan', ['rambu' => $rambu,'tgl'=>$tgl,'pejabat_struktural' => $pejabat_struktural]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->download('Laporan rambu Keseluruhan.pdf');
     }//fungsi membuat laporan rambu  pdf
@@ -162,8 +166,9 @@ class rambuController extends Controller
         $id = IDCrypt::Decrypt($id);
         $rambu =rambu::findOrFail($id);
         $lokasi_rambu = lokasi_rambu::where('rambu_id', $id)->get();
+        $pejabat_struktural = pejabat_struktural::where('jabatan','KASI REKSA')->first();
         $tgl= Carbon::now()->format('d-m-Y');
-        $pdf =PDF::loadView('laporan.rambu_detail', ['rambu' => $rambu,'lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+        $pdf =PDF::loadView('laporan.rambu_detail', ['rambu' => $rambu,'lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural' => $pejabat_struktural]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->download('Laporan data per-rambu.pdf');
     }//fungsi membuat laporan rambu detail pdf

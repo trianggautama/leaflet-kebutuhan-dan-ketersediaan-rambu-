@@ -124,15 +124,13 @@
             <br>
             <br>
             <div class="ttd">
-                <h5>
-                    <p>Banjarbaru, {{$tgl}}</p>
-                </h5>
-                <h5>Kasi Reksa</h5>
-                <br>
-                <br>
-                <h5 style="text-decoration:underline;">Nama Pejabat</h5>
-                <h5>Nip</h5>
-            </div>
+                        <h5> <p>Banjarbaru, {{$tgl}}</p></h5>
+                      <h5>{{$pejabat_struktural->jabatan}}</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">{{$pejabat_struktural->nama_pejabat}}</h5>
+                      <h5>{{$pejabat_struktural->nip}}</h5>
+                      </div>
         </div>
     </div>
 </body>
