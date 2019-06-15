@@ -192,7 +192,8 @@
                                             Kecamatan</a></li>
                                     <li class="nav-item"> <a class="nav-link" href="{{route('kelurahan_index')}}">Data
                                             Kelurahan</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="{{route('pejabat_struktural_index')}}">Data
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{route('pejabat_struktural_index')}}">Data
                                             Pejabat Struktural</a></li>
                                 </ul>
                             </div>

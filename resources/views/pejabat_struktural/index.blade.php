@@ -92,8 +92,7 @@
                     <form class="forms-sample" method="post" action="">
                         <div class="form-group">
                             <label for="exampleInputUsername1">NIP</label>
-                            <input type="text" class="form-control" id="kode_kelurahan" name="nip"
-                                placeholder="NIP">
+                            <input type="text" class="form-control" id="kode_kelurahan" name="nip" placeholder="NIP">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername1">Nama Pejabat</label>
