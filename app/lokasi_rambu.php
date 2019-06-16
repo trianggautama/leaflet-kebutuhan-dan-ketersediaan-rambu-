@@ -25,7 +25,7 @@ class lokasi_rambu extends Model
         $title = __('app.show_detail_title', [
             'alamat' => $this->alamat, 'type' => __('lokasi_rambu.lokasi_rambu'),
         ]);
-        $link = '<a href="'.route('lokasi_ketersediaan_detail', $this).'"';
+        $link = '<a href="'.route('map_detail', $this).'"';
         $link .= ' title="'.$title.'">';
         $link .= $this->alamat;
         $link .= '</a>';
@@ -51,8 +51,8 @@ class lokasi_rambu extends Model
     public function getMapPopupContentAttribute()
     {
         $mapPopupContent = '';
-        $mapPopupContent .= '<div class="my-2"><strong>'.__('lokasi_irambu.alamat').':</strong><br>'.$this->name_link.'</div>';
-        $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.coordinate').':</strong><br>'.$this->coordinate.'</div>';
+        $mapPopupContent .= '<div class="my-2"><strong>'.__('Alamat').':</strong><br>'.$this->name_link.'</div>';
+        $mapPopupContent .= '<div class="my-2"><strong>'.__('coordinate').':</strong><br>'.$this->coordinate.'</div>';
         return $mapPopupContent;
     }
 

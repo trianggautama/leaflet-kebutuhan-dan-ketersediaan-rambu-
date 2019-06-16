@@ -13,6 +13,8 @@ Route::group(['middleware'=> 'auth'],function(){
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/map','mapController@index')->name('map');
+Route::get('/map_detail/{id}','mapController@detail')->name('map_detail');
+
 
 //route  jenis rambu
 Route::get('/jenis_rambu','rambuController@jenis_rambu_index')->name('jenis_rambu_index');

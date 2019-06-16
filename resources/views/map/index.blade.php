@@ -54,21 +54,21 @@
              console.log(error);
               });
 
-              @can('create', new App\lokasi_rambu)
+         @can('create', new App\lokasi_rambu)
          var theMarker;
          map.on('click', function(e) {
-        let latitude = e.latlng.lat.toString().substring(0, 15);
-        let longitude = e.latlng.lng.toString().substring(0, 15);
-        if (theMarker != undefined) {
+         let latitude = e.latlng.lat.toString().substring(0, 15);
+         let longitude = e.latlng.lng.toString().substring(0, 15);
+         if (theMarker != undefined) {
             map.removeLayer(theMarker);
-        };
-        var popupContent = "Your location : " + latitude + ", " + longitude + ".";
-        popupContent += '<br><a href="{{ route('outlets.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new outlet here</a>';
-        theMarker = L.marker([latitude, longitude]).addTo(mymap);
-        theMarker.bindPopup(popupContent)
+         };
+         var popupContent = "Your location : " + latitude + ", " + longitude + ".";
+         popupContent += '<br><a href="{{ route('outlets.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new outlet here</a>';
+         theMarker = L.marker([latitude, longitude]).addTo(mymap);
+         theMarker.bindPopup(popupContent)
         .openPopup();
-    });
-    @endcan
+         });
+        @endcan
 
         </script>
         @endpush

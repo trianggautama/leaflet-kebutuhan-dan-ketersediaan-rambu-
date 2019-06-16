@@ -59,34 +59,12 @@
 
     </div>
     @push('scripts')
-
     <script>
-        var map = L.map('map').setView([{
-            {
-                $lokasi_rambu - > latitude
-            }
-        }, {
-            {
-                $lokasi_rambu - > longitude
-            }
-        }], {
-            {
-                config('leaflet.detail_zoom_level')
-            }
-        });
+        var map = L.map('map').setView([{{$lokasi_rambu->latitude}}, {{$lokasi_rambu->longitude}}],{{config('leaflet.detail_zoom_level')}});
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        L.marker([{
-                {
-                    $lokasi_rambu - > latitude
-                }
-            }, {
-                {
-                    $lokasi_rambu - > longitude
-                }
-            }]).addTo(map)
-            .bindPopup('{!! $lokasi_rambu->map_popup_content !!}');
+        L.marker([{{$lokasi_rambu->latitude}},{{$lokasi_rambu->longitude}}]).addTo(map).bindPopup('{!! $lokasi_rambu->map_popup_content !!}');
 
     </script>
     @endpush
