@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
+    /*
+     * Outlets Endpoints
+     */
+    Route::get('lokasi_rambu', 'lokasiController@index')->name('lokasi_rambu.index');
+});
