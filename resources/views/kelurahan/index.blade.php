@@ -52,7 +52,7 @@
                                         <td>kecamatan {{$kel->kecamatan->nama_kecamatan}}</td>
 
                                         <td class="text-center">
-                                            <a href="" class="btn btn-inverse-success " style="padding:6px !important;">
+                                            <a href="{{route('kelurahan_detail', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;">
                                                 <i class=" mdi mdi-eye "></i></a>
                                             <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $kel->id)])}}"
                                                 class="btn btn-inverse-info" style="padding:6px !important;"> <i
@@ -64,7 +64,6 @@
                                         </td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div>
@@ -72,10 +71,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -120,8 +116,6 @@
     </div>
     <!-- content-wrapper ends -->
     @endsection
-
-
     <script>
         function Hapus(id, nama_kelurahan) {
             const swalWithBootstrapButtons = swal.mixin({

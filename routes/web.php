@@ -47,6 +47,7 @@ Route::post('/kelurahan','lokasiController@kelurahan_add')->name('kelurahan_add'
 Route::get('/kelurahan_edit/{id}','lokasiController@kelurahan_edit')->name('kelurahan_edit');
 Route::put('/kelurahan_edit/{id}','lokasiController@kelurahan_update')->name('kelurahan_update');
 Route::get('/kelurahan_hapus/{id}','lokasiController@kelurahan_delete')->name('kelurahan_delete');
+Route::get('kelurahan_detail/{id}','lokasiController@kelurahan_detail')->name('kelurahan_detail');
 
 //lokasi kebutuhan rambu
 Route::get('/lokasi_kebutuhan','lokasiController@lokasi_kebutuhan_index')->name('lokasi_kebutuhan_index');

@@ -97,6 +97,12 @@ class lokasiController extends Controller
 
                  return redirect(route('kelurahan_index'))->with('success', 'Data '.$request->nama_kelurahan.' Berhasil di Ubah');
          }
+         public function kelurahan_detail($id){
+          $id = IDCrypt::Decrypt($id);
+          $lokasi_rambu=lokasi_rambu::where('kelurahan_id',$id)->get();
+          $kelurahan= kelurahan::findOrFail($id);
+          return (view('kelurahan.detail',compact('kelurahan','lokasi_rambu')));
+         } //menghapus  data kecamatan
 
         public function kelurahan_delete($id){
               $id = IDCrypt::Decrypt($id);
@@ -249,7 +255,7 @@ class lokasiController extends Controller
 
          if ($request->gambar) {
            $FotoExt  = $request->gambar->getClientOriginalExtension();
-           $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->latitude;
+           $FotoName = 'lokasi-'.$request->kelurahan_id.'-'. $request->latitude;
            $gambar     = $FotoName.'.'.$FotoExt;
            $request->gambar->move('images/ketersediaan_rambu', $gambar);
            $ketersediaan_rambu->gambar= $gambar;
