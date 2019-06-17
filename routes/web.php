@@ -41,6 +41,7 @@ Route::post('/kecamatan','lokasiController@kecamatan_add')->name('kecamatan_add'
 Route::get('/kecamatan_hapus/{id}','lokasiController@kecamatan_delete')->name('kecamatan_delete');
 Route::get('/kecamatan_detail/{id}','lokasiController@kecamatan_detail')->name('kecamatan_detail');
 
+
 //kelurahan
 Route::get('/kelurahan','lokasiController@kelurahan_index')->name('kelurahan_index');
 Route::post('/kelurahan','lokasiController@kelurahan_add')->name('kelurahan_add');

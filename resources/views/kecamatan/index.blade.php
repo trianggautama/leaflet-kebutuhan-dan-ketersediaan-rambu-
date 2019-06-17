@@ -46,9 +46,9 @@
                                         <td>{{$no++}}</td>
                                         <td>Kecamatan {{$kec->nama_kecamatan}}</td>
                                         <td class="text-center">
-                                            <a href="" class="btn btn-inverse-success " style="padding:6px !important;">
+                                            <a href="{{route('kecamatan_detail', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;">
                                                 <i class=" mdi mdi-eye "></i> </a>
-                                            <a href="{{route('jenis_rambu_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}"
+                                            <a href="#"
                                                 class="btn btn-inverse-primary" style="padding:6px !important;"> <i
                                                     class="mdi mdi-pencil"></i> </a>
                                             <button type="button" class="btn btn-inverse-danger"

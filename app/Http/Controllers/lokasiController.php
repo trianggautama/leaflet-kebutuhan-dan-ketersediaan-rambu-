@@ -37,6 +37,19 @@ class lokasiController extends Controller
               return redirect(route('kecamatan_index'))->with('success', 'Data Kecamatan '.$request->nama_kecamatan.' Berhasil di Simpan');
       }
 
+      public function kecamatan_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $kecamatan = kecamatan::findOrFail($id);
+        $kelurahan = kelurahan:: with('lokasi_rambu')
+                                ->where('kecamatan_id',$id)
+                                ->get();
+        $lokasi= $kelurahan->flatten(2);
+        $lokasi->values()->all();
+        
+      return view('kecamatan.detail',compact('lokasi','kecamatan'));
+       }//melihat data kelurahan pada kecamatan tertentu
+
+
       public function kecamatan_delete($id){
             $id = IDCrypt::Decrypt($id);
             $kecamatan=kecamatan::findOrFail($id);
