@@ -226,7 +226,8 @@
     </div>
     <!-- container-scroller -->
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- plugins:js -->
     <script src="{{ asset('/admin/vendors/base/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
@@ -254,6 +255,4 @@
     </script>
 
     @stack('scripts')
-</body>
-
 </html>
