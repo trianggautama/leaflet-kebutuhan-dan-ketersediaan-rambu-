@@ -1,6 +1,5 @@
 @extends('layouts.depan')
 @section('content')
-
 <section class="feedback-area section-gap relative" id="head">
     <div class="overlay overlay-bg"></div>
     <div class="container">
@@ -24,7 +23,9 @@
         <h1>Silahkan Isi Form Laporan Berikut </h1>
         <br>
     </div>
-    <form method="post" action="" enctype="multipart/form-data">
+    @include('layouts.errors')
+    @include('layouts.alert')
+    <form method="post" action="/laporan_masyarakat_tambah" enctype="multipart/form-data">
         <input class="form-control" name="nama" placeholder="Masukan Nama Anda" onfocus="this.placeholder = ''"
             required="" type="text">
         <br>

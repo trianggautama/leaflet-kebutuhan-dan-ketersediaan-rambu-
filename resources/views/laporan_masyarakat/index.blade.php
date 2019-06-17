@@ -62,8 +62,9 @@
                                                         class="btn btn-inverse-success "
                                                         style="padding:6px !important;"> <i
                                                             class=" mdi mdi-eye "></i></a>
-                                                    <button type="button" class="btn btn-inverse-danger"
-                                                        style="padding:6px !important;" onclick=""><b><i
+                                                            <button type="button" class="btn btn-inverse-danger"
+                                                             style="padding:6px !important;"
+                                                              onclick="Hapus('{{Crypt::encryptString($lm->id)}}','{{$lm->nama}}')"><b><i
                                                                 class="mdi mdi-delete"></i></b></button>
                                                 </td>
                                             </tr>
@@ -80,3 +81,44 @@
 
         <!-- content-wrapper ends -->
         @endsection
+
+        <script>
+        function Hapus(id, nama) {
+            const swalWithBootstrapButtons = swal.mixin({
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false,
+            })
+
+            swalWithBootstrapButtons({
+                title: 'apa anda yakin?',
+                text: " Menghapus Laporan '" + nama + "' ",
+                type: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'hapus data',
+                cancelButtonText: 'batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    swalWithBootstrapButtons(
+                        'Deleted!',
+                        "Data Laporan '" + nama + "' Akan di Hapus",
+                        'success'
+                    );
+                    window.location = "/laporan_masyarakat_hapus/" + id;
+                } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons(
+                        'Dibatalkan',
+                        'data batal dihapus',
+                        'error'
+                    )
+                }
+            })
+
+        }
+
+    </script>
+

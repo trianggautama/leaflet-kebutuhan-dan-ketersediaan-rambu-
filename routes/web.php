@@ -5,7 +5,7 @@ Route::get('/', function () {
 Route::get('/laporan_masyarakat', function () {
     return view('laporan_masyarakat');
 });
-Route::post('/laporan_masyarakat','userController@kirim_laporan');
+Route::post('/laporan_masyarakat_tambah','userController@kirim_laporan');
 Auth::routes();
 
 Route::group(['middleware'=> 'auth'],function(){
@@ -73,6 +73,8 @@ Route::get('/lokasi_ketersediaan_keseluruhan_cetak','lokasiController@lokasi_ket
 // data laporan Masyarakat
 Route::get('/laporan_masyarakat_data','userController@laporan_masyarakat_data')->name('laporan_masyarakat_data');
 Route::get('/laporan_masyarakat_show/{id}','userController@laporan_masyarakat_show')->name('laporan_masyarakat_show');
+Route::get('/laporan_masyarakat_hapus/{id}','userController@laporan_masyarakat_hapus')->name('laporan_masyarakat_hapus');
+
 
 //pejabat Struktural
 Route::get('/pejabat_struktural','pejabatController@pejabat_struktural_index')->name('pejabat_struktural_index');

@@ -30,13 +30,14 @@ class userController extends Controller
         $laporan_masyarakat->longitude= $request->longitude;
         $laporan_masyarakat->latitude= $request->latitude;
         $laporan_masyarakat->save();
-          return redirect(route('laporan_masyarakat'))->with('success', 'Data Berhasil di Tambahkan');
+          return redirect('laporan_masyarakat')->with('success', 'Data Berhasil di Tambahkan');
     }
 
     public function laporan_masyarakat_data(){
         $laporan_masyarakat = laporan_masyarakat::all();
         return view('laporan_masyarakat.index',compact('laporan_masyarakat'));
     }
+
 
     public function laporan_masyarakat_show($id){
         $id = IDCrypt::Decrypt($id);
@@ -45,5 +46,16 @@ class userController extends Controller
         $laporan_masyarakat->save();
         return view('laporan_masyarakat.show',compact('laporan_masyarakat'));
        }//fungsi menampilkan isi laporan masyarakat
+
+       public function laporan_masyarakat_hapus($id){
+        //dd('tes');
+        $id = IDCrypt::Decrypt($id);
+        $laporan_masyarakat=laporan_masyarakat::findOrFail($id);
+        File::delete('images/laporan_masyarakat/'.$laporan_masyarakat->gambar);
+       // $rambu->lokasi_rambu()->delete();
+        $laporan_masyarakat->delete();
+        return redirect('laporan_masyarakat_data');
+    }//fungsi menampilkan isi laporan masyarakat
+
 
 }
