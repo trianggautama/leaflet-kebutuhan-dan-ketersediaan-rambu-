@@ -134,7 +134,7 @@ class lokasiController extends Controller
          } //mencetak data ketersediaan rambu per kelurahan
 
          public function kelurahan_kebutuhan_cetak($id){
-          dd($id);
+          //dd($id);
           $id = IDCrypt::Decrypt($id);
           $kelurahan = kelurahan::findOrFail($id);
           $lokasi_rambu =lokasi_rambu::where([

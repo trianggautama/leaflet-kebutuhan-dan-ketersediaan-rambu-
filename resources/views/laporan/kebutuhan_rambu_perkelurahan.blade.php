@@ -100,23 +100,17 @@
                     <tr>
                         <th>Kebutuhan Rambu</th>
                         <th>Alamat</th>
-                        <th>Tahun pengadaan (APBN)</th>
+                        <th>Prioritas Kebutuhan</th>
                         <th>Kondis</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($lokasi_rambu as $lr)
                     <tr>
-                        <td>{{$lr->rambu->nama_rambu}}</td>
-                        <td>{{$lr->alamat}}</td>
-                        <td class="text-center">{{$lr->ketersediaan_rambu->apbn}}</td>
-                        <td class="text-center">@if ($lr->ketersediaan_rambu->kondisi == 1)
-                            <span class="badge badge-success">Baik</span>
-                            @elseif ($lr->ketersediaan_rambu->kondisi == 2)
-                            <label class="badge badge-warning" for=""> Perlu Rehab</label>
-                            @else
-                            <label class="badge badge-danger" for=""> Hilang</label>
-                            @endif</td>
+                          <td>{{$lr->rambu->nama_rambu}}</td>
+                          <td>{{$lr->alamat}}</td>
+                          <td class="text-center">{{$lr->created_at}}</td>
+                          <td class="text-center">{{$lr->kebutuhan_rambu->prioritas}}</td>
                     </tr>
                     @endforeach
                     </tfoot>
