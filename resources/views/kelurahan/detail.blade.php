@@ -23,10 +23,8 @@
                     <div class="card-body">
                         <h4 class="card-title">Tabel Data</h4>
                         <div class="text-right">
-                            <a href="/" class="btn btn-sm btn-inverse-primary mt-2 mt-xl-0" data-toggle="modal"
-                                data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> Cetak data Ketersediaan Rambu</a>
-                            <a href="/" class="btn btn-sm btn-inverse-info mt-2 mt-xl-0" data-toggle="modal"
-                                data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> Cetak data Ketersediaan Rambu</a>
+                            <a href="{{route('kelurahan_ketersediaan_cetak', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-sm btn-inverse-primary mt-2 mt-xl-0"> <i class=" mdi mdi-printer "></i> Cetak data Ketersediaan Rambu</a>
+                            <a href="{{route('kelurahan_kebutuhan_cetak', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-sm btn-inverse-info mt-2 mt-xl-0"> <i class=" mdi mdi-printer "></i> Cetak data kebutuhan Rambu</a>
                         </div>
                         <br>
                         <div class="table-responsive">

@@ -49,6 +49,9 @@ Route::get('/kelurahan_edit/{id}','lokasiController@kelurahan_edit')->name('kelu
 Route::put('/kelurahan_edit/{id}','lokasiController@kelurahan_update')->name('kelurahan_update');
 Route::get('/kelurahan_hapus/{id}','lokasiController@kelurahan_delete')->name('kelurahan_delete');
 Route::get('kelurahan_detail/{id}','lokasiController@kelurahan_detail')->name('kelurahan_detail');
+Route::get('kelurahan_ketersediaan_cetak/{id}','lokasiController@kelurahan_ketersediaan_cetak')->name('kelurahan_ketersediaan_cetak');
+Route::get('kelurahan_kebutuhan_cetak/{id}','lokasiController@kelurahan_kebutuhan_cetak')->name('kelurahan_kebutuhan_cetak');
+
 
 //lokasi kebutuhan rambu
 Route::get('/lokasi_kebutuhan','lokasiController@lokasi_kebutuhan_index')->name('lokasi_kebutuhan_index');

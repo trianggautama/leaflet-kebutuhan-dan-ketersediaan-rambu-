@@ -7,6 +7,7 @@ use App\rambu;
 use App\lokasi_rambu;
 use App\kebutuhan_rambu;
 use App\ketersediaan_rambu;
+use App\pejabat_struktural;
 use Carbon\Carbon;
 use PDF;
 use IDCrypt;
@@ -116,6 +117,37 @@ class lokasiController extends Controller
           $kelurahan= kelurahan::findOrFail($id);
           return (view('kelurahan.detail',compact('kelurahan','lokasi_rambu')));
          } //menghapus  data kecamatan
+
+        public function kelurahan_ketersediaan_cetak($id){
+          //dd($id);
+          $id = IDCrypt::Decrypt($id);
+          $kelurahan = kelurahan::findOrFail($id);
+          $lokasi_rambu =lokasi_rambu::where([
+              'kelurahan_id' => $id,
+              'status' => 1
+          ])->get();
+          $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+          $tgl= Carbon::now()->format('d-m-Y');
+          $pdf =PDF::loadView('laporan.ketersediaan_rambu_perkelurahan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+          $pdf->setPaper('a4', 'potrait');
+          return $pdf->download('Laporan Ketersediaan rambu perkelurahan.pdf');
+         } //mencetak data ketersediaan rambu per kelurahan
+
+         public function kelurahan_kebutuhan_cetak($id){
+          dd($id);
+          $id = IDCrypt::Decrypt($id);
+          $kelurahan = kelurahan::findOrFail($id);
+          $lokasi_rambu =lokasi_rambu::where([
+              'kelurahan_id' => $id,
+              'status' => 2
+          ])->get();
+          $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+          $tgl= Carbon::now()->format('d-m-Y');
+          $pdf =PDF::loadView('laporan.kebutuhan_rambu_perkelurahan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+          $pdf->setPaper('a4', 'potrait');
+          return $pdf->download('Laporan kebutuhan rambu perkelurahan.pdf');
+         } //mencetak data ketersediaan rambu per kelurahan
+
 
         public function kelurahan_delete($id){
               $id = IDCrypt::Decrypt($id);
