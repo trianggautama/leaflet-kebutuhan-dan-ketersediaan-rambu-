@@ -109,9 +109,6 @@
     </div>
     <!-- content-wrapper ends -->
     @endsection
-
-
-
     <script>
         function Hapus(id, alamat) {
             const swalWithBootstrapButtons = swal.mixin({

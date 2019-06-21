@@ -95,13 +95,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="forms-sample" method="post" action="" enctype="multipart/form-data"> 
+                <form class="forms-sample" method="post" action="" enctype="multipart/form-data"> 
                     <div class="form-group">
+                    <label for="exampleFormControlSelect1">Tahun Penpgadaan</label>
+                    <input  class="form-control form-control-lg"type="number" name="apbn" placeholder="YYYY" min="2017" max="2030">
                         <label for="exampleFormControlSelect1">Kondisi Rambu</label>
                         <select class="form-control form-control-lg" id="exampleFormControlSelect1"
-                            name="prioritas">
-                            <option value="baik">baik</option>
-                            <option value="rusak">Rusak</option>
+                            name="kondisi">
+                            <option value="">-- Pilih Kondisi --</option>
+                            <option value="1">Baik</option>
+                            <option value="2">Rusak/kubas</option>
+                            <option value="3">Hilang</option>
                         </select>
                     </div>
                 </div>
@@ -156,3 +160,7 @@
         }
 
     </script>
+    <script>
+  document.querySelector("input[type=number]")
+  .oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))
+</script>
