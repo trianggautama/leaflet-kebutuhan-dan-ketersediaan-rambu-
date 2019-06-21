@@ -48,7 +48,7 @@
                                         <td>{{$no++}}</td>
                                         <td>{{$lk->rambu->nama_rambu}}</td>
                                         <td>{{$lk->alamat}}</td>
-                                        <td class="text-center">{{$lk->created_at}}</td>
+                                        <td class="text-center">{{$lk->created_at->format('d-m-Y')}}</td>
                                         <td class="text-center">{{$lk->kebutuhan_rambu->prioritas}}</td>
                                         <td class="text-center">
                                             <a href="{{route('lokasi_kebutuhan_detail', ['id' => IDCrypt::Encrypt( $lk->id)])}}"

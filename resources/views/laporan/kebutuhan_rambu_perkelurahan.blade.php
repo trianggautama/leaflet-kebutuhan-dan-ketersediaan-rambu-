@@ -100,8 +100,8 @@
                     <tr>
                         <th>Kebutuhan Rambu</th>
                         <th>Alamat</th>
+                        <th>Tanggal Survey</th>
                         <th>Prioritas Kebutuhan</th>
-                        <th>Kondis</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -109,7 +109,7 @@
                     <tr>
                           <td>{{$lr->rambu->nama_rambu}}</td>
                           <td>{{$lr->alamat}}</td>
-                          <td class="text-center">{{$lr->created_at}}</td>
+                          <td class="text-center">{{$lr->created_at->format('d-m-Y')}}</td>
                           <td class="text-center">{{$lr->kebutuhan_rambu->prioritas}}</td>
                     </tr>
                     @endforeach

@@ -94,7 +94,7 @@
                         <tr>
                           <td>{{$lr->rambu->nama_rambu}}</td>
                           <td>{{$lr->alamat}}</td>
-                          <td class="text-center">{{$lr->created_at}}</td>
+                          <td class="text-center">{{$lr->created_at->format('d-m-Y')}}</td>
                           <td class="text-center">{{$lr->kebutuhan_rambu->prioritas}}</td>
                         </tr>
                         @endforeach

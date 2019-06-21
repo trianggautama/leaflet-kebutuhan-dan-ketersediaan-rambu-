@@ -371,6 +371,17 @@ class lokasiController extends Controller
       return $pdf->download('Laporan data kebutuhan rambu keseluruhan.pdf');
     }//cetak laporan kebutuhan rambu keseluruhan
 
+    public function lokasi_kebutuhan_detail_cetak($id){
+      $id = IDCrypt::Decrypt($id);
+      $lokasi_rambu=lokasi_rambu::findOrFail($id);
+      //dd('tes');
+      $tgl= Carbon::now()->format('d-m-Y');
+      $pejabat_struktural = pejabat_struktural::where('jabatan','KASI REKSA')->first();
+      $pdf =PDF::loadView('laporan.kebutuhan_rambu_detail', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
+      $pdf->setPaper('a4', 'potrait');
+      return $pdf->download('Laporan data per lokasi kebutuhan rambu .pdf');
+    }//cetak laporan kebutuhan rambu keseluruhan
+
     public function lokasi_ketersediaan_keseluruhan_cetak(){
       //dd('tes');
       $lokasi_rambu = lokasi_rambu::where('status', 1)->get();

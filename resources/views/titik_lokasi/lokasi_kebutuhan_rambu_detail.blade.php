@@ -11,7 +11,7 @@
                         <img src="/images/kebutuhan_rambu/{{ $lokasi_rambu->kebutuhan_rambu->gambar}}" width="100% "
                             alt="">
                     </div>
-                    <a href="" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Lokasi</a>
+                    <a href="{{route('lokasi_kebutuhan_detail_cetak', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Lokasi</a>
                 </div>
             </div>
             <div class="col-md-8 grid-margin stretch-card">
