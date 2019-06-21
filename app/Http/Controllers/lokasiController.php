@@ -403,6 +403,7 @@ class lokasiController extends Controller
       return $pdf->download('Laporan data rehab rambu .pdf');
     }//cetak laporan kebutuhan rambu keseluruhan
 
+
    /* public function kecamatan_kebutuhan_cetak($id){
       dd($id);
       $id = IDCrypt::Decrypt($id);
@@ -419,7 +420,21 @@ class lokasiController extends Controller
      } //mencetak data ketersediaan rambu per kelurahan
      */
 
-
+    public function lokasi_kebutuhan_filter_cetak(Request $request){
+      //dd('tes');
+      $this->validate(request(),[
+        'prioritas'=>'required',
+      ]);
+      $kebutuhan_rambu = kebutuhan_rambu:: with('lokasi_rambu')
+                                          ->where('prioritas', $request->prioritas)
+                                          ->get();
+                                        //  dd($kebutuhan_rambu);
+      $tgl= Carbon::now()->format('d-m-Y');
+      $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+      $pdf =PDF::loadView('laporan.kebutuhan_rambu_filter', ['kebutuhan_rambu'=>$kebutuhan_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
+      $pdf->setPaper('a4', 'potrait');
+      return $pdf->download('Laporan data kebutuhan rambu keseluruhan.pdf');
+    }//cetak laporan kebutuhan rambu keseluruhan
 
 
 

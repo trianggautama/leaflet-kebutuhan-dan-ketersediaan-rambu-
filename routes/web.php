@@ -63,6 +63,7 @@ Route::put('/lokasi_kebutuhan_edit/{id}','lokasiController@lokasi_kebutuhan_upda
 Route::get('/lokasi_kebutuhan_hapus/{id}','lokasiController@lokasi_kebutuhan_hapus')->name('lokasi_kebutuhan_hapus');
 Route::get('/lokasi_kebutuhan_keseluruhan_cetak','lokasiController@lokasi_kebutuhan_keseluruhan_cetak')->name('lokasi_kebutuhan_keseluruhan_cetak');
 Route::get('/lokasi_kebutuhan_detail_cetak/{id}','lokasiController@lokasi_kebutuhan_detail_cetak')->name('lokasi_kebutuhan_detail_cetak');
+Route::post('/lokasi_kebutuhan','lokasiController@lokasi_kebutuhan_filter_cetak')->name('lokasi_kebutuhan_filter_cetak');
 
 
 // lokasi ketersediaan rambu

@@ -4,6 +4,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         @include('layouts.alert')
+        @include('layouts.errors')
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="d-flex justify-content-between flex-wrap">
@@ -91,6 +92,7 @@
                         <label for="exampleFormControlSelect1">Status Prioritas</label>
                         <select class="form-control form-control-lg" id="exampleFormControlSelect1"
                             name="prioritas">
+                            <option value="">-- Pilih Prioritas --</option>
                             <option value="biasa">Biasa</option>
                             <option value="mendesak">Mendesak</option>
                         </select>

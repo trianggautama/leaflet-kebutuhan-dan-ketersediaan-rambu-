@@ -13,7 +13,7 @@
             border-collapse: collapse;
             width: 100%;
         }
-        
+
         table,
         th,
         td {
@@ -75,6 +75,10 @@
             text-align: center;
             text-transform: uppercase;
         }
+        
+        .text-center{
+            text-align: center;
+        }
 
     </style>
 </head>
@@ -94,21 +98,23 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA LAPORAN MASYARAKAT KESELURUHAN</h2>
+            <h2 style="text-align:center;">DATA KETERSEDIAAN RAMBU  BERDASARKAN PRIORITAS </h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Nama</th>
-                        <th>No Tlp</th>
-                        <th>Tanggal Masuk</th>
+                        <th>Kebutuhan Rambu</th>
+                        <th>Alamat</th>
+                        <th>Tanggal Survey</th>
+                        <th>Prioritas</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($laporan_masyarakat as $lm)
+                    @foreach ($kebutuhan_rambu as $kr)
                     <tr>
-                        <td>{{$lm->nama}}</td>
-                        <td>{{$lm->no_hp}}</td>
-                        <td>{{$lm->created_at}}</td>
+                        <td>{{$kr->lokasi_rambu->rambu->nama_rambu}}</td>
+                        <td>{{$kr->lokasi_rambu->alamat}}</td>
+                        <td class="text-center">{{$kr->lokasi_rambu->created_at->format('d-m-Y')}}</td>
+                        <td class="text-center">{{$kr->prioritas}}</td>
                     </tr>
                     @endforeach
                     </tfoot>
@@ -116,16 +122,15 @@
             <br>
             <br>
             <div class="ttd">
-                <h5>
-                    <p>Banjarbaru, {{$tgl}}</p>
-                </h5>
-                <h5>{{$pejabat_struktural->jabatan}}</h5>
-                <br>
-                <br>
-                <h5 style="text-decoration:underline;">{{$pejabat_struktural->nama_pejabat}}</h5>
-                <h5>{{$pejabat_struktural->nip}}</h5>
-            </div>
+                        <h5> <p>Banjarbaru, {{$tgl}}</p></h5>
+                      <h5>{{$pejabat_struktural->jabatan}}</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">{{$pejabat_struktural->nama_pejabat}}</h5>
+                      <h5>{{$pejabat_struktural->nip}}</h5>
+                      </div>
         </div>
     </div>
 </body>
+
 </html>

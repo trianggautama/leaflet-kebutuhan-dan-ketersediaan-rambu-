@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>APEL Rambu</title>
     <!-- plugins:css -->
     <link href="{{ asset('/admin/vendors/mdi/css/materialdesignicons.min.css') }}" rel="stylesheet">
@@ -24,10 +25,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-        crossorigin=""></script>
-    <script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
+    
 </head>
 <style>
     #map {
@@ -227,7 +225,6 @@
     <!-- container-scroller -->
     </div>
 </body>
-    <script src="{{ asset('js/app.js') }}"></script>
     <!-- plugins:js -->
     <script src="{{ asset('/admin/vendors/base/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
@@ -247,6 +244,12 @@
     <script src="{{ asset('/admin/js/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('/admin/js/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
