@@ -22,8 +22,7 @@
                         @include('layouts.errors')
                         <h4 class="card-title">Tabel Data</h4>
                         <div class="text-right">
-                            <a href="/" class="btn btn-sm btn-inverse-info btn-icon-text" data-toggle="modal"
-                                data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> tabah data</a>
+                            <a href="{{route('laporan_masyarakat_keseluruhan_cetak')}}" class="btn btn-sm btn-info btn-icon-text"> <i class=" mdi mdi-printer "></i> Cetak Data</a>
                         </div>
                         <br>
                         <div class="row">

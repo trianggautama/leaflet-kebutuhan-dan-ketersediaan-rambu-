@@ -18,7 +18,7 @@ class CreateLaporanMasyarakatsTable extends Migration
             $table->string('nama')->length(75);
             $table->bigInteger('no_hp')->length(17);
             $table->text('keterangan');
-            $table->text('gambar');
+            $table->text('gambar')->default('default.jpg');
             $table->string('longitude');
             $table->string('latitude');
             $table->tinyInteger('status')->default(0);

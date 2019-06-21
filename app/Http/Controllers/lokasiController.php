@@ -47,7 +47,7 @@ class lokasiController extends Controller
         $lokasi= $kelurahan->flatten(2);
         $lokasi->values()->all();
         
-      return view('kecamatan.detail',compact('lokasi','kecamatan'));
+      return view('kecamatan.detail',compact('lokasi_rambu','kecamatan'));
        }//melihat data kelurahan pada kecamatan tertentu
 
 
@@ -402,6 +402,24 @@ class lokasiController extends Controller
       $pdf->setPaper('a4', 'potrait');
       return $pdf->download('Laporan data rehab rambu .pdf');
     }//cetak laporan kebutuhan rambu keseluruhan
+
+   /* public function kecamatan_kebutuhan_cetak($id){
+      dd($id);
+      $id = IDCrypt::Decrypt($id);
+      $kecamatan = kecamatan::findOrFail($id);
+      $kelurahan = kelurahan:: with('lokasi_rambu')
+                              ->where('kecamatan_id',$id)
+                              ->get();
+      dd($kelurahan->lokasi_rambu);
+      $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+      $tgl= Carbon::now()->format('d-m-Y');
+      $pdf =PDF::loadView('laporan.ketersediaan_rambu_perkelurahan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+      $pdf->setPaper('a4', 'potrait');
+      return $pdf->download('Laporan Ketersediaan rambu perkelurahan.pdf');
+     } //mencetak data ketersediaan rambu per kelurahan
+     */
+
+
 
 
 

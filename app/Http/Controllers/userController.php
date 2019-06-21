@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\laporan_masyarakat;
 Use File;
 use IDCrypt;
+use Carbon\Carbon;
+use PDF;
+use App\pejabat_struktural;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -56,6 +59,17 @@ class userController extends Controller
         $laporan_masyarakat->delete();
         return redirect('laporan_masyarakat_data');
     }//fungsi menampilkan isi laporan masyarakat
+
+    public function laporan_masyarakat_keseluruhan_cetak(){
+        //dd('tes');
+        $laporan_masyarakat = laporan_masyarakat::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pejabat_struktural = pejabat_struktural::where('jabatan','KASI REKSA')->first();
+        $pdf =PDF::loadView('laporan.laporan_masyarakat_keseluruhan', ['laporan_masyarakat'=>$laporan_masyarakat,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->download('Laporan Masyarakat Keseluruhan.pdf');
+      }//cetak laporan kebutuhan rambu keseluruhan
+  
 
 
 }

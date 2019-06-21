@@ -13,6 +13,7 @@
             border-collapse: collapse;
             width: 100%;
         }
+        
         table,
         th,
         td {
@@ -93,22 +94,22 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">JENIS DATA RAMBU {{$jenis_rambu->nama_jenis}}</h2>
+            <h2 style="text-align:center;">DATA LAPORAN MASYARAKAT KESELURUHAN</h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>kode Rambu</th>
-                        <th>Nama Rambu</th>
-                        <th>keterangan</th>
+                        <th>Nama</th>
+                        <th>No Tlp</th>
+                        <th>Tanggal Masuk</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($rambu as $r)
+                    @foreach ($laporan_masyarakat as $lm)
 
                     <tr>
-                        <td>{{$r->kode_rambu}}</td>
-                        <td>{{$r->nama_rambu}}</td>
-                        <td>{{$r->keterangan}}</td>
+                        <td>{{$lm->nama}}</td>
+                        <td>{{$lm->no_hp}}</td>
+                        <td>{{$lm->created_at}}</td>
                     </tr>
                     @endforeach
                     </tfoot>
@@ -126,9 +127,6 @@
                 <h5>{{$pejabat_struktural->nip}}</h5>
             </div>
         </div>
-
     </div>
-
 </body>
-
 </html>

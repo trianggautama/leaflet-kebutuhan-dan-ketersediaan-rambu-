@@ -40,6 +40,7 @@ Route::get('/kecamatan','lokasiController@kecamatan_index')->name('kecamatan_ind
 Route::post('/kecamatan','lokasiController@kecamatan_add')->name('kecamatan_add');
 Route::get('/kecamatan_hapus/{id}','lokasiController@kecamatan_delete')->name('kecamatan_delete');
 Route::get('/kecamatan_detail/{id}','lokasiController@kecamatan_detail')->name('kecamatan_detail');
+Route::get('kecamatan_kebutuhan_cetak/{id}','lokasiController@kecamatan_kebutuhan_cetak')->name('kecamatan_kebutuhan_cetak');
 
 
 //kelurahan
@@ -80,6 +81,7 @@ Route::get('/lokasi_rehab_cetak/{id}','lokasiController@lokasi_rehab_cetak')->na
 Route::get('/laporan_masyarakat_data','userController@laporan_masyarakat_data')->name('laporan_masyarakat_data');
 Route::get('/laporan_masyarakat_show/{id}','userController@laporan_masyarakat_show')->name('laporan_masyarakat_show');
 Route::get('/laporan_masyarakat_hapus/{id}','userController@laporan_masyarakat_hapus')->name('laporan_masyarakat_hapus');
+Route::get('/laporan_masyarakat_keseluruhan_cetak','userController@laporan_masyarakat_keseluruhan_cetak')->name('laporan_masyarakat_keseluruhan_cetak');
 
 
 //pejabat Struktural
