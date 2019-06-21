@@ -76,6 +76,8 @@ Route::put('/lokasi_ketersediaan_edit/{id}','lokasiController@lokasi_ketersediaa
 Route::get('/lokasi_ketersediaan_hapus/{id}','lokasiController@lokasi_ketersediaan_hapus')->name('lokasi_ketersediaan_hapus');
 Route::get('/lokasi_ketersediaan_keseluruhan_cetak','lokasiController@lokasi_ketersediaan_keseluruhan_cetak')->name('lokasi_ketersediaan_keseluruhan_cetak');
 Route::get('/lokasi_rehab_cetak/{id}','lokasiController@lokasi_rehab_cetak')->name('lokasi_rehab_cetak');
+Route::post('/lokasi_ketersediaan','lokasiController@lokasi_ketersediaan_filter_cetak')->name('lokasi_ketersediaan_filter_cetak');
+
 
 
 // data laporan Masyarakat

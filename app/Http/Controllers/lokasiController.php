@@ -433,10 +433,28 @@ class lokasiController extends Controller
       $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
       $pdf =PDF::loadView('laporan.kebutuhan_rambu_filter', ['kebutuhan_rambu'=>$kebutuhan_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
       $pdf->setPaper('a4', 'potrait');
-      return $pdf->download('Laporan data kebutuhan rambu keseluruhan.pdf');
+      return $pdf->download('Laporan data kebutuhan rambu filter.pdf');
     }//cetak laporan kebutuhan rambu keseluruhan
 
-
+    public function lokasi_ketersediaan_filter_cetak(Request $request){
+      //dd($request);
+      if($request->apbn != null) {
+        if($request->kondisi != null){//cek apabila kedua filter terisi
+          $ketersediaan_rambu = ketersediaan_rambu:: with('lokasi_rambu')->where(['apbn'=>$request->apbn, 'kondisi'=>$request->kondisi])->get();
+        }else{//apabila hanya terisi filter apbn
+          $ketersediaan_rambu = ketersediaan_rambu:: with('lokasi_rambu')->where('apbn' , $request->apbn)->get();
+        }
+      }elseif($request->kondisi != null) {//apabila hanya terisi filter kondisi
+        $ketersediaan_rambu = ketersediaan_rambu:: with('lokasi_rambu')->where('kondisi', $request->kondisi)->get();
+      }else{//apabila tidak ada yang terisi
+        $ketersediaan_rambu = ketersediaan_rambu:: with('lokasi_rambu')->get();
+      }     
+      $tgl= Carbon::now()->format('d-m-Y');
+      $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+      $pdf =PDF::loadView('laporan.ketersediaan_rambu_filter', ['ketersediaan_rambu'=>$ketersediaan_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
+      $pdf->setPaper('a4', 'potrait');
+      return $pdf->download('Laporan data ketersediaan rambu filter.pdf');
+    }//cetak laporan kebutuhan rambu keseluruhan
 
 
 }
