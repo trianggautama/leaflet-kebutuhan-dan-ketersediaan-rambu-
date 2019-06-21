@@ -46,7 +46,7 @@
                 <div class="navbar-brand-wrapper d-flex justify-content-center">
                     <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
                         <a class="navbar-brand brand-logo" href="{{route('home')}}"><img
-                                src="{{asset('images/logo_navbar2.png')}}" /></a>
+                                src="{{asset('images/logo_navbar2.png')}}" width="100%" /></a>
                         <a class="navbar-brand brand-logo-mini" href="{{route('home')}}"><img
                                 src="{{asset('images/dishub.png')}}" alt="logo" /></a>
                         <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -251,8 +251,6 @@
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
-
     </script>
-
     @stack('scripts')
 </html>

@@ -21,10 +21,12 @@
                     <div class="card-body">
                         <h4 class="card-title">Tabel Data</h4>
                         <div class="text-right">
-                            <a href="/lokasi_ketersediaan_tambah" class="btn btn-sm btn-inverse-primary "> <i
+                            <a href="/lokasi_ketersediaan_tambah" class="btn btn-sm btn-primary "> <i
                                     class=" mdi mdi-plus "></i> tabah data</a>
                             <a href="{{route('lokasi_ketersediaan_keseluruhan_cetak')}}"
-                                class="btn btn-sm btn-inverse-info "> <i class=" mdi mdi-printer "></i> cetak data</a>
+                                class="btn btn-sm btn-info "> <i class=" mdi mdi-printer "></i> cetak data</a>
+                            <a href="/" class="btn btn-sm btn-info " data-toggle="modal"
+                                data-target="#exampleModalCenter"> <i class="  mdi mdi-printer "></i> Cetak Filter Data</a>
                         </div>
                         <br>
                         <div class="table-responsive">
@@ -80,6 +82,39 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="forms-sample" method="post" action="" enctype="multipart/form-data"> 
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Kondisi Rambu</label>
+                        <select class="form-control form-control-lg" id="exampleFormControlSelect1"
+                            name="prioritas">
+                            <option value="baik">baik</option>
+                            <option value="rusak">Rusak</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                    <input class="btn btn-primary" type="submit" name="submit" value="Cetak Data">
+                    {{csrf_field() }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
     @endsection
 
     <script>
