@@ -11,7 +11,9 @@
                         <img src="/images/ketersediaan_rambu/{{$lokasi_rambu->ketersediaan_rambu->gambar}}"
                             width="100% " alt="">
                     </div>
-                    <a href="" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Data Lokasi</a>
+                    @if($lokasi_rambu->ketersediaan_rambu->kondisi !== 1)
+                    <a href="{{route('lokasi_rehab_cetak', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-inverse-info"><i class="mdi mdi-printer"></i> Cetak Laporan Rehabilitasi</a>
+                    @endif
                 </div>
             </div>
 

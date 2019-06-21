@@ -52,7 +52,6 @@ Route::get('kelurahan_detail/{id}','lokasiController@kelurahan_detail')->name('k
 Route::get('kelurahan_ketersediaan_cetak/{id}','lokasiController@kelurahan_ketersediaan_cetak')->name('kelurahan_ketersediaan_cetak');
 Route::get('kelurahan_kebutuhan_cetak/{id}','lokasiController@kelurahan_kebutuhan_cetak')->name('kelurahan_kebutuhan_cetak');
 
-
 //lokasi kebutuhan rambu
 Route::get('/lokasi_kebutuhan','lokasiController@lokasi_kebutuhan_index')->name('lokasi_kebutuhan_index');
 Route::get('/lokasi_kebutuhan_tambah','lokasiController@lokasi_kebutuhan_tambah')->name('lokasi_kebutuhan_tambah');
@@ -74,6 +73,7 @@ Route::get('/lokasi_ketersediaan_edit/{id}','lokasiController@lokasi_ketersediaa
 Route::put('/lokasi_ketersediaan_edit/{id}','lokasiController@lokasi_ketersediaan_update')->name('lokasi_ketersediaan_update');
 Route::get('/lokasi_ketersediaan_hapus/{id}','lokasiController@lokasi_ketersediaan_hapus')->name('lokasi_ketersediaan_hapus');
 Route::get('/lokasi_ketersediaan_keseluruhan_cetak','lokasiController@lokasi_ketersediaan_keseluruhan_cetak')->name('lokasi_ketersediaan_keseluruhan_cetak');
+Route::get('/lokasi_rehab_cetak/{id}','lokasiController@lokasi_rehab_cetak')->name('lokasi_rehab_cetak');
 
 
 // data laporan Masyarakat
