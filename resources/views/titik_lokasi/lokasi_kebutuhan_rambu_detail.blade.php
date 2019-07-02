@@ -20,7 +20,7 @@
                         <ul class="nav nav-tabs px-4" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview"
-                                    role="tab" aria-controls="overview" aria-selected="true">keterangan lokasi</a>
+                                    role="tab" aria-controls="overview" aria-selected="true">keterangan lokasi Kebutuhan Rambu</a>
                             </li>
                         </ul>
                         <div class="tab-content py-0 px-0">

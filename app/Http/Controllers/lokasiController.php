@@ -28,18 +28,18 @@ class lokasiController extends Controller
       'nama_kecamatan'=>'required'
     ]);
     $kecamatan = new kecamatan;
-    $kecamatan->kode_kecamatan= $request->kode_kecamatan;
-    $kecamatan->nama_kecamatan= $request->nama_kecamatan;
+    $kecamatan->kode_kecamatan  = $request->kode_kecamatan;
+    $kecamatan->nama_kecamatan  = $request->nama_kecamatan;
     $kecamatan->save();
     return redirect(route('kecamatan_index'))->with('success', 'Data Kecamatan '.$request->nama_kecamatan.' Berhasil di Simpan');
   }
 
   //melihat data kelurahan pada kecamatan tertentu
   public function kecamatan_detail($id){
-    $id = IDCrypt::Decrypt($id);
+    $id        = IDCrypt::Decrypt($id);
     $kecamatan = kecamatan::findOrFail($id);
     $kelurahan = kelurahan:: with('lokasi_rambu')->where('kecamatan_id',$id)->get();
-    $lokasi= $kelurahan->flatten(2);
+    $lokasi    = $kelurahan->flatten(2);
     $lokasi->values()->all();
     
     return view('kecamatan.detail',compact('lokasi_rambu','kecamatan'));
@@ -47,8 +47,8 @@ class lokasiController extends Controller
 
   //menghapus  data kecamatan
   public function kecamatan_delete($id){
-    $id = IDCrypt::Decrypt($id);
-    $kecamatan=kecamatan::findOrFail($id);
+    $id        = IDCrypt::Decrypt($id);
+    $kecamatan =kecamatan::findOrFail($id);
     $kecamatan->delete();
     return redirect(route('kecamatan_index'));
   } 
@@ -69,10 +69,10 @@ class lokasiController extends Controller
       'nama_kelurahan'=>'required',
       'kecamatan_id'=>'required'
     ]);
-    $kelurahan = new kelurahan;
-    $kelurahan->kode_kelurahan= $request->kode_kelurahan;
-    $kelurahan->nama_kelurahan= $request->nama_kelurahan;
-    $kelurahan->kecamatan_id= $request->kecamatan_id;
+    $kelurahan                  = new kelurahan;
+    $kelurahan->kode_kelurahan  = $request->kode_kelurahan;
+    $kelurahan->nama_kelurahan  = $request->nama_kelurahan;
+    $kelurahan->kecamatan_id    = $request->kecamatan_id;
     $kelurahan->save();
     return redirect(route('kelurahan_index'))->with('success', 'Data '.$request->nama_kelurahan.' Berhasil di Simpan');
   }
@@ -266,12 +266,12 @@ class lokasiController extends Controller
     'longitude'=>'required|unique:lokasi_rambus',
   ]);
   $lokasi_rambu = new lokasi_rambu;
-  $lokasi_rambu->kelurahan_id= $request->kelurahan_id;
-  $lokasi_rambu->rambu_id= $request->rambu_id;
-  $lokasi_rambu->alamat= $request->alamat;
-  $lokasi_rambu->latitude= $request->latitude;
-  $lokasi_rambu->longitude= $request->longitude;
-  $lokasi_rambu->status= $request->status;
+  $lokasi_rambu->kelurahan_id  = $request->kelurahan_id;
+  $lokasi_rambu->rambu_id      = $request->rambu_id;
+  $lokasi_rambu->alamat        = $request->alamat;
+  $lokasi_rambu->latitude      = $request->latitude;
+  $lokasi_rambu->longitude     = $request->longitude;
+  $lokasi_rambu->status        = $request->status;
   $lokasi_rambu->save();
 
   $ketersediaan_rambu = new ketersediaan_rambu;
@@ -282,7 +282,7 @@ class lokasiController extends Controller
   if ($request->gambar) {
     $FotoExt  = $request->gambar->getClientOriginalExtension();
     $FotoName = 'lokasi-'.$request->kelurahan_id.'-'. $request->latitude;
-    $gambar     = $FotoName.'.'.$FotoExt;
+    $gambar   = $FotoName.'.'.$FotoExt;
     $request->gambar->move('images/ketersediaan_rambu', $gambar);
     $ketersediaan_rambu->gambar= $gambar;
   }else {

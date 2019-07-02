@@ -64,35 +64,12 @@
 
     </div>
     @push('scripts')
-
     <script>
-        var map = L.map('map').setView([{
-            {
-                $laporan_masyarakat - > latitude
-            }
-        }, {
-            {
-                $laporan_masyarakat - > longitude
-            }
-        }], {
-            {
-                config('leaflet.detail_zoom_level')
-            }
-        });
+        var map = L.map('map').setView([{{$laporan_masyarakat->latitude}},{{$laporan_masyarakat->longitude}}],{{config('leaflet.detail_zoom_level')}});
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        L.marker([{
-                {
-                    $laporan_masyarakat - > latitude
-                }
-            }, {
-                {
-                    $laporan_masyarakat - > longitude
-                }
-            }]).addTo(map)
-            .bindPopup('{!! $laporan_masyarakat->map_popup_content !!}');
-
+        L.marker([{{$laporan_masyarakat->latitude}},{{$laporan_masyarakat->longitude}}]).addTo(map).bindPopup('{!! $laporan_masyarakat->map_popup_content !!}');
     </script>
     @endpush
     @endsection
