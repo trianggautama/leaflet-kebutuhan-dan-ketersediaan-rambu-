@@ -40,7 +40,7 @@ Route::get('/kecamatan','lokasiController@kecamatan_index')->name('kecamatan_ind
 Route::post('/kecamatan','lokasiController@kecamatan_add')->name('kecamatan_add');
 Route::get('/kecamatan_hapus/{id}','lokasiController@kecamatan_delete')->name('kecamatan_delete');
 Route::get('/kecamatan_detail/{id}','lokasiController@kecamatan_detail')->name('kecamatan_detail');
-Route::get('kecamatan_kebutuhan_cetak/{id}','lokasiController@kecamatan_kebutuhan_cetak')->name('kecamatan_kebutuhan_cetak');
+Route::get('kecamatan_kebutuhan_cetak/{id}','lokasiController@kecamatan_detail_cetak')->name('kecamatan_kebutuhan_cetak');
 
 
 //kelurahan
