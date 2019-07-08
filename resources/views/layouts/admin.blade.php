@@ -192,6 +192,11 @@
                                 <span class="menu-title">Laporan Masyarakat</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('user_index')}}">
+                            <i class="mdi mdi-account-circle  menu-icon"></i>
+                                <span class="menu-title">Data User</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>

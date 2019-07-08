@@ -92,6 +92,8 @@ Route::get('/pejabat_struktural','pejabatController@pejabat_struktural_index')->
 Route::post('/pejabat_struktural','pejabatController@pejabat_struktural_tambah')->name('pejabat_struktural_tambah');
 Route::get('/pejabat_struktural_hapus/{id}','pejabatController@pejabat_struktural_hapus')->name('pejabat_struktural_hapus');
 
+//user
+Route::get('/user','userController@user_index')->name('user_index');
 
 
 });
