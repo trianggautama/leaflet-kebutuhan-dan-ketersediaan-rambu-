@@ -54,8 +54,10 @@
                                         <td class="text-center">
                                             <a href="#" class="btn btn-inverse-success " style="padding:6px !important;">
                                                 <i class=" mdi mdi-eye "></i> Detail</a>
+                                                @if($u->id == Auth::user()->id )
                                                 <a href="#" class="btn btn-inverse-primary " style="padding:6px !important;">
                                                 <i class=" mdi mdi-pencil "></i> Edit</a>
+                                                 @endif
                                         </td>
                                     </tr>
                                     @endforeach

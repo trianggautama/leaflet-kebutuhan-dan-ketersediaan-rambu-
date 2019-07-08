@@ -7,11 +7,15 @@ use App\lokasi_rambu;
 class mapController extends Controller
 {
 
-    public function index(){
+    public function kebutuhan_index(){
 
-        return view('map.index');
+        return view('map.kebutuhan_rambu');
     }
+    
+    public function ketersediaan_index(){
 
+        return view('map.ketersediaan_rambu');
+    }
     public function detail($id){
         $lokasi_rambu=lokasi_rambu::findOrFail($id);
 

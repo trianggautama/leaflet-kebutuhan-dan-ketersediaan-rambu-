@@ -12,7 +12,8 @@ Route::group(['middleware'=> 'auth'],function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/map','mapController@index')->name('map');
+Route::get('/map_kebutuhan','mapController@kebutuhan_index')->name('map_kebutuhan');
+Route::get('/map_ketersediaan','mapController@ketersediaan_index')->name('map_ketersediaan');
 Route::get('/map_detail/{id}','mapController@detail')->name('map_detail');
 
 

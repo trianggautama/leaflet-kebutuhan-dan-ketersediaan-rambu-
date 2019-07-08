@@ -22,5 +22,7 @@ Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
     /*
      * Outlets Endpoints
      */
-    Route::get('lokasi_rambu', 'lokasiController@index')->name('lokasi_rambu.index');
+    Route::get('kebutuhan_rambu', 'lokasiController@kebutuhan_index')->name('kebutuhan_rambu_index');
+    Route::get('ketersediaan_rambu', 'lokasiController@ketersediaan_index')->name('ketersediaan_rambu_index');
+
 });

@@ -12,9 +12,30 @@ class lokasiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Http\JsonResponse
      */
-    public function index(Request $request)
+    public function kebutuhan_index(Request $request)
     {
-        $lokasi_rambu = lokasi_rambu::all();
+        $lokasi_rambu = lokasi_rambu::where('status',2)->get();
+        $geoJSONdata = $lokasi_rambu->map(function ($lokasi_rambu) {
+            return [
+                'type'       => 'Feature',
+                'properties' => new lokasi_rambuResource($lokasi_rambu),
+                'geometry'   => [
+                    'type'        => 'Point',
+                    'coordinates' => [
+                        $lokasi_rambu->longitude,
+                        $lokasi_rambu->latitude,
+                    ],
+                ],
+            ];
+        });
+        return response()->json([
+            'type'     => 'FeatureCollection',
+            'features' => $geoJSONdata,
+        ]);
+    }
+    public function ketersediaan_index(Request $request)
+    {
+        $lokasi_rambu = lokasi_rambu::where('status',1)->get();
         $geoJSONdata = $lokasi_rambu->map(function ($lokasi_rambu) {
             return [
                 'type'       => 'Feature',
