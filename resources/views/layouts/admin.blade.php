@@ -215,10 +215,11 @@
     <!-- container-scroller -->
     </div>
 </body>
+<script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
+
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="crossorigin=""></script>
-    <script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
     <!-- plugins:js -->
     <script src="{{ asset('/admin/vendors/base/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->

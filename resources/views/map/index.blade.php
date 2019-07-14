@@ -13,13 +13,9 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-end flex-wrap">
-                        <button type="button" class="btn btn-light bg-white btn-icon mr-3 d-none d-md-block "
-                            title="profil">
-                            <i class="mdi  mdi mdi-printer "></i>
-                        </button>
-                        <a href="/home" class="btn btn-sm btn-inverse-danger mt-2 mt-xl-0" style="margin-right:5px"><i
+                        <a href="/home" class="btn btn-sm btn-danger mt-2 mt-xl-0" style="margin-right:5px"><i
                                 class="mdi mdi-close "></i> Kembali</a>
-                        <a href="/" class="btn btn-sm btn-inverse-primary mt-2 mt-xl-0"><i
+                        <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0"><i
                                 class="mdi mdi-map-marker-plus "></i> Tambah Lokasi</a>
                     </div>
                 </div>

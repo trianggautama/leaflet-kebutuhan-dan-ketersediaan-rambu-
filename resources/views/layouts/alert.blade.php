@@ -1,12 +1,9 @@
 <script>
         @if (session('success'))
-        swal({
-           position: 'top-end',
-           type: 'success',
-           title: '{{session('success')}}',
-           customClass: 'swal-wide',
-           showConfirmButton: false,
-           timer: 2000
-        })
+        Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
         @endif
-s </script>
+</script>
