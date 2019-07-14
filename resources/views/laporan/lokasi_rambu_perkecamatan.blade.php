@@ -94,24 +94,35 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KEBUTUHAN RAMBU PADA KECAMATAN {{$kelurahan->nama_kelurahan}}</h2>
+            <h2 style="text-align:center;">DATA LOKASI RAMBU PADA KECAMATAN {{$kecamatan->nama_kecamatan}}</h2>
             <table class="table table-bordered table-hover">
                 <thead>
-                    <tr>
-                        <th>Kebutuhan Rambu</th>
-                        <th>Alamat</th>
-                        <th>Tanggal Survey</th>
-                        <th>Prioritas Kebutuhan</th>
-                    </tr>
+                <tr>
+                    <th>No</th>
+                    <th>Keterangan Lokasi</th>
+                    <th>Rambu Terkait</th>
+                    <th>Alamat</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($lokasi_rambu as $lr)
-                    <tr>
-                          <td>{{$lr->rambu->nama_rambu}}</td>
-                          <td>{{$lr->alamat}}</td>
-                          <td class="text-center">{{$lr->created_at->format('d-m-Y')}}</td>
-                          <td class="text-center">{{$lr->kebutuhan_rambu->prioritas}}</td>
-                    </tr>
+                @php
+                $no=1;
+                @endphp
+                @foreach($kelurahan as $kel)
+                        @foreach($kel->lokasi_rambu as $lr)
+                        <tr>
+                        <td>{{$no++}}</td>
+                        <td class="text-center">
+                            @if ($lr->status == 2)
+                            <label class="badge badge-primary" for=""> Kebutuhan Rambu</label>
+                            @else
+                            <label class="badge badge-success" for=""> Ketersediaan rambu</label>
+                            @endif
+                        </td>
+                        <td>{{$lr->rambu->nama_rambu}}</td>
+                        <td class="text-center">{{$lr->alamat}}</td>
+                        </tr>
+                        @endforeach
                     @endforeach
                     </tfoot>
             </table>

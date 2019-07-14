@@ -6,26 +6,14 @@
         @include('layouts.errors')
         @include('layouts.alert')
         <div class="row">
-            <div class="col-md-12 grid-margin">
-                <div class="d-flex justify-content-between flex-wrap">
-                    <div class="d-flex align-items-end flex-wrap">
-                        <div class="mr-md-3 mr-xl-5">
-                            <h2>Data Pejabat Struktural,</h2>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tabel Data</h4>
+                        <h3>Data Pejabat Struktural</h3>
                         <div class="text-right">
-                            <a href="/" class="btn btn-sm btn-inverse-primary mt-2 mt-xl-0" data-toggle="modal"
+                            <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0" data-toggle="modal"
                                 data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-                            <a href="/" class="btn btn-sm btn-inverse-info mt-2 mt-xl-0" data-toggle="modal"
+                            <a href="/" class="btn btn-sm btn-info mt-2 mt-xl-0" data-toggle="modal"
                                 data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> Cetak data</a>
                         </div>
                         <br>
@@ -128,34 +116,25 @@
 
     <script>
         function Hapus(id, nama_pejabat) {
-            const swalWithBootstrapButtons = swal.mixin({
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                buttonsStyling: false,
-            })
-
-            swalWithBootstrapButtons({
+            Swal.fire({
                 title: 'apa anda yakin?',
                 text: " Menghapus Pejabat '" + nama_pejabat +
-                    "' juga akan menghapus data lokasi yang berelasi",
-                type: 'question',
+                    "' ",
+                type: 'warning',
                 showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
                 confirmButtonText: 'hapus data',
                 cancelButtonText: 'batal',
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {
-                    swalWithBootstrapButtons(
-                        'Deleted!',
-                        "Data Pejabat '" + nama_pejabat + "' Akan di Hapus",
-                        'success'
-                    );
                     window.location = "/pejabat_struktural_hapus/" + id;
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel
                 ) {
-                    swalWithBootstrapButtons(
+                    Swal.fire(
                         'Dibatalkan',
                         'data batal dihapus',
                         'error'

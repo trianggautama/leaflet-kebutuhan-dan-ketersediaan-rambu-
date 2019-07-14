@@ -12,7 +12,8 @@ Route::group(['middleware'=> 'auth'],function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/map','mapController@index')->name('map');
+Route::get('/map_kebutuhan','mapController@kebutuhan_index')->name('map_kebutuhan');
+Route::get('/map_ketersediaan','mapController@ketersediaan_index')->name('map_ketersediaan');
 Route::get('/map_detail/{id}','mapController@detail')->name('map_detail');
 
 
@@ -40,7 +41,7 @@ Route::get('/kecamatan','lokasiController@kecamatan_index')->name('kecamatan_ind
 Route::post('/kecamatan','lokasiController@kecamatan_add')->name('kecamatan_add');
 Route::get('/kecamatan_hapus/{id}','lokasiController@kecamatan_delete')->name('kecamatan_delete');
 Route::get('/kecamatan_detail/{id}','lokasiController@kecamatan_detail')->name('kecamatan_detail');
-Route::get('kecamatan_kebutuhan_cetak/{id}','lokasiController@kecamatan_kebutuhan_cetak')->name('kecamatan_kebutuhan_cetak');
+Route::get('kecamatan_kebutuhan_cetak/{id}','lokasiController@kecamatan_detail_cetak')->name('kecamatan_kebutuhan_cetak');
 
 
 //kelurahan
@@ -92,6 +93,8 @@ Route::get('/pejabat_struktural','pejabatController@pejabat_struktural_index')->
 Route::post('/pejabat_struktural','pejabatController@pejabat_struktural_tambah')->name('pejabat_struktural_tambah');
 Route::get('/pejabat_struktural_hapus/{id}','pejabatController@pejabat_struktural_hapus')->name('pejabat_struktural_hapus');
 
+//user
+Route::get('/user','userController@user_index')->name('user_index');
 
 
 });

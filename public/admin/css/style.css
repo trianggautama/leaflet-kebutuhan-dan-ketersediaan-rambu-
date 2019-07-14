@@ -21439,7 +21439,7 @@ dl li {
 }
 
 .navbar .navbar-menu-wrapper {
-  background: #ffffff;
+  background:	#ffff;
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;

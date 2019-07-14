@@ -5,21 +5,10 @@
     <div class="content-wrapper">
         @include('layouts.alert')
         <div class="row">
-            <div class="col-md-12 grid-margin">
-                <div class="d-flex justify-content-between flex-wrap">
-                    <div class="d-flex align-items-end flex-wrap">
-                        <div class="mr-md-3 mr-xl-5">
-                            <h2>Data Lokasi ketersediaan Rambu,</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tabel Data</h4>
+                        <h3 class="">Data Lokasi ketersediaan Rambu</h3>
                         <div class="text-right">
                             <a href="/lokasi_ketersediaan_tambah" class="btn btn-sm btn-primary "> <i
                                     class=" mdi mdi-plus "></i> tabah data</a>
@@ -123,33 +112,26 @@
 
     <script>
         function Hapus(id, alamat) {
-            const swalWithBootstrapButtons = swal.mixin({
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                buttonsStyling: false,
-            })
 
-            swalWithBootstrapButtons({
+            Swal.fire({
                 title: 'apa anda yakin?',
-                text: " Menghapus data ketersedian rambu di '" + alamat + "' ",
-                type: 'question',
+                text: " Menghapus Kecamatan '" + alamat +
+                    "' juga akan menghapus data kelurahan yang berelasi",
+                type: 'warning',
                 showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
                 confirmButtonText: 'hapus data',
                 cancelButtonText: 'batal',
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {
-                    swalWithBootstrapButtons(
-                        'Deleted!',
-                        "Data Akan di Hapus",
-                        'success'
-                    );
                     window.location = "/lokasi_ketersediaan_hapus/" + id;
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel
                 ) {
-                    swalWithBootstrapButtons(
+                    Swal.fire(
                         'Dibatalkan',
                         'data batal dihapus',
                         'error'

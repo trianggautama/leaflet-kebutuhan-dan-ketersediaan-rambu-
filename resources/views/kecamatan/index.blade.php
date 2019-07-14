@@ -3,28 +3,17 @@
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper">
-        @include('layouts.alert')
-        <div class="row">
-            <div class="col-md-12 grid-margin">
-                <div class="d-flex justify-content-between flex-wrap">
-                    <div class="d-flex align-items-end flex-wrap">
-                        <div class="mr-md-3 mr-xl-5">
-                            <h2>Data Kecamatan,</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                    @include('layouts.alert')
                         @include('layouts.errors')
-                        <h4 class="card-title">Tabel Data</h4>
+                        <h3>Data Kecamatan</h3>
                         <div class="text-right">
-                            <a href="/" class="btn btn-sm btn-inverse-primary btn-icon-text" data-toggle="modal"
+                            <a href="/" class="btn btn-sm btn-primary btn-icon-text" data-toggle="modal"
                                 data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-                            <a href="/" class="btn btn-sm btn-inverse-info btn-icon-text" data-toggle="modal"
+                            <a href="/" class="btn btn-sm btn-info btn-icon-text" data-toggle="modal"
                                 data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> tabah data</a>
                         </div>
                         <br>
@@ -105,37 +94,27 @@
     <!-- content-wrapper ends -->
     @endsection
 
-
     <script>
         function Hapus(id, nama_kecamatan) {
-            const swalWithBootstrapButtons = swal.mixin({
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                buttonsStyling: false,
-            })
-
-            swalWithBootstrapButtons({
+            Swal.fire({
                 title: 'apa anda yakin?',
                 text: " Menghapus Kecamatan '" + nama_kecamatan +
                     "' juga akan menghapus data kelurahan yang berelasi",
-                type: 'question',
+                type: 'warning',
                 showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
                 confirmButtonText: 'hapus data',
                 cancelButtonText: 'batal',
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {
-                    swalWithBootstrapButtons(
-                        'Deleted!',
-                        "Data kelurahan '" + nama_kecamatan + "' Akan di Hapus",
-                        'success'
-                    );
                     window.location = "/kecamatan_hapus/" + id;
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel
                 ) {
-                    swalWithBootstrapButtons(
+                    Swal.fire(
                         'Dibatalkan',
                         'data batal dihapus',
                         'error'

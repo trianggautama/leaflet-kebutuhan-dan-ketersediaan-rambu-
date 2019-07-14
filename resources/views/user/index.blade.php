@@ -9,10 +9,8 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h3>Data kelurahan</h3>
+                        <h3>Data User</h3>
                         <div class="text-right">
-                            <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0" data-toggle="modal"
-                                data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
                             <a href="/" class="btn btn-sm btn-info mt-2 mt-xl-0" data-toggle="modal"
                                 data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> Cetak data</a>
                         </div>
@@ -22,9 +20,10 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kode Kelurahan</th>
-                                        <th>Nama kelurahan</th>
-                                        <th>kecamatan</th>
+                                        <th>NIP</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Username</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -32,23 +31,21 @@
                                     @php
                                     $no=1;
                                     @endphp
-                                    @foreach ($kelurahan as $kel)
+                                    @foreach ($User as $u)
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{$kel->kode_kelurahan}}</td>
-                                        <td>kelurahan {{$kel->nama_kelurahan}}</td>
-                                        <td>kecamatan {{$kel->kecamatan->nama_kecamatan}}</td>
+                                        <td>{{$u->nip}}</td>
+                                        <td>{{$u->nama}}</td>
+                                        <td>{{$u->email}}</td>
+                                        <td>{{$u->username}}</td>
 
                                         <td class="text-center">
-                                            <a href="{{route('kelurahan_detail', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-inverse-success " style="padding:6px !important;">
-                                                <i class=" mdi mdi-eye "></i></a>
-                                            <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $kel->id)])}}"
-                                                class="btn btn-inverse-info" style="padding:6px !important;"> <i
-                                                    class="mdi mdi-pencil"></i></a>
-                                            <button type="button" class="btn btn-inverse-danger"
-                                                style="padding:6px !important;"
-                                                onclick="Hapus('{{Crypt::encryptString($kel->id)}}','{{$kel->nama_kecamatan}}')"><b><i
-                                                        class="mdi mdi-delete"></i></b></button>
+                                            <a href="#" class="btn btn-inverse-success " style="padding:6px !important;">
+                                                <i class=" mdi mdi-eye "></i> </a>
+                                                @if($u->id == Auth::user()->id )
+                                                <a href="#" class="btn btn-inverse-primary " style="padding:6px !important;">
+                                                <i class=" mdi mdi-pencil "></i> </a>
+                                                 @endif
                                         </td>
                                     </tr>
                                     @endforeach
@@ -83,15 +80,6 @@
                             <input type="text" class="form-control" id="nama_kelurahan" name="nama_kelurahan"
                                 placeholder="Nama Kecamatan" autocomplete="off">
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputUsername1"> Kecamatan</label>
-                            <select class="form-control" id="exampleSelectGender" name="kecamatan_id">
-                                <option>-pilih kecamatan-</option>
-                                @foreach ($kecamatan as $kec)
-                                <option value="{{$kec->id}}">kecamatan {{$kec->nama_kecamatan}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -104,34 +92,4 @@
     </div>
     <!-- content-wrapper ends -->
     @endsection
-    <script>
-        function Hapus(id, nama_kelurahan) {
-            Swal.fire({
-                title: 'apa anda yakin?',
-                text: " Menghapus kelurahan '" + nama_kelurahan +
-                    "' juga akan menghapus data lokasi rambu yang berelasi",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'hapus data',
-                cancelButtonText: 'batal',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.value) {
-                    window.location = "/kelurahan_hapus/" + id;
-                } else if (
-                    // Read more about handling dismissals
-                    result.dismiss === swal.DismissReason.cancel
-                ) {
-                   Swal.fire(
-                        'Dibatalkan',
-                        'data batal dihapus',
-                        'error'
-                    )
-                }
-            })
-
-        }
-
-    </script>
+  

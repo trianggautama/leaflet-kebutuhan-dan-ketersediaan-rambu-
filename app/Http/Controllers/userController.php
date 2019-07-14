@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\laporan_masyarakat;
+Use App\User;
 Use File;
 use IDCrypt;
 use Carbon\Carbon;
@@ -70,6 +71,9 @@ class userController extends Controller
         return $pdf->download('Laporan Masyarakat Keseluruhan.pdf');
       }//cetak laporan kebutuhan rambu keseluruhan
   
-
+      public function user_index(){
+        $User = User::all();
+        return view('user.index',compact('User'));
+      }
 
 }

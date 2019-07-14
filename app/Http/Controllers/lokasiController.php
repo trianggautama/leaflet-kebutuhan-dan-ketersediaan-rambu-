@@ -39,10 +39,10 @@ class lokasiController extends Controller
     $id        = IDCrypt::Decrypt($id);
     $kecamatan = kecamatan::findOrFail($id);
     $kelurahan = kelurahan:: with('lokasi_rambu')->where('kecamatan_id',$id)->get();
-    $lokasi    = $kelurahan->flatten(2);
-    $lokasi->values()->all();
+
+    //dd($kelurahan);
     
-    return view('kecamatan.detail',compact('lokasi_rambu','kecamatan'));
+    return view('kecamatan.detail',compact('kelurahan','kecamatan'));
   }
 
   //menghapus  data kecamatan
@@ -50,7 +50,7 @@ class lokasiController extends Controller
     $id        = IDCrypt::Decrypt($id);
     $kecamatan =kecamatan::findOrFail($id);
     $kecamatan->delete();
-    return redirect(route('kecamatan_index'));
+    return redirect(route('kecamatan_index'))->with('success', 'Data  Berhasil di Hapus');
   } 
 
   //funsi kelurahan
@@ -138,7 +138,7 @@ class lokasiController extends Controller
     $id = IDCrypt::Decrypt($id);
     $kelurahan=kelurahan::findOrFail($id);
     $kelurahan->delete();
-    return redirect(route('kelurahan_index'));
+    return redirect(route('kelurahan_index'))->with('success', 'Data  Berhasil di Hapus');
   } 
 
   //funsi kebutuhan rambu
@@ -237,7 +237,7 @@ class lokasiController extends Controller
     File::delete('images/kebutuhan_rambu/'.$gambar);
     $lokasi_rambu->kebutuhan_rambu->delete();
     $lokasi_rambu->delete();
-    return redirect(route('lokasi_kebutuhan_index'));
+    return redirect(route('lokasi_kebutuhan_index'))->with('success', 'Data  Berhasil di Hapus');
   }
 
   //fungi  ketersediaan rambu
@@ -340,7 +340,7 @@ class lokasiController extends Controller
     File::delete('images/ketersediaan_rambu/'.$gambar);
     $lokasi_rambu->ketersediaan_rambu->delete();
     $lokasi_rambu->delete();
-    return redirect(route('lokasi_ketersediaan_index'));
+    return redirect(route('lokasi_ketersediaan_index'))->with('success', 'Data  Berhasil di Hapus');
   }
 
   //cetak laporan kebutuhan rambu keseluruhan
@@ -385,21 +385,18 @@ class lokasiController extends Controller
     return $pdf->download('Laporan data rehab rambu .pdf');
   }
 
-    /* public function kecamatan_kebutuhan_cetak($id){
-        dd($id);
-        $id = IDCrypt::Decrypt($id);
-        $kecamatan = kecamatan::findOrFail($id);
-        $kelurahan = kelurahan:: with('lokasi_rambu')
-                                ->where('kecamatan_id',$id)
-                                ->get();
-        dd($kelurahan->lokasi_rambu);
-        $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
-        $tgl= Carbon::now()->format('d-m-Y');
-        $pdf =PDF::loadView('laporan.ketersediaan_rambu_perkelurahan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
-        $pdf->setPaper('a4', 'potrait');
-        return $pdf->download('Laporan Ketersediaan rambu perkelurahan.pdf');
-      } //mencetak data ketersediaan rambu per kelurahan
-      */
+  public function kecamatan_detail_cetak($id){
+    //dd($id);
+    $id        = IDCrypt::Decrypt($id);
+    $kecamatan = kecamatan::findOrFail($id);
+    $kelurahan = kelurahan:: with('lokasi_rambu')->where('kecamatan_id',$id)->get();
+    $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
+    $tgl= Carbon::now()->format('d-m-Y');
+    $pdf =PDF::loadView('laporan.lokasi_rambu_perkecamatan', ['$kecamatan'=>$kecamatan,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->download('Laporan detail perkecamatan.pdf');
+  } //mencetak data ketersediaan rambu per kelurahan
+    
 
   //cetak laporan kebutuhan rambu filter
   public function lokasi_kebutuhan_filter_cetak(Request $request){

@@ -43,7 +43,7 @@
                                     @php
                                     $no=1;
                                     @endphp
-                                    @foreach($lokasi as $kel)
+                                    @foreach($kelurahan as $kel)
                                         @foreach($kel->lokasi_rambu as $lr)
                                         <tr>
                                         <td>{{$no++}}</td>

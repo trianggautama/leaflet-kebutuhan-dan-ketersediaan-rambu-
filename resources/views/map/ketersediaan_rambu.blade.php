@@ -8,14 +8,13 @@
                 <div class="d-flex justify-content-between flex-wrap">
                     <div class="d-flex align-items-end flex-wrap">
                         <div class="mr-md-3 mr-xl-5">
-                            <h2>Beranda,</h2>
-                            <p class="mb-md-0">Selamat datang di beranda admin</p>
+                            <h2>Peta Lokasi Ketersediaan Rambu,</h2>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-end flex-wrap">
                         <a href="/home" class="btn btn-sm btn-danger mt-2 mt-xl-0" style="margin-right:5px"><i
                                 class="mdi mdi-close "></i> Kembali</a>
-                        <a href="/" class="btn btn-sm btn-primary mt-2 mt-xl-0"><i
+                        <a href="{{Route('lokasi_ketersediaan_tambah')}}" class="btn btn-sm btn-primary mt-2 mt-xl-0"><i
                                 class="mdi mdi-map-marker-plus "></i> Tambah Lokasi</a>
                     </div>
                 </div>
@@ -34,7 +33,7 @@
                     id: 'mapbox.streets'
                 }).addTo(mymap);
                 
-            axios.get('{{ route('api.lokasi_rambu.index') }}')
+            axios.get('{{ route('api.ketersediaan_rambu_index') }}')
             .then(function (response) {
               console.log(response.data);
              L.geoJSON(response.data, {

@@ -6,25 +6,14 @@
         @include('layouts.errors')
         @include('layouts.alert')
         <div class="row">
-            <div class="col-md-12 grid-margin">
-                <div class="d-flex justify-content-between flex-wrap">
-                    <div class="d-flex align-items-end flex-wrap">
-                        <div class="mr-md-3 mr-xl-5">
-                            <h2>Data Rambu,</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tabel Data</h4>
+                        <h3>Data Rambu</h3>
                         <div class="text-right">
-                            <a href="/" class="btn btn-sm btn-inverse-primary " data-toggle="modal"
+                            <a href="/" class="btn btn-sm btn-primary " data-toggle="modal"
                                 data-target="#exampleModalCenter"> <i class=" mdi mdi-plus "></i> tabah data</a>
-                            <a href="{{route('rambu_keseluruhan_cetak')}}" class="btn btn-sm btn-inverse-info "> <i
+                            <a href="{{route('rambu_keseluruhan_cetak')}}" class="btn btn-sm btn-info "> <i
                                     class=" mdi mdi-printer "></i> cetak data</a>
                         </div>
                         <br>
@@ -137,33 +126,25 @@
 
     <script>
         function Hapus(id, nama_rambu) {
-            const swalWithBootstrapButtons = swal.mixin({
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                buttonsStyling: false,
-            })
-
-            swalWithBootstrapButtons({
+            Swal.fire({
                 title: 'apa anda yakin?',
-                text: " Menghapus Rambu '" + nama_rambu + "' juga akan menghapus data Lokasi yang berelasi",
-                type: 'question',
+                text: " Menghapus Rambu '" + nama_rambu +
+                    "' juga akan menghapus data lokasi rambu yang berelasi",
+                type: 'warning',
                 showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
                 confirmButtonText: 'hapus data',
                 cancelButtonText: 'batal',
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {
-                    swalWithBootstrapButtons(
-                        'Deleted!',
-                        "Data kelurahan '" + nama_rambu + "' Akan di Hapus",
-                        'success'
-                    );
                     window.location = "/rambu_hapus/" + id;
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel
                 ) {
-                    swalWithBootstrapButtons(
+                    Swal.fire(
                         'Dibatalkan',
                         'data batal dihapus',
                         'error'

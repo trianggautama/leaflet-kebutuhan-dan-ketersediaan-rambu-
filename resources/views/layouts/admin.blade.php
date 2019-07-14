@@ -14,8 +14,8 @@
     <link rel="shortcut icon" href="{{asset('images/dishub.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href=" {{ asset('admin/docs/images/favicon.ico') }}" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin="" />
-    
-    
+    <script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
+
 </head>
 <style>
     #map {
@@ -23,7 +23,6 @@
         width: 48vw;
         margin: auto;
     }
-
 </style>
 
 <body id="page-top">
@@ -44,19 +43,6 @@
                     </div>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                    <ul class="navbar-nav mr-lg-4 w-100">
-                        <li class="nav-item nav-search d-none d-lg-block w-100">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="search">
-                                        <i class="mdi mdi-magnify"></i>
-                                    </span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Search now" aria-label="search"
-                                    aria-describedby="search">
-                            </div>
-                        </li>
-                    </ul>
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item dropdown mr-1">
                             <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
@@ -106,21 +92,15 @@
                             </div>
                         </li>
                         <li class="nav-item nav-profile dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                                <img src="admin/images/faces/face5.jpg" alt="profile" />
-                                <span class="nav-profile-name">Louis Barnett</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                                aria-labelledby="profileDropdown">
-                                <a class="dropdown-item">
-                                    <i class="mdi mdi-settings text-primary"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item">
-                                    <i class="mdi mdi-logout text-primary"></i>
-                                    Logout
-                                </a>
-                            </div>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                         </li>
                     </ul>
                     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -141,10 +121,21 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('map')}}">
-                                <i class="mdi mdi-map-marker-multiple  menu-icon"></i>
-                                <span class="menu-title">Peta Lokasi</span>
+                            <a class="nav-link" data-toggle="collapse" href="#peta_lokasi" aria-expanded="false"
+                                aria-controls="peta_lokasi">
+                                <i class="mdi mdi-map-marker-radius menu-icon"></i>
+                                <span class="menu-title"> Peta Lokasi</span>
+                                <i class="menu-arrow"></i>
                             </a>
+                            <div class="collapse" id="peta_lokasi">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{route('map_kebutuhan')}}">Peta Kebutuhan Rambu</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{route('map_ketersediaan')}}">Peta Ketersediaan Rambu</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="collapse" href="#data_lokasi" aria-expanded="false"
@@ -192,6 +183,11 @@
                                 <span class="menu-title">Laporan Masyarakat</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('user_index')}}">
+                            <i class="mdi mdi-account-circle  menu-icon"></i>
+                                <span class="menu-title">Data User</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -215,8 +211,6 @@
     <!-- container-scroller -->
     </div>
 </body>
-<script src="{{ asset('sweetalert\sweetalert.min.js') }}"></script>
-
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="crossorigin=""></script>
