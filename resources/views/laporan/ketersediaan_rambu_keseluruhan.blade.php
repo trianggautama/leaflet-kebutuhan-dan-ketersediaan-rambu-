@@ -75,7 +75,9 @@
             text-align: center;
             text-transform: uppercase;
         }
-
+        .text-center{
+              text-align:center;
+        }
     </style>
 </head>
 
@@ -100,8 +102,8 @@
                     <tr>
                         <th>Kebutuhan Rambu</th>
                         <th>Alamat</th>
-                        <th>Tahun pengadaan (APBN)</th>
-                        <th>Kondis</th>
+                        <th class="text-center">Tahun pengadaan (APBN)</th>
+                        <th class="text-center">Kondisi</th>
                     </tr>
                 </thead>
                 <tbody>

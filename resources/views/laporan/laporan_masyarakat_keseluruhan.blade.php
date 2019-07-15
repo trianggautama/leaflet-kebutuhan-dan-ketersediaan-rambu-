@@ -75,7 +75,9 @@
             text-align: center;
             text-transform: uppercase;
         }
-
+        .text-center{
+              text-align:center;
+        }
     </style>
 </head>
 
@@ -99,16 +101,16 @@
                 <thead>
                     <tr>
                         <th>Nama</th>
-                        <th>No Tlp</th>
-                        <th>Tanggal Masuk</th>
+                        <th class="text-center">No Tlp</th>
+                        <th class="text-center">Tanggal Masuk</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($laporan_masyarakat as $lm)
                     <tr>
                         <td>{{$lm->nama}}</td>
-                        <td>{{$lm->no_hp}}</td>
-                        <td>{{$lm->created_at}}</td>
+                        <td class="text-center">{{$lm->no_hp}}</td>
+                        <td class="text-center">{{$lm->created_at}}</td>
                     </tr>
                     @endforeach
                     </tfoot>

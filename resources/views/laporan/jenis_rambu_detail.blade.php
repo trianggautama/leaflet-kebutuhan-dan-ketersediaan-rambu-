@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,6 +73,9 @@
             text-align: center;
             text-transform: uppercase;
         }
+        .text-center{
+            text-align:center;
+        }
 
     </style>
 </head>
@@ -97,7 +99,7 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>kode Rambu</th>
+                        <th class="text-center">kode Rambu</th>
                         <th>Nama Rambu</th>
                         <th>keterangan</th>
                     </tr>
@@ -106,7 +108,7 @@
                     @foreach ($rambu as $r)
 
                     <tr>
-                        <td>{{$r->kode_rambu}}</td>
+                        <td class="text-center">{{$r->kode_rambu}}</td>
                         <td>{{$r->nama_rambu}}</td>
                         <td>{{$r->keterangan}}</td>
                     </tr>

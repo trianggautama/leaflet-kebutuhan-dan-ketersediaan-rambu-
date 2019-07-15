@@ -75,7 +75,9 @@
             text-align: center;
             text-transform: uppercase;
         }
-
+        .text-center{
+            text-align:center;
+         }
     </style>
 </head>
 
@@ -100,8 +102,8 @@
                     <tr>
                         <th>Kebutuhan Rambu</th>
                         <th>Alamat</th>
-                        <th>Tanggal Survey</th>
-                        <th>Prioritas Kebutuhan</th>
+                        <th class="text-center">Tanggal Survey</th>
+                        <th class="text-center">Prioritas Kebutuhan</th>
                     </tr>
                 </thead>
                 <tbody>
