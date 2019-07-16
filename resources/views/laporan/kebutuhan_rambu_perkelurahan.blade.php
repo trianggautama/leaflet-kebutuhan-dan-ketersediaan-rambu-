@@ -96,7 +96,7 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KEBUTUHAN RAMBU PADA KECAMATAN {{$kelurahan->nama_kelurahan}}</h2>
+            <h2 style="text-align:center;">DATA KEBUTUHAN RAMBU PADA KELURAHAN {{$kelurahan->nama_kelurahan}}</h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>

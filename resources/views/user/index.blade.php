@@ -10,10 +10,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h3>Data User</h3>
-                        <div class="text-right">
-                            <a href="/" class="btn btn-sm btn-info mt-2 mt-xl-0" data-toggle="modal"
-                                data-target="#exampleModalCenter"> <i class=" mdi mdi-printer "></i> Cetak data</a>
-                        </div>
                         <br>
                         <div class="table-responsive">
                             <table class="table striped " id="myTable">
@@ -24,7 +20,6 @@
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Username</th>
-                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,15 +33,6 @@
                                         <td>{{$u->nama}}</td>
                                         <td>{{$u->email}}</td>
                                         <td>{{$u->username}}</td>
-
-                                        <td class="text-center">
-                                            <a href="#" class="btn btn-inverse-success " style="padding:6px !important;">
-                                                <i class=" mdi mdi-eye "></i> </a>
-                                                @if($u->id == Auth::user()->id )
-                                                <a href="#" class="btn btn-inverse-primary " style="padding:6px !important;">
-                                                <i class=" mdi mdi-pencil "></i> </a>
-                                                 @endif
-                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

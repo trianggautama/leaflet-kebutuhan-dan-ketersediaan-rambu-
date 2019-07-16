@@ -97,7 +97,6 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KEBUTUHAN RAMBU</h2>
             <table>
                 <tr>
                     <td style=" border: 1px solid #fff;">

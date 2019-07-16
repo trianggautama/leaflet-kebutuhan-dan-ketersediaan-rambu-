@@ -382,7 +382,7 @@ class lokasiController extends Controller
     $pejabat_struktural = pejabat_struktural::where('jabatan','KASI REKSA')->first();
     $pdf =PDF::loadView('laporan.lokasi_rehab', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
-    return $pdf->stream('Laporan data rehab rambu .pdf');
+    return $pdf->stream('Laporan data kebutuhan rambu .pdf');
   }
 
   public function kecamatan_detail_cetak($id){
@@ -392,7 +392,7 @@ class lokasiController extends Controller
     $kelurahan = kelurahan:: with('lokasi_rambu')->where('kecamatan_id',$id)->get();
     $pejabat_struktural = pejabat_struktural::where('jabatan','KEPALA DINAS')->first();
     $tgl= Carbon::now()->format('d-m-Y');
-    $pdf =PDF::loadView('laporan.lokasi_rambu_perkecamatan', ['$kecamatan'=>$kecamatan,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+    $pdf =PDF::loadView('laporan.lokasi_rambu_perkecamatan', ['kecamatan'=>$kecamatan,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('Laporan detail perkecamatan.pdf');
   } //mencetak data ketersediaan rambu per kelurahan

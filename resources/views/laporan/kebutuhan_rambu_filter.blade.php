@@ -98,7 +98,7 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KETERSEDIAAN RAMBU  BERDASARKAN PRIORITAS </h2>
+            <h2 style="text-align:center;">DATA KEBUTUHAN RAMBU  BERDASARKAN PRIORITAS </h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
