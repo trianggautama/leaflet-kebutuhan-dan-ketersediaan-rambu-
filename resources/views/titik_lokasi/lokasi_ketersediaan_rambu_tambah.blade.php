@@ -68,7 +68,7 @@
                                                 <input id="latitude" type="text"
                                                     class="form-control{{ $errors->has('latitude') ? ' is-invalid' : '' }}"
                                                     name="latitude" value="{{ old('latitude', request('latitude')) }}"
-                                                    required>
+                                                    >
                                                 {!! $errors->first('latitude', '<span class="invalid-feedback"
                                                     role="alert">:message</span>') !!}
                                             </div>
@@ -79,7 +79,7 @@
                                                 <input id="longitude" type="text"
                                                     class="form-control{{ $errors->has('longitude') ? ' is-invalid' : '' }}"
                                                     name="longitude"
-                                                    value="{{ old('longitude', request('longitude')) }}" required>
+                                                    value="{{ old('longitude', request('longitude')) }}" >
                                                 {!! $errors->first('longitude', '<span class="invalid-feedback"
                                                     role="alert">:message</span>') !!}
                                             </div>

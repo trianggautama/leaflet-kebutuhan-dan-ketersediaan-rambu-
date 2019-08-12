@@ -27,7 +27,7 @@
                                     </div>
                                     <input id="username" type="text"
                                         class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }} form-control-lg border-left-0"
-                                        name="username" value="{{ old('username') }}" required autofocus
+                                        name="username" value="{{ old('username') }}"  autofocus
                                         autocomplete="off">
                                     @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                                     </div>
                                     <input id="password" type="password"
                                         class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} form-control-lg border-left-0"
-                                        name="password" required autocomplete="off">
+                                        name="password"  autocomplete="off">
                                     @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>

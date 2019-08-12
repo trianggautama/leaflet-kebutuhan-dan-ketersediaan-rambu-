@@ -38,7 +38,7 @@
                 <a class="primary-btn" href="/laporan_masyarakat">Kirim Permintaan dan Masukan</a>
             </div>
             <div class="col-lg-5 col-md-12 col-xs-12 relative">
-                <img class="img-fluid single-project" src="/depan/img/form.jpg" alt="" width="500">
+                <img class="img-fluid single-project" src="/depan/img/form.png" alt="" width="500">
             </div>
         </div>
     </div>
