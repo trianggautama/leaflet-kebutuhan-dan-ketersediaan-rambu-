@@ -29,11 +29,7 @@
                 </h1>
                 <p class="sub">Aplikasi ini Memudahkan Anda dalam melaporkan langsung pada pihak kami</p>
                 <p class="pb-20">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim.
+                   aplikais ini dibuat untuk mempermudah masyarakat dalam melakukan pelaporan terkait permintaan rambu lalu-lintas maupun pelaporan kondisi rambu dan saranan prasaranan lainnya
                 </p>
                 <a class="primary-btn" href="/laporan_masyarakat">Kirim Permintaan dan Masukan</a>
             </div>

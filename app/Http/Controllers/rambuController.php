@@ -70,7 +70,7 @@ class rambuController extends Controller
        ]);
        $jenis_rambu->nama_jenis= $request->nama_jenis;
        $jenis_rambu->update();
-       return redirect(route('jenis_rambu_index'))->with('success', 'Data Jenis rambu '.$request->nama_rambu.' Berhasil di Ubah');
+       return redirect(route('jenis_rambu_index'))->with('success', 'Data Jenis rambu '.$request->nama_jenis.' Berhasil di Ubah');
       }//fungsi mengubah data jenis rambu
 
       public function jenis_rambu_hapus($id){
@@ -78,7 +78,7 @@ class rambuController extends Controller
         $jenis_rambu=jenis_rambu::findOrFail($id);
         $jenis_rambu->rambu()->delete();
         $jenis_rambu->delete();
-        return redirect(route('jenis_rambu_index'));
+        return redirect(route('jenis_rambu_index'))->with('success', 'Data Jenis rambu  Berhasil di hapus');
     } //menghapus  data jenis rambu
 
     public function rambu_index(){

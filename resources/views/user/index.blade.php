@@ -30,7 +30,7 @@
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$u->nip}}</td>
-                                        <td>{{$u->nama}}</td>
+                                        <td>{{$u->name}}</td>
                                         <td>{{$u->email}}</td>
                                         <td>{{$u->username}}</td>
                                     </tr>
