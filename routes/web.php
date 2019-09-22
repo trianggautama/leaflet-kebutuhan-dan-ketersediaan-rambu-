@@ -95,6 +95,14 @@ Route::get('/pejabat_struktural_hapus/{id}','pejabatController@pejabat_struktura
 
 //user
 Route::get('/user','userController@user_index')->name('user_index');
+Route::get('/biodata','userController@biodata_index')->name('biodata_index');
+Route::post('/biodata','userController@biodata_store')->name('biodata_store');
+Route::get('/biodata_edit/{id}','userController@biodata_edit')->name('biodata_edit');
+Route::get('/biodata_hapus/{id}','userController@biodata_hapus')->name('biodata_hapus');
+Route::put('/biodata_edit/{id}','userController@biodata_update')->name('biodata_update');
+Route::get('/biodata_cetak','userController@biodata_cetak')->name('biodata_cetak');
+
+
 
 
 });

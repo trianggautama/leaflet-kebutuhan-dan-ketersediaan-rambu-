@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\laporan_masyarakat;
 Use App\User;
+Use App\biodata;
 Use File;
 use IDCrypt;
 use Carbon\Carbon;
@@ -76,4 +77,73 @@ class userController extends Controller
         return view('user.index',compact('User'));
       }
 
+      public function biodata_index(){
+        $biodata = biodata::all();
+        return view('user.biodata',compact('biodata'));
+      }
+      public function biodata_store(Request $request){
+        $this->validate(request(),[
+          'nama'=>'required|unique:biodatas',
+          'jk'=>'required',
+          'tempat_lahir'=>'required',
+          'tanggal_lahir'=>'required',
+          'status'=>'required'
+
+        ]);
+       // dd($request);
+        $biodata                  = new biodata;
+        $biodata->nama  = $request->nama;
+        $biodata->jk  = $request->jk;
+        $biodata->tempat_lahir    = $request->tempat_lahir;
+        $biodata->tanggal_lahir    = $request->tanggal_lahir;
+        $biodata->status    = $request->status;
+
+        $biodata->save();
+        return redirect(route('biodata_index'))->with('success', 'Data '.$request->nama.' Berhasil di Simpan');
+      }
+
+      public function biodata_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $biodata=biodata::findOrFail($id);
+        $biodata->delete();
+        return redirect(route('biodata_index'))->with('success', 'Data  Berhasil di Hapus');
+      } 
+
+      public function biodata_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $biodata=biodata::findOrFail($id);
+        return view('user.biodata_edit',compact('biodata'));
+      }
+
+      public function biodata_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $biodata=biodata::findOrFail($id);
+        $this->validate(request(),[
+            'nama'=>'required',
+            'jk'=>'required',
+            'tempat_lahir'=>'required',
+            'tanggal_lahir'=>'required',
+            'status'=>'required'
+          ]);
+
+         // dd($request);
+          $biodata->nama  = $request->nama;
+          $biodata->jk  = $request->jk;
+          $biodata->tempat_lahir    = $request->tempat_lahir;
+          $biodata->tanggal_lahir    = $request->tanggal_lahir;
+          $biodata->status    = $request->status;
+          $biodata->update();
+
+         return redirect(route('biodata_index'))->with('success', 'Data  Berhasil di Ubah');
+        }
+
+        public function biodata_cetak(){
+            $biodata =biodata::all();
+        // $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
+            $tgl= Carbon::now()->format('d-m-Y');
+            $pejabat_struktural = pejabat_struktural::where('jabatan','KASI REKSA')->first();
+            $pdf =PDF::loadView('laporan.biodata', ['biodata' => $biodata,'tgl'=>$tgl,'pejabat_struktural' => $pejabat_struktural]);
+            $pdf->setPaper('a4', 'potrait');
+            return $pdf->stream('biodata.pdf');
+        }//fungsi membuat laporan rambu  pdf
 }
